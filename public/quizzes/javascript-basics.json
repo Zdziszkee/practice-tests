@@ -1,0 +1,21 @@
+{
+  "id": "javascript-basics",
+  "title": "JavaScript Basics",
+  "description": "Test your knowledge of JavaScript fundamentals",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Which of the following is a primitive data type in JavaScript?",
+      "options": ["Object", "Array", "Function", "Symbol"],
+      "correctAnswer": 3,
+      "explanation": "Symbol is a primitive data type introduced in ES6."
+    },
+    {
+      "id": "q2",
+      "text": "What will console.log(typeof null) output?",
+      "options": ["null", "undefined", "object", "number"],
+      "correctAnswer": 2,
+      "explanation": "In JavaScript, typeof null returns 'object', which is considered a historical bug."
+    }
+  ]
+}
