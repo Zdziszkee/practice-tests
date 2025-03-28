@@ -7,6 +7,7 @@ export default defineConfig({
     preset: "github-pages",
     prerender: {
       crawlLinks: true,
+      autoSubfolderIndex: true,
     },
   },
 });
