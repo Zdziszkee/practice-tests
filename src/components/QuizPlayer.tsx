@@ -1,7 +1,7 @@
 import { createSignal, createEffect, For, Show } from "solid-js";
-import { Quiz, QuizQuestion } from "~/types/quiz";
+import { Quiz, QuizQuestion } from "../types/quiz";
 import QuizQuestionComponent from "./QuizQuestion";
-import { shuffleArray } from "~/utils/helpers";
+import { shuffleArray } from "../utils/helpers";
 
 interface QuizPlayerProps {
   quiz: Quiz;

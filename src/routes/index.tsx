@@ -1,10 +1,10 @@
 /* practice-tests/src/routes/index.tsx */
 import { Title } from "@solidjs/meta";
 import { createSignal, Show } from "solid-js";
-import { Quiz } from "~/types/quiz";
-import QuizPlayer from "~/components/QuizPlayer";
-import QuizUploader from "~/components/QuizUploader";
-import "~/components/Quiz.css";
+import { Quiz } from "../types/quiz";
+import QuizPlayer from "../components/QuizPlayer";
+import QuizUploader from "../components/QuizUploader";
+import "../components/Quiz.css";
 
 export default function Home() {
   const [quiz, setQuiz] = createSignal<Quiz | null>(null);

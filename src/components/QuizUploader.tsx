@@ -1,5 +1,5 @@
 import { createSignal } from "solid-js";
-import { Quiz } from "~/types/quiz";
+import { Quiz } from "../types/quiz";
 
 interface QuizUploaderProps {
   onQuizLoaded: (quiz: Quiz) => void;

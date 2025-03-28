@@ -1,6 +1,6 @@
 import { createSignal, Show } from "solid-js";
-import { QuizQuestion as QuizQuestionType } from "~/types/quiz";
-import { shuffleArray } from "~/utils/helpers";
+import { QuizQuestion as QuizQuestionType } from "../types/quiz";
+import { shuffleArray } from "../utils/helpers";
 
 interface QuizQuestionProps {
   question: QuizQuestionType;
