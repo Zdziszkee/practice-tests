@@ -1,5 +1,5 @@
 # SolidStart
-s
+
 Everything you need to build a Solid project, powered by [`solid-start`](https://start.solidjs.com);
 
 ## Creating a project
