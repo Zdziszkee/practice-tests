@@ -1,0 +1,1 @@
+import{q as n,D as i,z as l,j as o,t as s,T as m}from"./index-Dbetid4b.js";var u=s("<main><!$><!/><h1>About");function b(){return(()=>{var t=n(u),r=t.firstChild,[e,a]=i(r.nextSibling);return e.nextSibling,l(t,o(m,{children:"About"}),e,a),t})()}export{b as default};

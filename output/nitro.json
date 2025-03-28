@@ -1,0 +1,16 @@
+{
+  "date": "2025-03-28T15:37:05.903Z",
+  "preset": "github-pages",
+  "framework": {
+    "name": "nitro",
+    "version": ""
+  },
+  "versions": {
+    "nitro": "2.11.8"
+  },
+  "commands": {
+    "preview": "npx serve ./public",
+    "deploy": "npx gh-pages --dotfiles -d ./public"
+  },
+  "config": {}
+}
