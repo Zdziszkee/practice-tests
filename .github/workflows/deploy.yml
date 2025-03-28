@@ -1,3 +1,4 @@
+# https://github.com/actions/deploy-pages#usage
 name: Deploy to GitHub Pages
 
 on:
@@ -21,7 +22,29 @@ jobs:
           NITRO_PRESET: github_pages
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2 # Downgraded to v2 for better compatibility
+        uses: actions/upload-pages-artifact@v2 # Using v2 which is supported
         with:
           path: ./.output/public
-          name: github-pages # Explicitly
+          name: github-pages # Explicitly naming the artifact
+
+  # Deployment job
+  deploy:
+    # Add a dependency to the build job
+    needs: build
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
+
+    # Deploy to the github_pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Specify runner + deployment step
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
