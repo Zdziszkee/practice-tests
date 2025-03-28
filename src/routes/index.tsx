@@ -4,7 +4,7 @@ import { createSignal, Show } from "solid-js";
 import { Quiz } from "../types/quiz";
 import QuizPlayer from "../components/QuizPlayer";
 import QuizUploader from "../components/QuizUploader";
-import "../components/Quiz.css";
+import "../components/Quizz.css";
 
 export default function Home() {
   const [quiz, setQuiz] = createSignal<Quiz | null>(null);
