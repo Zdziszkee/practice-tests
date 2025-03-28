@@ -17,8 +17,8 @@ jobs:
         with:
           node-version: "18"
 
-      - run: npx nypm install
-      - run: npm run build
+      - run: bun install
+      - run: bun run build
         env:
           NITRO_PRESET: github_pages
 
