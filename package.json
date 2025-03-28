@@ -2,9 +2,9 @@
   "name": "example-bare",
   "type": "module",
   "scripts": {
-    "dev": "vinxi dev",
-    "build": "vinxi build",
-    "start": "vinxi start"
+    "dev": "bun run vinxi dev",
+    "build": "bun run vinxi build",
+    "start": "bun run vinxi start"
   },
   "dependencies": {
     "@solidjs/meta": "^0.29.4",
