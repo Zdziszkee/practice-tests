@@ -200,12 +200,18 @@ export default function QuizPlayer(props: QuizPlayerProps) {
             </div>
           }
         >
-          <div class="quiz-container">
-            <div class="quiz-header">
-              <h2>{props.quiz.title}</h2>
-              <p class="progress">
-                Question {currentQuestionIndex() + 1} of {questions().length}
-              </p>
+          <div class="quiz-header">
+            <h2>{props.quiz.title}</h2>
+            <p class="progress">
+              Question {currentQuestionIndex() + 1} of {questions().length}
+            </p>
+            <div class="progress-bar">
+              <div
+                class="progress-indicator"
+                style={{
+                  width: `${((currentQuestionIndex() + 1) / questions().length) * 100}%`,
+                }}
+              ></div>
             </div>
 
             {currentQuestion() ? (

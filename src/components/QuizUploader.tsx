@@ -1,3 +1,4 @@
+// practice-tests/src/components/QuizUploader.tsx
 import { createSignal } from "solid-js";
 import { Quiz } from "../types/quiz";
 
@@ -8,6 +9,7 @@ interface QuizUploaderProps {
 export default function QuizUploader(props: QuizUploaderProps) {
   const [error, setError] = createSignal<string | null>(null);
   const [loading, setLoading] = createSignal(false);
+  const [fileName, setFileName] = createSignal<string | null>(null);
 
   const handleFileUpload = (event: Event) => {
     const input = event.target as HTMLInputElement;
@@ -15,6 +17,7 @@ export default function QuizUploader(props: QuizUploaderProps) {
 
     if (!file) return;
 
+    setFileName(file.name);
     setLoading(true);
     setError(null);
 
@@ -72,17 +75,6 @@ export default function QuizUploader(props: QuizUploaderProps) {
           if (correctCount === 0) {
             throw new Error(`Question at index ${idx} has no correct answer.`);
           }
-
-          // Simplify to just what we need
-          return {
-            question: q.question,
-            options: q.options.map((opt: any) => ({
-              text: opt.text,
-              isCorrect: Boolean(opt.isCorrect),
-            })),
-            explanation: q.explanation || "",
-            multipleAnswer: correctCount > 1,
-          };
         });
 
         const quiz: Quiz = {
@@ -98,14 +90,14 @@ export default function QuizUploader(props: QuizUploaderProps) {
         );
       } finally {
         setLoading(false);
-        // Clear the input
-        input.value = "";
+        // Don't clear the input value to show the file name
       }
     };
 
     reader.onerror = () => {
       setError("Error reading the file");
       setLoading(false);
+      setFileName(null);
     };
 
     reader.readAsText(file);
@@ -113,17 +105,46 @@ export default function QuizUploader(props: QuizUploaderProps) {
 
   return (
     <div class="quiz-uploader card">
-      <h2>Upload Quiz</h2>
-      <p>Upload a JSON file containing your quiz data</p>
+      <h2>Start Your Quiz</h2>
+      <p>Upload a JSON file containing your quiz questions to begin</p>
 
-      <input
-        type="file"
-        accept=".json"
-        onChange={handleFileUpload}
-        disabled={loading()}
-      />
+      <div class="file-input-container">
+        <label for="quiz-file" class="file-input-label">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="file-icon"
+          >
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="12" y1="18" x2="12" y2="12"></line>
+            <line x1="9" y1="15" x2="15" y2="15"></line>
+          </svg>
+          <span>{fileName() || "Choose a JSON file..."}</span>
+        </label>
+        <input
+          id="quiz-file"
+          type="file"
+          accept=".json"
+          onChange={handleFileUpload}
+          disabled={loading()}
+          class="file-input"
+        />
+      </div>
 
-      {error() && <div class="error-message">{error()}</div>}
+      {error() && (
+        <div class="error-message">
+          <strong>Error:</strong> {error()}
+        </div>
+      )}
+
       {loading() && <div class="loading">Loading quiz data...</div>}
     </div>
   );

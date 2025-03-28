@@ -1,4 +1,3 @@
-// practice-tests/src/routes/index.tsx
 import { Title } from "@solidjs/meta";
 import { createSignal, Show } from "solid-js";
 import { Quiz } from "../types/quiz";
@@ -15,25 +14,35 @@ export default function Home() {
 
   return (
     <main>
-      <Title>Quiz App</Title>
-      <h1>Interactive Quiz App</h1>
+      <Title>Interactive Quiz App</Title>
 
       <Show
         when={!quiz()}
         fallback={
           <>
             <button onClick={() => setQuiz(null)} class="back-button">
-              ← Back to Upload
+              Back to Upload
             </button>
             <QuizPlayer quiz={quiz()!} />
           </>
         }
       >
+        <div class="welcome-section">
+          <h1>Interactive Quiz App</h1>
+          <p class="intro-text">
+            Create and take quizzes on any topic. Perfect for learning and
+            testing knowledge.
+          </p>
+        </div>
+
         <QuizUploader onQuizLoaded={handleQuizLoaded} />
 
         <div class="sample-quiz-info card">
           <h2>How to Use This App</h2>
-          <p>Upload a JSON file with your quiz questions to get started.</p>
+          <p>
+            Create your own quiz by preparing a JSON file with your questions
+            and uploading it above.
+          </p>
 
           <h3>Expected JSON Format:</h3>
           <pre>

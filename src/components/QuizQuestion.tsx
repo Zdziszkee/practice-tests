@@ -116,33 +116,36 @@ export default function QuizQuestion(props: QuizQuestionProps) {
       <div class="options">
         {options().map((item, displayIndex) => (
           <div
-            class={`option ${getOptionClass(item.option, item.originalIndex)} ${props.question.multipleAnswer ? "checkbox-style" : "radio-style"}`}
+            class={`option ${getOptionClass(item.option, item.originalIndex)} ${
+              props.question.multipleAnswer ? "checkbox-style" : "radio-style"
+            }`}
             onClick={() => handleOptionClick(item.originalIndex)}
           >
             <span class="option-label">{getOptionLabel(displayIndex)}</span>
-            <span class="option-indicator">
-              {props.question.multipleAnswer ? (
-                <input
-                  type="checkbox"
-                  checked={isOptionSelected(item.originalIndex)}
-                  disabled={localAnswered() || props.isAnswered}
-                  onChange={() => {}} // Handled by parent div click
-                />
-              ) : (
-                <input
-                  type="radio"
-                  checked={isOptionSelected(item.originalIndex)}
-                  disabled={localAnswered() || props.isAnswered}
-                  name={`question-${props.questionIndex}`}
-                  onChange={() => {}} // Handled by parent div click
-                />
-              )}
-            </span>
-            <span class="option-text">{item.option.text}</span>
+            <div class="option-content">
+              <span class="option-indicator">
+                {props.question.multipleAnswer ? (
+                  <input
+                    type="checkbox"
+                    checked={isOptionSelected(item.originalIndex)}
+                    disabled={localAnswered() || props.isAnswered}
+                    onChange={() => {}} // Handled by parent div click
+                  />
+                ) : (
+                  <input
+                    type="radio"
+                    checked={isOptionSelected(item.originalIndex)}
+                    disabled={localAnswered() || props.isAnswered}
+                    name={`question-${props.questionIndex}`}
+                    onChange={() => {}} // Handled by parent div click
+                  />
+                )}
+              </span>
+              <span class="option-text">{item.option.text}</span>
+            </div>
           </div>
         ))}
       </div>
-
       {/* Submit button only shown if not already answered */}
       <Show when={!localAnswered() && !props.isAnswered}>
         <div class="submit-area">
