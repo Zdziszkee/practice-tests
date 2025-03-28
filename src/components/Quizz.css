@@ -537,3 +537,72 @@
         grid-template-columns: 1fr;
     }
 }
+/* Enhanced loading state */
+.loading-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 40vh;
+    color: var(--primary-light);
+}
+
+/* Quiz item hover effects */
+.quiz-item-content {
+    cursor: pointer;
+    padding-bottom: var(--spacing-lg);
+}
+
+.quiz-item-content:hover h3 {
+    color: var(--primary-light);
+}
+
+/* Delete confirmation */
+.delete-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.delete-dialog-content {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    width: 90%;
+    max-width: 500px;
+    box-shadow: var(--shadow-lg);
+}
+
+.delete-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+}
+
+/* Make button tooltips more visible */
+.btn-delete {
+    position: relative;
+}
+
+.btn-delete:hover::before {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    background: var(--bg-input);
+    color: var(--text-primary);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    white-space: nowrap;
+    pointer-events: none;
+    margin-bottom: var(--spacing-xs);
+}

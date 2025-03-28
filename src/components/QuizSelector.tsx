@@ -19,7 +19,10 @@ export default function QuizSelector(props: QuizSelectorProps) {
         <For each={props.quizzes}>
           {(quiz, index) => (
             <div class="quiz-item card">
-              <div class="quiz-item-content">
+              <div
+                class="quiz-item-content"
+                onClick={() => props.onSelectQuiz(quiz)}
+              >
                 <h3>{quiz.title}</h3>
                 <p class="quiz-description">
                   {quiz.description || "No description provided"}
@@ -56,10 +59,15 @@ export default function QuizSelector(props: QuizSelectorProps) {
                   class="btn-delete"
                   onClick={(e) => {
                     e.stopPropagation();
-                    if (confirm("Are you sure you want to delete this quiz?")) {
+                    if (
+                      confirm(
+                        `Are you sure you want to delete "${quiz.title}"? This action cannot be undone.`,
+                      )
+                    ) {
                       props.onDeleteQuiz(index());
                     }
                   }}
+                  title="Delete Quiz"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +109,7 @@ export default function QuizSelector(props: QuizSelectorProps) {
               <line x1="12" y1="18" x2="12" y2="12"></line>
               <line x1="9" y1="15" x2="15" y2="15"></line>
             </svg>
-            <p>No quizzes available. Upload your first quiz to get started!</p>
+            <p>Loading quizzes... If none appear, try refreshing the page.</p>
           </div>
         )}
       </div>

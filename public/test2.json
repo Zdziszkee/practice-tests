@@ -1,53 +1,1498 @@
 {
-  "id": "cs-fundamentals",
-  "title": "Computer Science Fundamentals",
-  "description": "Test your knowledge of basic computer science concepts",
+  "title": "Unix/Linux Processes, Jobs, and Text Tools Quiz",
+  "description": "Test your knowledge of processes, jobs, shell commands, text utilities, redirection, and pipes in Unix/Linux based on the provided material.",
   "questions": [
     {
-      "id": "cs-q1",
-      "text": "What does CPU stand for?",
+      "question": "Czym jest \"zadanie\" (Job) w kontekście powłoki Unix/Linux według dostarczonego materiału?",
       "options": [
-        "Central Processing Unit",
-        "Computer Personal Unit",
-        "Central Process Utility",
-        "Core Processing Unit"
+        {
+          "text": "Fundamentalnym konceptem systemu operacyjnego, zarządzanym bezpośrednio przez jądro.",
+          "isCorrect": false
+        },
+        {
+          "text": "Programem lub grupą programów uruchomioną w ramach jednej sesji interaktywnej powłoki.",
+          "isCorrect": true
+        },
+        { "text": "Synonimem procesu (Process).", "isCorrect": false },
+        {
+          "text": "Specjalnym plikiem urządzenia służącym do komunikacji międzyprocesowej.",
+          "isCorrect": false
+        }
       ],
-      "correctOptionIndex": 0
+      "explanation": "Materiał definiuje zadanie (Job) jako 'Program lub grupa programów uruchomiona w ramach jednej sesji interaktywnej powłoki (shell)' i dodaje, że jest to mechanizm specyficzny dla powłoki."
     },
     {
-      "id": "cs-q2",
-      "text": "Which of the following is not a programming language?",
-      "options": ["Java", "Python", "SMTP", "C++"],
-      "correctOptionIndex": 2
-    },
-    {
-      "id": "cs-q3",
-      "text": "What does HTML stand for?",
+      "question": "Jak materiał porównuje \"zadanie\" (Job) i \"proces\" (Process)?",
       "options": [
-        "Hyper Text Markup Language",
-        "High Tech Multi Language",
-        "Hyper Transfer Markup Language",
-        "Hyper Text Multiple Language"
+        {
+          "text": "Stwierdza, że są to synonimy w kontekście zarządzania systemem.",
+          "isCorrect": false
+        },
+        {
+          "text": "Podkreśla, że zadanie jest fundamentalnym konceptem systemu, a proces jest specyficzny dla powłoki.",
+          "isCorrect": false
+        },
+        {
+          "text": "Wyjaśnia, że zadanie jest mechanizmem specyficznym dla powłoki ułatwiającym zarządzanie procesami, podczas gdy proces jest podstawową jednostką wykonania w systemie operacyjnym.",
+          "isCorrect": true
+        },
+        {
+          "text": "Informuje, że procesy są zarządzane przez `jobs`, a zadania przez `ps`.",
+          "isCorrect": false
+        }
       ],
-      "correctOptionIndex": 0
+      "explanation": "Materiał wyjaśnia, że 'Zadania są mechanizmem specyficznym dla powłoki, ułatwiającym zarządzanie procesami...', a proces jest 'Instancją wykonywanego programu w systemie operacyjnym.', co stanowi podstawową jednostkę zarządzaną przez jądro."
     },
     {
-      "id": "cs-q4",
-      "text": "Which data structure operates on a Last In First Out (LIFO) principle?",
-      "options": ["Queue", "Stack", "Linked List", "Tree"],
-      "correctOptionIndex": 1
+      "question": "Co to jest \"powłoka\" (Shell) według definicji w materiale?",
+      "options": [
+        {
+          "text": "Jądro systemu operacyjnego Unix/Linux.",
+          "isCorrect": false
+        },
+        {
+          "text": "Graficzny interfejs użytkownika (GUI).",
+          "isCorrect": false
+        },
+        {
+          "text": "Interpreter poleceń pośredniczący między użytkownikiem a jądrem systemu.",
+          "isCorrect": true
+        },
+        {
+          "text": "Zestaw narzędzi do kompilacji programów.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał definiuje powłokę (Shell) jako 'Interpreter poleceń (np. Bash, Zsh, KornShell), który pośredniczy między użytkownikiem a jądrem systemu operacyjnego.'"
     },
     {
-      "id": "cs-q5",
-      "text": "Which of these is not an operating system?",
-      "options": ["Windows", "MacOS", "Oracle", "Linux"],
-      "correctOptionIndex": 2
+      "question": "Jaki skrót klawiszowy służy do \"uśpienia zadania\" (Suspend Job) w powłoce?",
+      "options": [
+        { "text": "Ctrl+C", "isCorrect": false },
+        { "text": "Ctrl+D", "isCorrect": false },
+        { "text": "Ctrl+Z", "isCorrect": true },
+        { "text": "Ctrl+X", "isCorrect": false }
+      ],
+      "explanation": "W sekcji 'Usypianie zadania (Suspend)' materiał podaje: 'Skrót klawiszowy: Ctrl+Z.'"
     },
     {
-      "id": "cs-q6",
-      "text": "What is the time complexity of binary search?",
-      "options": ["O(n)", "O(n²)", "O(log n)", "O(n log n)"],
-      "correctOptionIndex": 2
+      "question": "Jaki sygnał jest wysyłany do procesu pierwszoplanowego po użyciu skrótu Ctrl+Z?",
+      "options": [
+        { "text": "SIGTERM", "isCorrect": false },
+        { "text": "SIGKILL", "isCorrect": false },
+        { "text": "SIGHUP", "isCorrect": false },
+        { "text": "SIGTSTP", "isCorrect": true }
+      ],
+      "explanation": "Materiał wyjaśnia, że Ctrl+Z 'Wysyła sygnał SIGTSTP (Terminal Stop Signal) do procesu pierwszoplanowego (foreground), powodując jego zatrzymanie...'"
+    },
+    {
+      "question": "Które polecenie służy do wyświetlenia listy zadań uruchomionych w bieżącej sesji powłoki?",
+      "options": [
+        { "text": "`ps`", "isCorrect": false },
+        { "text": "`list`", "isCorrect": false },
+        { "text": "`jobs`", "isCorrect": true },
+        { "text": "`tasks`", "isCorrect": false }
+      ],
+      "explanation": "W sekcji 'Wyświetlanie listy zadań (List Jobs)' materiał podaje: 'Polecenie: jobs.'"
+    },
+    {
+      "question": "Co dodatkowo wyświetla polecenie `jobs` z opcją `-l`?",
+      "options": [
+        { "text": "Czas działania każdego zadania.", "isCorrect": false },
+        {
+          "text": "Identyfikatory procesów (PID) dla każdego zadania.",
+          "isCorrect": true
+        },
+        { "text": "Użycie pamięci przez każde zadanie.", "isCorrect": false },
+        { "text": "Priorytet każdego zadania.", "isCorrect": false }
+      ],
+      "explanation": "Materiał podaje: 'Opcja -l (jobs -l): Wyświetla dodatkowo identyfikatory procesów (PID) dla każdego zadania.'"
+    },
+    {
+      "question": "Które polecenie służy do wznowienia wykonania zatrzymanego zadania na pierwszym planie?",
+      "options": [
+        { "text": "`bg`", "isCorrect": false },
+        { "text": "`fg`", "isCorrect": true },
+        { "text": "`resume`", "isCorrect": false },
+        { "text": "`continue`", "isCorrect": false }
+      ],
+      "explanation": "W sekcji 'Przełączanie zadania na pierwszy plan (Foreground)' materiał podaje: 'Polecenie: fg [%numer_zadania]. Działanie: Wznawia wykonanie zatrzymanego zadania lub przenosi zadanie działające w tle na pierwszy plan...'"
+    },
+    {
+      "question": "Co robi polecenie `bg [%numer_zadania]`?",
+      "options": [
+        {
+          "text": "Przenosi zadanie działające w tle na pierwszy plan.",
+          "isCorrect": false
+        },
+        {
+          "text": "Wznawia wykonanie zatrzymanego zadania, pozostawiając je działające w tle.",
+          "isCorrect": true
+        },
+        { "text": "Natychmiastowo kończy zadanie.", "isCorrect": false },
+        {
+          "text": "Wyświetla szczegółowe informacje o zadaniu.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "W sekcji 'Uruchamianie/Wznawianie zadania w tle (Background)' materiał podaje: 'Polecenie: bg [%numer_zadania]. Działanie: Wznawia wykonanie zatrzymanego zadania, ale pozostawia je działające w tle.'"
+    },
+    {
+      "question": "Jaki sygnał jest domyślnie wysyłany przez polecenie `kill [%numer_zadania]`?",
+      "options": [
+        { "text": "SIGKILL", "isCorrect": false },
+        { "text": "SIGSTOP", "isCorrect": false },
+        { "text": "SIGTERM", "isCorrect": true },
+        { "text": "SIGHUP", "isCorrect": false }
+      ],
+      "explanation": "W sekcji 'Usuwanie (Zakończenie) zadania (Kill Job)' materiał podaje: 'Działanie: Wysyła sygnał SIGTERM (Termination Signal) do procesu...'"
+    },
+    {
+      "question": "Jak materiał opisuje działanie sygnału SIGTERM wysyłanego przez `kill [%numer_zadania]`?",
+      "options": [
+        {
+          "text": "Jako natychmiastowe i bezwarunkowe zakończenie procesu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Jako \"grzeczną\" prośbę o zakończenie, którą proces może zignorować lub obsłużyć.",
+          "isCorrect": true
+        },
+        {
+          "text": "Jako sygnał wstrzymujący wykonanie procesu, ale nie kończący go.",
+          "isCorrect": false
+        },
+        {
+          "text": "Jako sygnał informujący proces o rozłączeniu terminala.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał dodaje do opisu SIGTERM: '[Dodatek AI: Jest to \"grzeczna\" prośba o zakończenie, proces może ją zignorować lub wykonać procedury czyszczące przed zamknięciem.]'"
+    },
+    {
+      "question": "Które polecenie służy do natychmiastowego i bezwarunkowego zakończenia zadania, ignorując próby \"posprzątania\" przez proces? (Wybierz WSZYSTKIE poprawne według tekstu)",
+      "options": [
+        { "text": "`kill %numer_zadania`", "isCorrect": false },
+        { "text": "`kill -SIGTERM %numer_zadania`", "isCorrect": false },
+        { "text": "`kill -9 %numer_zadania`", "isCorrect": true },
+        { "text": "`kill -SIGKILL %numer_zadania`", "isCorrect": true }
+      ],
+      "explanation": "Materiał podaje: 'Wymuszenie zakończenia: kill -9 [%numer_zadania] lub kill -SIGKILL [%numer_zadania]. Wysyła sygnał SIGKILL, który natychmiastowo i bezwarunkowo kończy proces.'"
+    },
+    {
+      "question": "Jak uruchomić polecenie bezpośrednio w tle, aby nie blokowało terminala?",
+      "options": [
+        {
+          "text": "Używając polecenia `bg` przed poleceniem.",
+          "isCorrect": false
+        },
+        {
+          "text": "Używając operatora `&` na końcu polecenia.",
+          "isCorrect": true
+        },
+        {
+          "text": "Używając skrótu Ctrl+Z po uruchomieniu polecenia.",
+          "isCorrect": false
+        },
+        {
+          "text": "Używając polecenia `nohup` przed poleceniem bez dodatkowych operatorów.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "W sekcji 'Równoległe uruchamianie zadań' materiał podaje: 'Operator: & (ampersand) umieszczony na końcu polecenia. [...] Działanie: Uruchamia polecenie bezpośrednio w tle, nie blokując terminala.'"
+    },
+    {
+      "question": "Czym jest \"proces\" (Process) według definicji podanej w materiale?",
+      "options": [
+        {
+          "text": "Mechanizmem specyficznym dla powłoki do zarządzania zadaniami.",
+          "isCorrect": false
+        },
+        {
+          "text": "Instancją wykonywanego programu w systemie operacyjnym.",
+          "isCorrect": true
+        },
+        {
+          "text": "Plikiem wykonywalnym przechowywanym na dysku.",
+          "isCorrect": false
+        },
+        {
+          "text": "Interfejsem użytkownika do interakcji z systemem.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał definiuje proces jako: 'Instancja wykonywanego programu w systemie operacyjnym.'"
+    },
+    {
+      "question": "Co to jest Identyfikator Procesu (PID) i jaki jest jego główny cel?",
+      "options": [
+        {
+          "text": "Nazwa użytkownika, który uruchomił proces; służy do kontroli dostępu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Numer portu używany przez proces do komunikacji sieciowej; służy do identyfikacji usług.",
+          "isCorrect": false
+        },
+        {
+          "text": "Unikalny numer całkowity przypisany przez jądro; służy do jednoznacznej identyfikacji procesu w systemie.",
+          "isCorrect": true
+        },
+        {
+          "text": "Ścieżka do pliku wykonywalnego procesu; służy do lokalizacji programu na dysku.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał opisuje PID jako 'Unikalny numer całkowity przypisywany przez jądro systemu każdemu nowo utworzonemu procesowi.' i dodaje, że 'Służy do jednoznacznej identyfikacji procesu w systemie...'"
+    },
+    {
+      "question": "Jakie procesy wyświetla polecenie `ps` użyte bez żadnych opcji według opisu \"Podstawowe użycie\"?",
+      "options": [
+        { "text": "Wszystkie procesy w systemie.", "isCorrect": false },
+        { "text": "Tylko procesy systemowe (jądra).", "isCorrect": false },
+        {
+          "text": "Procesy należące do bieżącego użytkownika i uruchomione w bieżącym terminalu.",
+          "isCorrect": true
+        },
+        {
+          "text": "Procesy zużywające najwięcej zasobów CPU.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał stwierdza w 'Podstawowe użycie': 'Wyświetla procesy należące do bieżącego użytkownika i uruchomione w bieżącym terminalu.'"
+    },
+    {
+      "question": "Które opcje polecenia `ps` służą do wyświetlenia WSZYSTKICH procesów w systemie (według materiału)? (Wybierz WSZYSTKIE poprawne)",
+      "options": [
+        { "text": "`ps -u root`", "isCorrect": false },
+        { "text": "`ps -A`", "isCorrect": true },
+        { "text": "`ps aux` (w systemach Linux)", "isCorrect": true },
+        { "text": "`ps -e`", "isCorrect": true }
+      ],
+      "explanation": "Materiał wymienia opcje: 'ps -A lub ps -e: Wyświetla wszystkie procesy w systemie' oraz 'ps aux: Wyświetla wszystkie procesy w systemie, w formacie BSD...'."
+    },
+    {
+      "question": "Jaką formę wyświetlania procesów oferuje opcja `aux` polecenia `ps` w systemach Linux?",
+      "options": [
+        {
+          "text": "Skrócony format pokazujący tylko PID i polecenie.",
+          "isCorrect": false
+        },
+        {
+          "text": "Format BSD, pokazujący m.in. użytkownika, %CPU, %MEM, TTY, status, czas startu i polecenie.",
+          "isCorrect": true
+        },
+        {
+          "text": "Format pokazujący tylko procesy działające w tle.",
+          "isCorrect": false
+        },
+        {
+          "text": "Długi format z informacjami o priorytecie (PRI, NI) i rozmiarze pamięci (SZ).",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał opisuje `ps aux` jako wyświetlające 'wszystkie procesy w systemie, w formacie BSD, pokazując użytkownika, %CPU, %MEM, terminal (TTY), status (STAT), czas startu (START), czas CPU (TIME) i polecenie (COMMAND).'"
+    },
+    {
+      "question": "Które opcje polecenia `ps` wyświetlają \"pełny\" format, często z dodatkowymi informacjami jak PPID (Parent Process ID)? (Wybierz WSZYSTKIE poprawne)",
+      "options": [
+        { "text": "`ps -l`", "isCorrect": false },
+        { "text": "`ps -f`", "isCorrect": true },
+        { "text": "`ps -F`", "isCorrect": true },
+        { "text": "`ps aux`", "isCorrect": false }
+      ],
+      "explanation": "Materiał wymienia: 'ps -f lub ps -F: Wyświetla \"pełny\" format, często z dodatkowymi informacjami jak PPID (Parent Process ID).'"
+    },
+    {
+      "question": "Jakie informacje można znaleźć w \"długim\" formacie wyświetlania `ps -l`?",
+      "options": [
+        { "text": "Tylko PID, TTY i polecenie.", "isCorrect": false },
+        { "text": "Nazwy plików otwartych przez proces.", "isCorrect": false },
+        {
+          "text": "Informacje o priorytecie (PRI, NI) i rozmiarze pamięci (SZ).",
+          "isCorrect": true
+        },
+        {
+          "text": "Historię poleceń wykonanych przez proces.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał podaje, że 'ps -l: Wyświetla \"długi\" format, z informacjami o priorytecie (PRI, NI), rozmiarze pamięci (SZ) itp.'"
+    },
+    {
+      "question": "Co robi opcja `-u [nazwa_użytkownika]` polecenia `ps`?",
+      "options": [
+        {
+          "text": "Wyświetla procesy uruchomione przez użytkownika root.",
+          "isCorrect": false
+        },
+        {
+          "text": "Wyświetla procesy należące do konkretnego, podanego użytkownika.",
+          "isCorrect": true
+        },
+        {
+          "text": "Aktualizuje informacje o procesach danego użytkownika.",
+          "isCorrect": false
+        },
+        {
+          "text": "Zmienia użytkownika, do którego należy proces.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał stwierdza: 'ps -u [nazwa_użytkownika]: Wyświetla procesy należące do konkretnego użytkownika.'"
+    },
+    {
+      "question": "Jaki jest popularny sposób filtrowania listy procesów uzyskanej z `ps aux` według materiału?",
+      "options": [
+        {
+          "text": "Użycie opcji `ps aux --filter [wzorzec]`",
+          "isCorrect": false
+        },
+        {
+          "text": "Użycie potoku (`|`) i polecenia `grep [wzorzec]`",
+          "isCorrect": true
+        },
+        {
+          "text": "Użycie polecenia `find` na wyniku `ps aux`",
+          "isCorrect": false
+        },
+        {
+          "text": "Użycie przekierowania do pliku i ręczne przeszukiwanie",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał podaje: 'Łączenie z grep: ps aux | grep [wzorzec] - popularny sposób na filtrowanie listy procesów...'"
+    },
+    {
+      "question": "Do czego służy polecenie `nice -n [wartość] [polecenie]`?",
+      "options": [
+        {
+          "text": "Do natychmiastowego zakończenia polecenia z podaną wartością.",
+          "isCorrect": false
+        },
+        {
+          "text": "Do zmiany nazwy wykonywanego polecenia.",
+          "isCorrect": false
+        },
+        {
+          "text": "Do uruchomienia polecenia z ustaloną wartością \"nice\", wpływającą na priorytet planisty CPU.",
+          "isCorrect": true
+        },
+        {
+          "text": "Do wyświetlenia informacji o \"uprzejmości\" działającego procesu.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał opisuje `nice -n [wartość] [polecenie]` jako polecenie, które 'Uruchamia [polecenie] z ustaloną wartością \"nice\" (niceness).'"
+    },
+    {
+      "question": "Jak wartość \"nice\" (NI) wpływa na priorytet procesu?",
+      "options": [
+        {
+          "text": "Wyższa wartość nice oznacza wyższy priorytet (mniej \"uprzejmy\").",
+          "isCorrect": false
+        },
+        {
+          "text": "Wyższa wartość nice oznacza niższy priorytet (bardziej \"uprzejmy\").",
+          "isCorrect": true
+        },
+        {
+          "text": "Wartość nice nie ma wpływu na priorytet, tylko na użycie pamięci.",
+          "isCorrect": false
+        },
+        {
+          "text": "Ujemna wartość nice oznacza niższy priorytet.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał wyjaśnia: 'Wyższa wartość nice (np. 10, 19) oznacza niższy priorytet (proces jest \"milszy\", oddaje czas CPU innym). Niższa wartość nice (np. -10, -20) oznacza wyższy priorytet.'"
+    },
+    {
+      "question": "Co jest prawdą o ustawianiu wartości \"nice\"? (Wybierz WSZYSTKIE poprawne)",
+      "options": [
+        { "text": "Domyślna wartość nice to zazwyczaj 0.", "isCorrect": true },
+        {
+          "text": "Ustawienie wartości ujemnej zazwyczaj wymaga uprawnień administratora (root).",
+          "isCorrect": true
+        },
+        {
+          "text": "Polecenie `nice` bez opcji `-n` zwykle uruchamia proces z nice +10.",
+          "isCorrect": true
+        },
+        {
+          "text": "Zakres wartości nice to zwykle od 0 do 19.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał podaje: 'Domyślna wartość nice to zazwyczaj 0.', 'Ustawienie wartości ujemnej zazwyczaj wymaga uprawnień administratora (root).', 'Polecenie nice bez opcji -n uruchamia proces z domyślnym inkrementem nice, zwykle +10.', a zakres wartości to 'zwykle od -20 do 19'."
+    },
+    {
+      "question": "Które polecenie służy do zmiany priorytetu (wartości nice) już istniejącego procesu?",
+      "options": [
+        { "text": "`nice [wartość] -p [PID]`", "isCorrect": false },
+        { "text": "`renice [wartość] -p [PID]`", "isCorrect": true },
+        { "text": "`chpriority [wartość] [PID]`", "isCorrect": false },
+        { "text": "`setnice [PID] [wartość]`", "isCorrect": false }
+      ],
+      "explanation": "Materiał wymienia: 'Zmiana priorytetu istniejącego procesu: Polecenie renice [wartość] -p [PID].'"
+    },
+    {
+      "question": "Jak można wyświetlić wartość \"nice\" (NI) procesu? (Wybierz WSZYSTKIE poprawne)",
+      "options": [
+        {
+          "text": "Patrząc na kolumnę NI w wyniku `ps -l`.",
+          "isCorrect": true
+        },
+        { "text": "Używając polecenia `getnice [PID]`.", "isCorrect": false },
+        {
+          "text": "Patrząc na kolumnę NI w wyniku `ps ax -o pid,ni,comm`.",
+          "isCorrect": true
+        },
+        { "text": "Sprawdzając plik `/proc/[PID]/nice`.", "isCorrect": false }
+      ],
+      "explanation": "Materiał wskazuje: 'Wyświetlanie wartości nice: Kolumna NI w wyniku polecenia ps -l lub ps ax -o pid,ni,comm.'"
+    },
+    {
+      "question": "Jaki sygnał jest domyślnie wysyłany przez polecenie `kill [PID]`?",
+      "options": [
+        { "text": "SIGKILL", "isCorrect": false },
+        { "text": "SIGSTOP", "isCorrect": false },
+        { "text": "SIGTERM", "isCorrect": true },
+        { "text": "SIGHUP", "isCorrect": false }
+      ],
+      "explanation": "W sekcji 'Usuwanie (Zakończenie) Procesu' materiał podaje: 'Polecenie: kill [PID]. Działanie: Wysyła sygnał SIGTERM (domyślnie) do procesu o podanym PID.'"
+    },
+    {
+      "question": "Który sygnał jest wysyłany przez polecenie `kill -9 [PID]` w celu wymuszenia zakończenia procesu?",
+      "options": [
+        { "text": "SIGTERM", "isCorrect": false },
+        { "text": "SIGHUP", "isCorrect": false },
+        { "text": "SIGKILL", "isCorrect": true },
+        { "text": "SIGINT", "isCorrect": false }
+      ],
+      "explanation": "Materiał wyjaśnia: 'Wymuszenie zakończenia: kill -9 [PID] lub kill -SIGKILL [PID]. Wysyła sygnał SIGKILL.'"
+    },
+    {
+      "question": "Co robi polecenie `kill -l`?",
+      "options": [
+        { "text": "Kończy wszystkie procesy użytkownika.", "isCorrect": false },
+        {
+          "text": "Wyświetla listę wszystkich dostępnych sygnałów.",
+          "isCorrect": true
+        },
+        { "text": "Wysyła sygnał SIGHUP do procesu.", "isCorrect": false },
+        {
+          "text": "Listuje procesy, które można bezpiecznie zakończyć.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał podaje: 'Wyświetlanie listy dostępnych sygnałów: kill -l.'"
+    },
+    {
+      "question": "Do czego służy polecenie `tty`?",
+      "options": [
+        { "text": "Do zmiany ustawień terminala.", "isCorrect": false },
+        {
+          "text": "Do wyświetlenia nazwy pliku terminala dla bieżącej sesji.",
+          "isCorrect": true
+        },
+        { "text": "Do zakończenia sesji terminalowej.", "isCorrect": false },
+        {
+          "text": "Do wysłania wiadomości do innego terminala.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał stwierdza: 'Wyświetlenie nazwy pliku terminala dla bieżącej sesji: Polecenie tty.'"
+    },
+    {
+      "question": "Jak wyświetlić procesy powiązane z konkretnym terminalem, którego nazwę uzyskano poleceniem `tty`? (Wybierz WSZYSTKIE poprawne składnie wspomniane w materiale)",
+      "options": [
+        { "text": "`ps --tty $(tty)`", "isCorrect": false },
+        { "text": "`ps -t $(tty)`", "isCorrect": true },
+        { "text": "`ps -t `tty``", "isCorrect": true },
+        { "text": "`ps --terminal `tty``", "isCorrect": false }
+      ],
+      "explanation": "Materiał podaje składnie: 'ps -t [nazwa_terminala], gdzie [nazwa_terminala] to wynik polecenia tty' oraz 'Można użyć podstawienia poleceń: ps -ttty lub `ps -t $(tty)`'."
+    },
+    {
+      "question": "Co to jest GNU Coreutils według materiału?",
+      "options": [
+        { "text": "Alternatywne jądro systemu Linux.", "isCorrect": false },
+        {
+          "text": "Podstawowy zestaw narzędzi wiersza poleceń dla systemów typu Unix, dostarczany przez projekt GNU.",
+          "isCorrect": true
+        },
+        {
+          "text": "Zestaw narzędzi graficznych do zarządzania systemem.",
+          "isCorrect": false
+        },
+        {
+          "text": "Kompilator języka C używany w systemach GNU/Linux.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał definiuje GNU Coreutils jako 'Podstawowy zestaw narzędzi wiersza poleceń dla systemów operacyjnych typu Unix, dostarczany przez projekt GNU.'"
+    },
+    {
+      "question": "Co robi polecenie `head` i ile linii domyślnie wyświetla?",
+      "options": [
+        {
+          "text": "Wyświetla końcowe linie pliku; domyślnie 10 linii.",
+          "isCorrect": false
+        },
+        {
+          "text": "Wyświetla początkowe linie pliku; domyślnie 10 linii.",
+          "isCorrect": true
+        },
+        {
+          "text": "Wyświetla nagłówek systemu plików; domyślnie 5 linii.",
+          "isCorrect": false
+        },
+        {
+          "text": "Wyświetla metadane pliku; domyślnie wszystkie.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał opisuje `head` jako polecenie, które 'Wyświetla początkowe linie pliku lub standardowego wejścia. Domyślnie 10 linii.'"
+    },
+    {
+      "question": "Co robi polecenie `tail` i jaka opcja pozwala zmienić domyślną liczbę wyświetlanych linii?",
+      "options": [
+        {
+          "text": "Wyświetla początkowe linie; opcja `-f`.",
+          "isCorrect": false
+        },
+        {
+          "text": "Wyświetla końcowe linie; opcja `-n [liczba]`.",
+          "isCorrect": true
+        },
+        {
+          "text": "Wyświetla linie zawierające określony wzorzec; opcja `-p [wzorzec]`.",
+          "isCorrect": false
+        },
+        { "text": "Sortuje linie pliku; opcja `-s`.", "isCorrect": false }
+      ],
+      "explanation": "Materiał opisuje `tail` jako polecenie, które 'Wyświetla końcowe linie pliku lub standardowego wejścia. Domyślnie 10 linii. Opcja -n [liczba] zmienia liczbę linii.'"
+    },
+    {
+      "question": "Do czego służy opcja `-f` polecenia `tail`?",
+      "options": [
+        {
+          "text": "Do formatowania wyjścia w określony sposób.",
+          "isCorrect": false
+        },
+        {
+          "text": "Do wymuszenia (force) odczytu pliku, nawet jeśli jest zablokowany.",
+          "isCorrect": false
+        },
+        {
+          "text": "Do ciągłego monitorowania pliku i wyświetlania nowych linii dodawanych na końcu.",
+          "isCorrect": true
+        },
+        { "text": "Do filtrowania linii według wzorca.", "isCorrect": false }
+      ],
+      "explanation": "Materiał podaje, że 'Opcja -f (\"follow\") pozwala na ciągłe monitorowanie pliku i wyświetlanie nowych linii dodawanych na końcu.'"
+    },
+    {
+      "question": "Co robi polecenie `cat`? (Wybierz WSZYSTKIE poprawne)",
+      "options": [
+        { "text": "Tworzy nowy plik tekstowy.", "isCorrect": false },
+        {
+          "text": "Konkatenuje (łączy) pliki i wypisuje ich zawartość na standardowe wyjście.",
+          "isCorrect": true
+        },
+        {
+          "text": "Czyta ze standardowego wejścia, jeśli nie podano plików.",
+          "isCorrect": true
+        },
+        {
+          "text": "Wyświetla linie pliku w odwrotnej kolejności.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał opisuje `cat` jako polecenie, które 'Konkatenuje (łączy) pliki i wypisuje ich zawartość na standardowe wyjście. Jeśli nie podano plików, czyta ze standardowego wejścia.'"
+    },
+    {
+      "question": "Które polecenie działa odwrotnie do `cat`, wypisując linie pliku od ostatniej do pierwszej?",
+      "options": [
+        { "text": "`rev`", "isCorrect": false },
+        { "text": "`tac`", "isCorrect": true },
+        { "text": "`sort -r`", "isCorrect": false },
+        { "text": "`tail -r`", "isCorrect": false }
+      ],
+      "explanation": "Materiał wymienia `tac` i opisuje, że 'Działa odwrotnie do cat - wypisuje linie pliku w odwrotnej kolejności (od ostatniej do pierwszej).'"
+    },
+    {
+      "question": "Co zlicza polecenie `wc`? Wybierz WSZYSTKIE opcje i ich znaczenie wymienione w materiale.",
+      "options": [
+        { "text": "`-l`: Liczbę linii.", "isCorrect": true },
+        { "text": "`-p`: Liczbę paragrafów.", "isCorrect": false },
+        { "text": "`-w`: Liczbę słów.", "isCorrect": true },
+        { "text": "`-c` lub `-m`: Liczbę bajtów/znaków.", "isCorrect": true }
+      ],
+      "explanation": "Materiał opisuje `wc` jako zliczające 'liczbę linii (-l), słów (-w) i bajtów/znaków (-c/-m)'."
+    },
+    {
+      "question": "Do czego służy polecenie `cut` i jakie są jego kluczowe opcje według materiału?",
+      "options": [
+        {
+          "text": "Do usuwania plików; opcje `-r` (rekursywnie), `-f` (wymuszenie).",
+          "isCorrect": false
+        },
+        {
+          "text": "Do wycinania sekcji (pól) z linii; opcje `-d` (separator), `-f` (numery pól).",
+          "isCorrect": true
+        },
+        {
+          "text": "Do kopiowania fragmentów plików; opcje `-s` (start), `-e` (koniec).",
+          "isCorrect": false
+        },
+        {
+          "text": "Do skracania długich linii; opcje `-l` (limit długości).",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał opisuje `cut` jako narzędzie, które 'Wyciąga (wycina) sekcje (kolumny, pola) z każdej linii... Kluczowe opcje: -d [separator] (określa separator pól), -f [lista_pól] (określa numery pól do wycięcia).'"
+    },
+    {
+      "question": "Co robi polecenie `cut -d':' -f1 /etc/passwd`?",
+      "options": [
+        {
+          "text": "Wyświetla całą zawartość pliku `/etc/passwd`.",
+          "isCorrect": false
+        },
+        {
+          "text": "Wyświetla tylko pierwszą linię pliku `/etc/passwd`.",
+          "isCorrect": false
+        },
+        {
+          "text": "Wycina i wyświetla pierwsze pole (oddzielone dwukropkiem) z każdej linii pliku `/etc/passwd`.",
+          "isCorrect": true
+        },
+        {
+          "text": "Usuwa pierwsze pole z każdej linii w pliku `/etc/passwd`.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Zgodnie z opisem `cut` i opcji `-d` oraz `-f`, polecenie to używa dwukropka jako separatora (`-d':'`) i wycina pierwsze pole (`-f1`) z każdej linii pliku `/etc/passwd`."
+    },
+    {
+      "question": "Które opcje polecenia `sort` są opisane w materiale i co robią? (Wybierz WSZYSTKIE poprawne)",
+      "options": [
+        { "text": "`-n`: Sortowanie numeryczne.", "isCorrect": true },
+        {
+          "text": "`-a`: Sortowanie alfabetyczne (domyślne).",
+          "isCorrect": false
+        },
+        { "text": "`-r`: Odwrócona kolejność sortowania.", "isCorrect": true },
+        {
+          "text": "`-k [numer_pola]`: Sortowanie według określonego pola.",
+          "isCorrect": true
+        },
+        {
+          "text": "`-t [separator]`: Określa separator pól dla opcji `-k`.",
+          "isCorrect": true
+        }
+      ],
+      "explanation": "Materiał wymienia opcje `sort`: '-n (sortowanie numeryczne), -r (odwrócona kolejność), -k [numer_pola] (sortowanie według określonego pola), -t [separator] (separator pól dla -k).'"
+    },
+    {
+      "question": "Do czego służy polecenie `tr` i co robi przykład `tr 'a-z' 'A-Z'`?",
+      "options": [
+        {
+          "text": "Do śledzenia trasy pakietów; przykład wyświetla tablicę routingu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Do tłumaczenia lub usuwania znaków; przykład zamienia małe litery na wielkie.",
+          "isCorrect": true
+        },
+        {
+          "text": "Do przycinania białych znaków; przykład usuwa wszystkie spacje.",
+          "isCorrect": false
+        },
+        {
+          "text": "Do transpozycji macierzy danych; przykład zamienia wiersze z kolumnami.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał opisuje `tr` jako narzędzie do 'Tłumaczy lub usuwa znaki.' i podaje przykład 'tr 'a-z' 'A-Z' (zamiana małych liter na wielkie).'"
+    },
+    {
+      "question": "Co robi polecenie `uniq` i jakie opcje są wspomniane? (Wybierz WSZYSTKIE poprawne)",
+      "options": [
+        {
+          "text": "Domyślnie wypisuje tylko unikalne, sąsiadujące linie.",
+          "isCorrect": true
+        },
+        {
+          "text": "`-c`: Zlicza wystąpienia każdej unikalnej, sąsiadującej linii.",
+          "isCorrect": true
+        },
+        {
+          "text": "`-d`: Pokazuje tylko zduplikowane, sąsiadujące linie.",
+          "isCorrect": true
+        },
+        {
+          "text": "`-s`: Sortuje linie przed sprawdzeniem unikalności.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał opisuje `uniq` jako filtrujące 'powtarzające się sąsiadujące linie. Domyślnie wypisuje tylko unikalne linie.' Wymienione opcje to '-c zlicza wystąpienia...' i '-d pokazuje tylko zduplikowane linie.'"
+    },
+    {
+      "question": "Jaka operacja jest często wykonywana przed użyciem `uniq`, aby działało ono na wszystkich identycznych liniach w pliku, a nie tylko sąsiadujących?",
+      "options": [
+        { "text": "`cat`", "isCorrect": false },
+        { "text": "`grep`", "isCorrect": false },
+        { "text": "`sort`", "isCorrect": true },
+        { "text": "`cut`", "isCorrect": false }
+      ],
+      "explanation": "Materiał zawiera uwagę: '[Udoskonalenie AI: uniq działa tylko na sąsiadujących identycznych liniach, dlatego często poprzedza się je poleceniem sort.]'"
+    },
+    {
+      "question": "Do czego służy polecenie `seq`?",
+      "options": [
+        { "text": "Do sekwencyjnego wykonywania poleceń.", "isCorrect": false },
+        {
+          "text": "Do wyszukiwania sekwencji znaków w pliku.",
+          "isCorrect": false
+        },
+        { "text": "Do generowania sekwencji liczb.", "isCorrect": true },
+        {
+          "text": "Do sprawdzania integralności sekwencji plików.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał opisuje `seq` jako polecenie, które 'Generuje sekwencje liczb. Np. seq 1 5 wypisze liczby od 1 do 5.'"
+    },
+    {
+      "question": "Jaki jest główny cel polecenia `xargs`?",
+      "options": [
+        {
+          "text": "Wyświetlanie argumentów przekazanych do skryptu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Zmiana argumentów działającego procesu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Budowanie i wykonywanie linii poleceń na podstawie standardowego wejścia.",
+          "isCorrect": true
+        },
+        {
+          "text": "Archiwizowanie plików wraz z ich argumentami.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał opisuje `xargs` jako narzędzie, które 'Buduje i wykonuje linie poleceń na podstawie standardowego wejścia. Użyteczne do przetwarzania listy plików lub innych elementów generowanych przez inne polecenia.'"
+    },
+    {
+      "question": "Do czego służy polecenie `expr` i jaka jest współczesna alternatywa w powłoce Bash wspomniana w materiale?",
+      "options": [
+        {
+          "text": "Do eksportowania zmiennych środowiskowych; alternatywa `export`.",
+          "isCorrect": false
+        },
+        {
+          "text": "Do obliczania wyrażeń arytmetycznych i logicznych; alternatywa `((...))` lub `$((...))`.",
+          "isCorrect": true
+        },
+        {
+          "text": "Do wypisywania tekstu na ekran; alternatywa `echo`.",
+          "isCorrect": false
+        },
+        {
+          "text": "Do sprawdzania istnienia plików; alternatywa `test` lub `[[...]]`.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał opisuje `expr` jako 'Oblicza wyrażenia arytmetyczne i logiczne.' i dodaje: '[Dodatek AI: Obecnie częściej używa się wbudowanych mechanizmów powłoki jak ((...)) lub $((...)) w Bash do arytmetyki.]'"
+    },
+    {
+      "question": "Jak materiał opisuje `sed`?",
+      "options": [
+        {
+          "text": "Jako prosty edytor tekstu z interfejsem graficznym.",
+          "isCorrect": false
+        },
+        {
+          "text": "Jako narzędzie do kompresji plików tekstowych.",
+          "isCorrect": false
+        },
+        {
+          "text": "Jako potężne narzędzie do filtrowania i transformowania tekstu przy użyciu skryptowego języka edycji, oznaczone jako materiał dla zaawansowanych.",
+          "isCorrect": true
+        },
+        { "text": "Jako narzędzie do sprawdzania pisowni.", "isCorrect": false }
+      ],
+      "explanation": "Materiał definiuje `sed (Stream Editor)` jako 'Potężne narzędzie do filtrowania i transformowania tekstu przy użyciu skryptowego języka edycji. [Uwaga: Oznaczony jako materiał dla zaawansowanych w oryginalnym tekście.]'"
+    },
+    {
+      "question": "Jak uzyskać dokumentację dla polecenia, np. `sort`, według materiału?",
+      "options": [
+        { "text": "`help sort`", "isCorrect": false },
+        { "text": "`info sort`", "isCorrect": false },
+        { "text": "`man sort`", "isCorrect": true },
+        { "text": "`doc sort`", "isCorrect": false }
+      ],
+      "explanation": "Na końcu sekcji 4.1 materiał podaje: 'Dokumentacja: man [nazwa_polecenia] (np. man sort, man wc).'"
+    },
+    {
+      "question": "Co robi polecenie `grep` i co się dzieje, gdy nie podano nazwy pliku?",
+      "options": [
+        {
+          "text": "Sortuje linie tekstu; czyta z `/dev/random`.",
+          "isCorrect": false
+        },
+        {
+          "text": "Wyszukuje linie zawierające wzorzec; czyta ze standardowego wejścia (stdin).",
+          "isCorrect": true
+        },
+        {
+          "text": "Zlicza słowa w plikach; wyświetla błąd.",
+          "isCorrect": false
+        },
+        {
+          "text": "Usuwa linie pasujące do wzorca; nic nie robi.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał opisuje `grep` jako narzędzie do 'wyszukiwania linii zawierających określony wzorzec [...] w plikach lub na standardowym wejściu.' i dodaje 'Jeśli plik nie jest podany, grep czyta ze standardowego wejścia (stdin).'"
+    },
+    {
+      "question": "Co to jest wyrażenie regularne (Regex) w kontekście `grep`?",
+      "options": [
+        {
+          "text": "Standardowa nazwa pliku używana przez `grep`.",
+          "isCorrect": false
+        },
+        {
+          "text": "Sekwencja znaków definiująca wzorzec wyszukiwania, pozwalająca na elastyczne dopasowywanie tekstu.",
+          "isCorrect": true
+        },
+        {
+          "text": "Opcja polecenia `grep` włączająca tryb rekursywny.",
+          "isCorrect": false
+        },
+        {
+          "text": "Typ błędu zwracany przez `grep`, gdy wzorzec jest niepoprawny.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał wyjaśnia: '[Dodatek AI: Sekwencja znaków definiująca wzorzec wyszukiwania. Pozwala na bardzo elastyczne i zaawansowane dopasowywanie tekstu... Poznanie podstaw regex jest kluczowe dla efektywnego używania grep.]'"
+    },
+    {
+      "question": "Co powoduje opcja `-i` polecenia `grep`?",
+      "options": [
+        {
+          "text": "Odwraca dopasowanie (pokazuje linie niepasujące).",
+          "isCorrect": false
+        },
+        {
+          "text": "Ignoruje wielkość liter podczas dopasowywania.",
+          "isCorrect": true
+        },
+        {
+          "text": "Wyświetla tylko liczbę pasujących linii.",
+          "isCorrect": false
+        },
+        {
+          "text": "Włącza interpretację wzorca jako wyrażenia regularnego.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał wymienia opcję `-i` i opisuje jej działanie jako: 'Ignoruje wielkość liter podczas dopasowywania wzorca.'"
+    },
+    {
+      "question": "Która opcja `grep` służy do wyświetlenia linii, które NIE zawierają wzorca?",
+      "options": [
+        { "text": "`-n`", "isCorrect": false },
+        { "text": "`-c`", "isCorrect": false },
+        { "text": "`-v`", "isCorrect": true },
+        { "text": "`-x`", "isCorrect": false }
+      ],
+      "explanation": "Materiał podaje opcję `-v` i wyjaśnia: 'Odwraca dopasowanie - wyświetla linie, które NIE zawierają wzorca.'"
+    },
+    {
+      "question": "Co wyświetli `grep` z opcją `-c`?",
+      "options": [
+        { "text": "Pasujące linie wraz z kontekstem.", "isCorrect": false },
+        {
+          "text": "Nazwy plików zawierających pasujące linie.",
+          "isCorrect": false
+        },
+        { "text": "Numery linii, które pasują.", "isCorrect": false },
+        { "text": "Tylko liczbę pasujących linii.", "isCorrect": true }
+      ],
+      "explanation": "Materiał opisuje opcję `-c` jako: 'Wyświetla tylko liczbę pasujących linii.'"
+    },
+    {
+      "question": "Co robi opcja `-l` polecenia `grep`?",
+      "options": [
+        {
+          "text": "Wyświetla tylko nazwy plików, które zawierają pasujące linie.",
+          "isCorrect": true
+        },
+        {
+          "text": "Wyświetla pasujące linie małymi literami.",
+          "isCorrect": false
+        },
+        {
+          "text": "Ogranicza liczbę wyświetlanych pasujących linii.",
+          "isCorrect": false
+        },
+        { "text": "Loguje wyniki do pliku systemowego.", "isCorrect": false }
+      ],
+      "explanation": "Materiał wymienia opcję `-l` i podaje jej działanie: 'Wyświetla tylko nazwy plików, które zawierają pasujące linie.'"
+    },
+    {
+      "question": "Która opcja `grep` dodaje numery linii do pasujących linii na wyjściu?",
+      "options": [
+        { "text": "`-l`", "isCorrect": false },
+        { "text": "`-n`", "isCorrect": true },
+        { "text": "`-N`", "isCorrect": false },
+        { "text": "` -num`", "isCorrect": false }
+      ],
+      "explanation": "Materiał opisuje opcję `-n` jako: 'Wyświetla numery linii wraz z pasującymi liniami.'"
+    },
+    {
+      "question": "Co oznacza użycie opcji `-r` lub `-R` z poleceniem `grep`?",
+      "options": [
+        {
+          "text": "Odwraca kolejność wyświetlanych linii.",
+          "isCorrect": false
+        },
+        {
+          "text": "Ogranicza wyszukiwanie tylko do plików do odczytu.",
+          "isCorrect": false
+        },
+        { "text": "Rekursywnie przeszukuje katalogi.", "isCorrect": true },
+        {
+          "text": "Traktuje wzorzec jako wyrażenie regularne (redundantne).",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał wymienia opcje `-r` lub `-R` i opisuje ich działanie: 'Rekursywnie przeszukuje katalogi.'"
+    },
+    {
+      "question": "Do czego służy opcja `-E` w `grep`?",
+      "options": [
+        {
+          "text": "Do traktowania wzorca jako stałego ciągu znaków.",
+          "isCorrect": false
+        },
+        {
+          "text": "Do ignorowania błędów podczas przeszukiwania.",
+          "isCorrect": false
+        },
+        {
+          "text": "Do używania rozszerzonych wyrażeń regularnych (ERE).",
+          "isCorrect": true
+        },
+        {
+          "text": "Do wymuszenia (Exit) po znalezieniu pierwszego dopasowania.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał opisuje opcję `-E` jako: 'Używa rozszerzonych wyrażeń regularnych (ERE).'"
+    },
+    {
+      "question": "Jaki efekt ma użycie opcji `-F` w `grep`?",
+      "options": [
+        {
+          "text": "Wymusza wyświetlenie pełnej ścieżki do pliku.",
+          "isCorrect": false
+        },
+        {
+          "text": "Traktuje wzorzec jako stały ciąg znaków (nie wyrażenie regularne), co może przyspieszyć wyszukiwanie.",
+          "isCorrect": true
+        },
+        {
+          "text": "Śledzi zmiany w pliku (podobnie do `tail -f`).",
+          "isCorrect": false
+        },
+        { "text": "Formatuj wyjście w specjalny sposób.", "isCorrect": false }
+      ],
+      "explanation": "Materiał podaje opcję `-F` i wyjaśnia: 'Traktuje wzorzec jako stały ciąg znaków (nie jako wyrażenie regularne), działa szybciej dla prostych wyszukiwań.'"
+    },
+    {
+      "question": "Co robi opcja `-w` w `grep`?",
+      "options": [
+        {
+          "text": "Wyświetla ostrzeżenia napotkane podczas wyszukiwania.",
+          "isCorrect": false
+        },
+        {
+          "text": "Zapisuje wyniki do pliku zamiast na ekran.",
+          "isCorrect": false
+        },
+        {
+          "text": "Dopasowuje tylko całe słowa (wzorzec otoczony znakami niealfanumerycznymi lub granicami linii).",
+          "isCorrect": true
+        },
+        {
+          "text": "Zlicza liczbę słów w pasujących liniach.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał opisuje opcję `-w` jako: 'Dopasowuje tylko całe słowa.'"
+    },
+    {
+      "question": "Jakie są standardowe strumienie danych dostępne dla procesu w środowisku Unix i jakie są ich domyślne powiązania?",
+      "options": [
+        {
+          "text": "0: stderr (terminal), 1: stdin (klawiatura), 2: stdout (terminal)",
+          "isCorrect": false
+        },
+        {
+          "text": "0: stdin (klawiatura), 1: stdout (terminal), 2: stderr (terminal)",
+          "isCorrect": true
+        },
+        {
+          "text": "0: stdin (plik), 1: stdout (plik), 2: stderr (plik)",
+          "isCorrect": false
+        },
+        {
+          "text": "1: Wejście (klawiatura), 2: Wyjście (terminal), 3: Błędy (plik logu)",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał wymienia standardowe strumienie: '0: Standardowe Wejście (stdin) - Domyślnie klawiatura.', '1: Standardowe Wyjście (stdout) - Domyślnie terminal (ekran).', '2: Standardowe Wyjście Błędów (stderr) - Domyślnie terminal (ekran).'"
+    },
+    {
+      "question": "Jaki jest cel rozdzielenia standardowego wyjścia (stdout) i standardowego wyjścia błędów (stderr), zgodnie z materiałem?",
+      "options": [
+        {
+          "text": "Umożliwia wysyłanie błędów do drukarki, a wyników na ekran.",
+          "isCorrect": false
+        },
+        {
+          "text": "Pozwala na osobne przekierowanie normalnych wyników i komunikatów o błędach.",
+          "isCorrect": true
+        },
+        {
+          "text": "Jest to historyczny podział bez praktycznego znaczenia dzisiaj.",
+          "isCorrect": false
+        },
+        {
+          "text": "Umożliwia kompresję strumienia błędów niezależnie od strumienia wyników.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał dodaje: '[Udoskonalenie AI: Rozdzielenie stdout i stderr pozwala na osobne przekierowanie normalnych wyników i komunikatów o błędach.]'"
+    },
+    {
+      "question": "Co umożliwia mechanizm przekierowania (Redirection) w powłoce?",
+      "options": [
+        { "text": "Zmianę priorytetu procesu.", "isCorrect": false },
+        {
+          "text": "Zmianę domyślnych źródeł lub celów dla standardowych strumieni procesu.",
+          "isCorrect": true
+        },
+        {
+          "text": "Przekierowanie ruchu sieciowego procesu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Uruchomienie procesu na innym komputerze.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał wyjaśnia, że powłoka 'umożliwia zmianę domyślnych źródeł lub celów dla standardowych strumieni procesu za pomocą operatorów przekierowania.'"
+    },
+    {
+      "question": "Co robi operator `>` w poleceniu powłoki, np. `polecenie > plik`?",
+      "options": [
+        {
+          "text": "Przekierowuje standardowe wejście (stdin) z pliku.",
+          "isCorrect": false
+        },
+        {
+          "text": "Przekierowuje standardowe wyjście błędów (stderr) do pliku, dopisując dane.",
+          "isCorrect": false
+        },
+        {
+          "text": "Przekierowuje standardowe wyjście (stdout) do pliku, nadpisując jego zawartość.",
+          "isCorrect": true
+        },
+        {
+          "text": "Przekierowuje standardowe wyjście (stdout) do pliku, dopisując dane na końcu.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał opisuje operator `>` jako: 'Przekierowuje standardowe wyjście (stdout, strumień 1) do [pliku]. Nadpisuje plik, jeśli istnieje; tworzy nowy, jeśli nie istnieje.'"
+    },
+    {
+      "question": "Czym różni się operator `>>` od `>`?",
+      "options": [
+        {
+          "text": "`>>` przekierowuje stderr, a `>` przekierowuje stdout.",
+          "isCorrect": false
+        },
+        {
+          "text": "`>>` dopisuje dane do pliku, a `>` nadpisuje plik.",
+          "isCorrect": true
+        },
+        {
+          "text": "`>>` czyta dane z pliku, a `>` zapisuje do pliku.",
+          "isCorrect": false
+        },
+        { "text": "Nie ma różnicy, są to synonimy.", "isCorrect": false }
+      ],
+      "explanation": "Materiał opisuje `>> [plik]` jako przekierowujący stdout, ale 'Dopisuje dane na końcu pliku, jeśli istnieje; tworzy nowy, jeśli nie istnieje', w przeciwieństwie do `>`, który nadpisuje."
+    },
+    {
+      "question": "Który operator służy do przekierowania tylko standardowego wyjścia błędów (stderr, strumień 2) do pliku, nadpisując go?",
+      "options": [
+        { "text": "`>`", "isCorrect": false },
+        { "text": "`>>`", "isCorrect": false },
+        { "text": "`2>`", "isCorrect": true },
+        { "text": "`2>>`", "isCorrect": false }
+      ],
+      "explanation": "Materiał wymienia `2> [plik]` i opisuje: 'Przekierowuje standardowe wyjście błędów (stderr, strumień 2) do [pliku]. Nadpisuje plik...'"
+    },
+    {
+      "question": "Co robi operator `<` w poleceniu powłoki, np. `polecenie < plik`?",
+      "options": [
+        {
+          "text": "Przekierowuje standardowe wyjście (stdout) do pliku.",
+          "isCorrect": false
+        },
+        {
+          "text": "Przekierowuje standardowe wyjście błędów (stderr) do pliku.",
+          "isCorrect": false
+        },
+        {
+          "text": "Przekierowuje standardowe wejście (stdin) tak, aby pochodziło z pliku.",
+          "isCorrect": true
+        },
+        {
+          "text": "Porównuje zawartość polecenia z zawartością pliku.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał opisuje `< [plik]` jako: 'Przekierowuje standardowe wejście (stdin, strumień 0) tak, aby pochodziło z [pliku] zamiast z klawiatury.'"
+    },
+    {
+      "question": "Które z poniższych składni (w powłokach Bash/Zsh) przekierowują zarówno stdout (1) jak i stderr (2) do pliku, nadpisując go? (Wybierz WSZYSTKIE poprawne według tekstu)",
+      "options": [
+        { "text": "`1> plik 2> plik`", "isCorrect": false },
+        { "text": "`&> plik`", "isCorrect": true },
+        { "text": "`>& plik`", "isCorrect": true },
+        { "text": "`>> plik 2>> plik`", "isCorrect": false }
+      ],
+      "explanation": "Materiał wymienia: '&> [plik] lub >& [plik] (Bash/Zsh): Przekierowuje zarówno stdout (1) jak i stderr (2) do [pliku]. Nadpisuje plik.'"
+    },
+    {
+      "question": "Co to jest `/dev/null` i co się dzieje, gdy się do niego zapisuje lub z niego czyta?",
+      "options": [
+        {
+          "text": "Plik przechowujący logi systemowe; zapis dodaje log, odczyt wyświetla logi.",
+          "isCorrect": false
+        },
+        {
+          "text": "Plik tymczasowy; zapis przechowuje dane, odczyt je zwraca.",
+          "isCorrect": false
+        },
+        {
+          "text": "Specjalny plik urządzenia (\"czarna dziura\"); zapisane dane są tracone, odczyt zwraca EOF.",
+          "isCorrect": true
+        },
+        {
+          "text": "Plik konfiguracyjny powłoki; zapis zmienia ustawienia, odczyt je pokazuje.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał opisuje `/dev/null` jako 'Specjalny plik urządzenia, znany jako \"czarna dziura\"...' i wyjaśnia: 'Wszystko, co zostanie do niego zapisane, jest bezpowrotnie tracone. Czytanie z /dev/null natychmiast zwraca koniec pliku (EOF).'"
+    },
+    {
+      "question": "Jakie jest typowe zastosowanie przekierowania do `/dev/null`, np. `polecenie 2> /dev/null`?",
+      "options": [
+        {
+          "text": "Zapisanie wyników polecenia do pliku `/dev/null` w celu późniejszej analizy.",
+          "isCorrect": false
+        },
+        {
+          "text": "Pozbycie się niechcianego wyjścia, najczęściej komunikatów o błędach (stderr), przy zachowaniu normalnego wyjścia (stdout).",
+          "isCorrect": true
+        },
+        {
+          "text": "Uruchomienie polecenia z najwyższym priorytetem.",
+          "isCorrect": false
+        },
+        {
+          "text": "Spowolnienie działania polecenia poprzez zapis do wolnego urządzenia.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał podaje: 'Zastosowanie: Używany do pozbywania się niechcianego wyjścia (najczęściej komunikatów o błędach). Przykład: polecenie 2> /dev/null (ignoruje błędy, zachowuje normalne wyjście).'"
+    },
+    {
+      "question": "Co robi konstrukcja `polecenie > /dev/null 2>&1`?",
+      "options": [
+        {
+          "text": "Ignoruje normalne wyjście (stdout), a błędy (stderr) zapisuje do pliku `&1`.",
+          "isCorrect": false
+        },
+        {
+          "text": "Zapisuje stdout do pliku `null`, a stderr do pliku `1`.",
+          "isCorrect": false
+        },
+        {
+          "text": "Ignoruje całe wyjście polecenia (zarówno stdout jak i stderr).",
+          "isCorrect": true
+        },
+        {
+          "text": "Kieruje stdout do `/dev/null`, a stderr na standardowe wyjście.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał podaje przykład: 'polecenie > /dev/null 2>&1 (ignoruje całe wyjście, zarówno stdout jak i stderr; 2>&1 przekierowuje stderr tam, gdzie aktualnie kierowany jest stdout, czyli do /dev/null).'"
+    },
+    {
+      "question": "Dlaczego wykonanie polecenia `sort plik > plik` powoduje utratę zawartości pliku `plik`?",
+      "options": [
+        {
+          "text": "Polecenie `sort` domyślnie usuwa plik wejściowy po zakończeniu sortowania.",
+          "isCorrect": false
+        },
+        {
+          "text": "Powłoka przetwarza przekierowanie `> plik` (opróżniając plik) przed uruchomieniem polecenia `sort`.",
+          "isCorrect": true
+        },
+        {
+          "text": "Operator `>` jest przeznaczony tylko do tworzenia nowych plików, nie do modyfikacji istniejących.",
+          "isCorrect": false
+        },
+        {
+          "text": "Polecenie `sort` nie potrafi czytać i pisać do tego samego pliku jednocześnie.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał wyjaśnia: 'Przyczyna: Powłoka przetwarza przekierowanie > plik przed uruchomieniem polecenia sort. Operator > najpierw opróżnia (lub tworzy pusty) plik plik. Dopiero potem sort próbuje czytać z (teraz już pustego) pliku plik.'"
+    },
+    {
+      "question": "Jakie poprawne rozwiązanie (lub narzędzie) zostało wspomniane w materiale jako alternatywa dla `sort plik > plik`, aby posortować plik \"w miejscu\"?",
+      "options": [
+        { "text": "`sort plik | cat > plik`", "isCorrect": false },
+        { "text": "`sort plik >> plik`", "isCorrect": false },
+        {
+          "text": "Użycie pliku tymczasowego lub narzędzia `sponge` (np. `sort plik | sponge plik`).",
+          "isCorrect": true
+        },
+        { "text": "`sort -o plik plik`", "isCorrect": false }
+      ],
+      "explanation": "Materiał podaje: 'Poprawne rozwiązanie: Użycie pliku tymczasowego lub narzędzi takich jak sponge (z pakietu moreutils), jeśli dostępne: sort plik | sponge plik.'"
+    },
+    {
+      "question": "Czym jest potok (pipe) w systemach Unix/Linux?",
+      "options": [
+        {
+          "text": "Fizycznym połączeniem między dwoma terminalami.",
+          "isCorrect": false
+        },
+        {
+          "text": "Mechanizmem komunikacji międzyprocesowej (IPC) łączącym stdout jednego procesu ze stdin innego.",
+          "isCorrect": true
+        },
+        {
+          "text": "Specjalnym typem pliku służącym do trwałego przechowywania danych przepływających między procesami.",
+          "isCorrect": false
+        },
+        {
+          "text": "Narzędziem do filtrowania zawartości plików.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał definiuje potok (Pipe) jako 'Mechanizm komunikacji międzyprocesowej (IPC) w systemach Unix/Linux, pozwalający na bezpośrednie połączenie standardowego wyjścia (stdout) jednego procesu ze standardowym wejściem (stdin) innego procesu.'"
+    },
+    {
+      "question": "Jaki operator jest używany do tworzenia potoku między poleceniami?",
+      "options": [
+        { "text": "`>`", "isCorrect": false },
+        { "text": "`&`", "isCorrect": false },
+        { "text": "`|`", "isCorrect": true },
+        { "text": "`;`", "isCorrect": false }
+      ],
+      "explanation": "Materiał podaje: 'Operator: | (pionowa kreska).' dla potoków."
+    },
+    {
+      "question": "Jakie jest główne zastosowanie potoków według materiału?",
+      "options": [
+        { "text": "Uruchamianie poleceń w tle.", "isCorrect": false },
+        {
+          "text": "Tworzenie złożonych łańcuchów poleceń do przetwarzania danych bez użycia plików tymczasowych.",
+          "isCorrect": true
+        },
+        { "text": "Porównywanie wyników dwóch poleceń.", "isCorrect": false },
+        {
+          "text": "Zapisywanie wyników poleceń do logów systemowych.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał wyjaśnia: 'Zastosowanie: Tworzenie łańcuchów poleceń (pipelines) do złożonego przetwarzania danych bez użycia plików tymczasowych. Dane przepływają \"strumieniowo\" między poleceniami.'"
+    },
+    {
+      "question": "Co robi łańcuch poleceń `ps aux | grep 'firefox' | wc -l`?",
+      "options": [
+        {
+          "text": "Wyświetla wszystkie procesy, filtruje te zawierające 'firefox' i zlicza liczbę słów w pasujących liniach.",
+          "isCorrect": false
+        },
+        {
+          "text": "Listuje procesy, znajduje te związane z 'firefox', sortuje je i wyświetla.",
+          "isCorrect": false
+        },
+        {
+          "text": "Pobiera listę wszystkich procesów, wybiera linie zawierające 'firefox' i zlicza liczbę tych linii (procesów firefox).",
+          "isCorrect": true
+        },
+        {
+          "text": "Uruchamia firefox, a następnie zlicza liczbę otwartych okien.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Polecenie `ps aux` listuje procesy, `grep 'firefox'` filtruje te linie, a `wc -l` zlicza liczbę pozostałych linii (czyli procesów pasujących do wzorca)."
+    },
+    {
+      "question": "Co to jest \"podstawienie wyników poleceń\" (command substitution) i jakie są jego składnie?",
+      "options": [
+        {
+          "text": "Zastępowanie polecenia jego kodem wyjścia; składnia `$?`.",
+          "isCorrect": false
+        },
+        {
+          "text": "Wstawianie wyniku polecenia jako część linii innego polecenia; składnie ```polecenie``` oraz `$(polecenie)`.",
+          "isCorrect": true
+        },
+        {
+          "text": "Uruchamianie polecenia z argumentami z pliku; składnia `xargs`.",
+          "isCorrect": false
+        },
+        {
+          "text": "Przekierowanie wyniku polecenia do zmiennej; składnia `zmienna=polecenie`.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał opisuje podstawienie wyników poleceń jako 'Mechanizm powłoki pozwalający na wstawienie wyniku wykonania jednego polecenia jako część linii poleceń innego polecenia.' i podaje składnie: 'Odwrotne apostrofy: `polecenie`' oraz 'Składnia z dolarem i nawiasami: $(polecenie)'."
+    },
+    {
+      "question": "Czym jest sygnał SIGHUP i kiedy jest typowo wysyłany?",
+      "options": [
+        {
+          "text": "Sygnał zakończenia (terminate); wysyłany przez `kill`.",
+          "isCorrect": false
+        },
+        {
+          "text": "Sygnał zatrzymania (stop); wysyłany przez Ctrl+Z.",
+          "isCorrect": false
+        },
+        {
+          "text": "Sygnał rozłączenia (hangup); wysyłany, gdy terminal zostaje rozłączony/zamknięty.",
+          "isCorrect": true
+        },
+        {
+          "text": "Sygnał przerwania (interrupt); wysyłany przez Ctrl+C.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał definiuje SIGHUP (HangUp) jako 'Sygnał wysyłany do procesów [...] w momencie, gdy terminal zostaje rozłączony lub zamknięty [...] Domyślna akcja: Zakończenie procesu.'"
+    },
+    {
+      "question": "Jaki jest cel polecenia `nohup`?",
+      "options": [
+        {
+          "text": "Uruchomienie polecenia z wyższym priorytetem.",
+          "isCorrect": false
+        },
+        {
+          "text": "Uruchomienie polecenia w taki sposób, aby ignorowało sygnał SIGHUP, pozwalając mu działać po zamknięciu terminala.",
+          "isCorrect": true
+        },
+        {
+          "text": "Zatrzymanie (wstrzymanie) działającego polecenia.",
+          "isCorrect": false
+        },
+        { "text": "Wyświetlenie pomocy dla polecenia.", "isCorrect": false }
+      ],
+      "explanation": "Materiał opisuje cel `nohup` jako: 'Uruchamia [polecenie] w taki sposób, aby ignorowało sygnał SIGHUP. [...] Pozwala procesowi kontynuować działanie nawet po zamknięciu terminala/sesji...'"
+    },
+    {
+      "question": "Co dzieje się z wyjściem (stdout i stderr) polecenia uruchomionego przez `nohup`, jeśli nie zostało ono przekierowane?",
+      "options": [
+        { "text": "Wyjście jest tracone (/dev/null).", "isCorrect": false },
+        {
+          "text": "Wyjście jest nadal wysyłane na (nieistniejący już) terminal.",
+          "isCorrect": false
+        },
+        {
+          "text": "Wyjście jest automatycznie przekierowywane do pliku `nohup.out`.",
+          "isCorrect": true
+        },
+        {
+          "text": "Wyjście jest wysyłane do systemowego logu (syslog).",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał podaje: 'Jeśli standardowe wyjście (stdout) i standardowe wyjście błędów (stderr) są nadal skierowane na terminal, nohup automatycznie przekierowuje je do pliku nohup.out...'"
+    },
+    {
+      "question": "Co to jest EOF (End Of File) i jak można je wysłać z klawiatury w większości terminali?",
+      "options": [
+        {
+          "text": "Sygnał błędu pliku; wysyłany przez Ctrl+E.",
+          "isCorrect": false
+        },
+        {
+          "text": "Początek pliku; wysyłany automatycznie po otwarciu pliku.",
+          "isCorrect": false
+        },
+        {
+          "text": "Koniec danych wejściowych; wysyłany przez Ctrl+D na początku nowej linii.",
+          "isCorrect": true
+        },
+        {
+          "text": "Koniec linii; wysyłany przez Enter/Return.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał definiuje EOF jako 'Specjalny warunek sygnalizujący koniec danych wejściowych.' i dodaje: 'Wysyłanie \"ręczne\" z klawiatury: W większości terminali kombinacja klawiszy Ctrl+D na początku nowej linii wysyła sygnał EOF...'"
+    },
+    {
+      "question": "Które z wymienionych narzędzi (według materiału) czytają ze standardowego wejścia, jeśli nie podano im pliku jako argumentu? (Wybierz WSZYSTKIE poprawne)",
+      "options": [
+        { "text": "`grep`", "isCorrect": true },
+        { "text": "`sort`", "isCorrect": true },
+        { "text": "`wc`", "isCorrect": true },
+        { "text": "`cat`", "isCorrect": true },
+        { "text": "`head`", "isCorrect": true },
+        { "text": "`tail`", "isCorrect": true }
+      ],
+      "explanation": "Materiał w sekcji 9 wymienia: 'Wiele narzędzi tekstowych (np. grep, sort, wc, cat, head, tail) czyta dane ze standardowego wejścia (stdin), jeśli w linii poleceń nie podano nazwy pliku(ów)...'"
+    },
+    {
+      "question": "Dlaczego fakt, że wiele narzędzi tekstowych czyta ze standardowego wejścia, jest kluczowy dla mechanizmu potoków (`|`)?",
+      "options": [
+        {
+          "text": "Umożliwia tym narzędziom tworzenie plików tymczasowych.",
+          "isCorrect": false
+        },
+        {
+          "text": "Pozwala im ignorować sygnały systemowe.",
+          "isCorrect": false
+        },
+        {
+          "text": "Umożliwia bezpośrednie przekazywanie danych (wyjścia jednego polecenia na wejście drugiego) bez użycia plików.",
+          "isCorrect": true
+        },
+        {
+          "text": "Zwiększa ich priorytet wykonania w potoku.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Materiał stwierdza: 'To właśnie umożliwia ich łączenie za pomocą potoków (|).' odnosząc się do faktu, że narzędzia czytają ze stdin. Potoki łączą stdout jednego polecenia ze stdin następnego, co pozwala na strumieniowe przetwarzanie danych bez plików tymczasowych."
     }
   ]
 }
