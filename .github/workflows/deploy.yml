@@ -22,7 +22,7 @@ jobs:
           NITRO_PRESET: github_pages
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3.0.1
         with:
           path: ./.output/public
           name: github-pages # Explicitly naming the artifact
