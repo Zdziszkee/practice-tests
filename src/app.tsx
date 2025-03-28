@@ -7,7 +7,7 @@ import "./app.css";
 export default function App() {
   return (
     <Router
-      base="/practice-tests/"
+      base="/practice-tests"
       root={(props) => (
         <MetaProvider>
           <Title>SolidStart - Basic</Title>
