@@ -4,49 +4,57 @@ import { shuffleArray } from "../utils/helpers";
 
 interface QuizQuestionProps {
   question: QuizQuestionType;
-  onAnswer: (questionId: string, optionId: string, isChecked: boolean) => void;
+  questionIndex: number;
+  onAnswer: (
+    questionIndex: number,
+    optionIndex: number,
+    isChecked: boolean,
+  ) => void;
   isAnswered: boolean;
-  selectedOptionIds?: string[];
+  selectedIndices?: number[];
   onSubmit?: () => void;
 }
 
 export default function QuizQuestion(props: QuizQuestionProps) {
-  const [options, setOptions] = createSignal<QuizOption[]>([]);
-  const [tempSelections, setTempSelections] = createSignal<string[]>(
-    props.selectedOptionIds || [],
+  const [options, setOptions] = createSignal<
+    { option: QuizOption; originalIndex: number }[]
+  >([]);
+  const [tempSelections, setTempSelections] = createSignal<number[]>(
+    props.selectedIndices || [],
   );
   const [localAnswered, setLocalAnswered] = createSignal(false);
 
   // Reset tempSelections when question changes
   createEffect(() => {
-    if (props.question?.id) {
-      setTempSelections(props.selectedOptionIds || []);
+    if (props.questionIndex !== undefined) {
+      setTempSelections(props.selectedIndices || []);
       setLocalAnswered(props.isAnswered);
     }
   });
 
+  // Shuffle options while preserving original indices
   createEffect(() => {
     if (props.question && Array.isArray(props.question.options)) {
-      setOptions(shuffleArray([...props.question.options]));
+      const originalOptions = props.question.options.map((opt, idx) => ({
+        option: opt,
+        originalIndex: idx,
+      }));
+      setOptions(shuffleArray([...originalOptions]));
     }
   });
 
-  const isOptionSelected = (optionId: string) => {
-    return tempSelections().includes(optionId);
+  const isOptionSelected = (index: number) => {
+    return tempSelections().includes(index);
   };
 
-  const isOptionCorrect = (optionId: string) => {
-    return props.question.correctOptionIds.includes(optionId);
-  };
-
-  const getOptionClass = (optionId: string) => {
+  const getOptionClass = (option: QuizOption, originalIndex: number) => {
     if (!localAnswered() && !props.isAnswered) return "";
 
     // When answered, highlight all correct options
     if (localAnswered() || props.isAnswered) {
-      if (isOptionCorrect(optionId)) {
-        return isOptionSelected(optionId) ? "correct" : "missed-correct";
-      } else if (isOptionSelected(optionId)) {
+      if (option.isCorrect) {
+        return isOptionSelected(originalIndex) ? "correct" : "missed-correct";
+      } else if (isOptionSelected(originalIndex)) {
         return "incorrect";
       }
     }
@@ -54,21 +62,23 @@ export default function QuizQuestion(props: QuizQuestionProps) {
     return "";
   };
 
-  const handleOptionClick = (optionId: string) => {
+  const handleOptionClick = (originalIndex: number) => {
     if (localAnswered() || props.isAnswered) return;
 
-    const isSelected = isOptionSelected(optionId);
+    const isSelected = isOptionSelected(originalIndex);
 
     if (props.question.multipleAnswer) {
       // Toggle selection for multiple choice
       if (isSelected) {
-        setTempSelections(tempSelections().filter((id) => id !== optionId));
+        setTempSelections(
+          tempSelections().filter((idx) => idx !== originalIndex),
+        );
       } else {
-        setTempSelections([...tempSelections(), optionId]);
+        setTempSelections([...tempSelections(), originalIndex]);
       }
     } else {
       // Single choice - replace selection
-      setTempSelections([optionId]);
+      setTempSelections([originalIndex]);
     }
   };
 
@@ -76,8 +86,8 @@ export default function QuizQuestion(props: QuizQuestionProps) {
     setLocalAnswered(true);
 
     // Send all selections to parent
-    tempSelections().forEach((optionId) => {
-      props.onAnswer(props.question.id, optionId, true);
+    tempSelections().forEach((optionIndex) => {
+      props.onAnswer(props.questionIndex, optionIndex, true);
     });
 
     // Notify parent that question has been answered
@@ -87,6 +97,11 @@ export default function QuizQuestion(props: QuizQuestionProps) {
   };
 
   const hasSelections = () => tempSelections().length > 0;
+
+  // Create option labels (A, B, C, D, etc.)
+  const getOptionLabel = (index: number) => {
+    return String.fromCharCode(65 + index); // 65 is ASCII for 'A'
+  };
 
   return (
     <div class="card quiz-question">
@@ -99,30 +114,31 @@ export default function QuizQuestion(props: QuizQuestionProps) {
       </Show>
 
       <div class="options">
-        {options().map((option) => (
+        {options().map((item, displayIndex) => (
           <div
-            class={`option ${getOptionClass(option.id)} ${props.question.multipleAnswer ? "checkbox-style" : "radio-style"}`}
-            onClick={() => handleOptionClick(option.id)}
+            class={`option ${getOptionClass(item.option, item.originalIndex)} ${props.question.multipleAnswer ? "checkbox-style" : "radio-style"}`}
+            onClick={() => handleOptionClick(item.originalIndex)}
           >
+            <span class="option-label">{getOptionLabel(displayIndex)}</span>
             <span class="option-indicator">
               {props.question.multipleAnswer ? (
                 <input
                   type="checkbox"
-                  checked={isOptionSelected(option.id)}
+                  checked={isOptionSelected(item.originalIndex)}
                   disabled={localAnswered() || props.isAnswered}
                   onChange={() => {}} // Handled by parent div click
                 />
               ) : (
                 <input
                   type="radio"
-                  checked={isOptionSelected(option.id)}
+                  checked={isOptionSelected(item.originalIndex)}
                   disabled={localAnswered() || props.isAnswered}
-                  name={`question-${props.question.id}`}
+                  name={`question-${props.questionIndex}`}
                   onChange={() => {}} // Handled by parent div click
                 />
               )}
             </span>
-            <span class="option-text">{option.text}</span>
+            <span class="option-text">{item.option.text}</span>
           </div>
         ))}
       </div>

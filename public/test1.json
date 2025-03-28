@@ -1,47 +1,37 @@
 {
-  "id": "multiple-choice-test",
-  "title": "Multiple Choice Quiz Test",
-  "description": "A quiz with both single and multiple choice questions",
+  "title": "Color Theory Quiz",
+  "description": "Test your knowledge of color theory",
   "questions": [
     {
-      "id": "q1",
-      "question": "Which of these are primary colors? (Select all that apply)",
+      "question": "What are the primary colors in the RGB color model?",
       "options": [
-        { "id": "a", "text": "Red" },
-        { "id": "b", "text": "Green" },
-        { "id": "c", "text": "Blue" },
-        { "id": "d", "text": "Yellow" },
-        { "id": "e", "text": "Orange" }
+        { "text": "Red", "isCorrect": true },
+        { "text": "Green", "isCorrect": true },
+        { "text": "Blue", "isCorrect": true },
+        { "text": "Yellow", "isCorrect": false },
+        { "text": "Cyan", "isCorrect": false }
       ],
-      "correctOptionIds": ["a", "c", "d"],
-      "multipleAnswer": true,
-      "explanation": "The primary colors in the additive color model (light) are red, green, and blue. In the subtractive color model (pigments), they are cyan, magenta, and yellow."
+      "explanation": "In the RGB (additive) color model used for digital displays, the primary colors are Red, Green, and Blue."
     },
     {
-      "id": "q2",
-      "question": "Which of these programming languages are statically typed? (Select all that apply)",
+      "question": "Which color is created by mixing blue and yellow paint?",
       "options": [
-        { "id": "a", "text": "JavaScript" },
-        { "id": "b", "text": "Python" },
-        { "id": "c", "text": "TypeScript" },
-        { "id": "d", "text": "Java" },
-        { "id": "e", "text": "Ruby" }
+        { "text": "Orange", "isCorrect": false },
+        { "text": "Purple", "isCorrect": false },
+        { "text": "Green", "isCorrect": true },
+        { "text": "Brown", "isCorrect": false }
       ],
-      "correctOptionIds": ["c", "d"],
-      "multipleAnswer": true,
-      "explanation": "TypeScript and Java are statically typed languages, meaning type checking is done at compile time."
+      "explanation": "When mixing blue and yellow paint, you get green. This follows the subtractive color model (CMYK) used in physical media."
     },
     {
-      "id": "q3",
-      "question": "What is the capital city of Canada?",
+      "question": "Which of these colors have a wavelength longer than 600 nanometers?",
       "options": [
-        { "id": "a", "text": "Toronto" },
-        { "id": "b", "text": "Ottawa" },
-        { "id": "c", "text": "Vancouver" },
-        { "id": "d", "text": "Montreal" }
+        { "text": "Blue", "isCorrect": false },
+        { "text": "Green", "isCorrect": false },
+        { "text": "Orange", "isCorrect": true },
+        { "text": "Red", "isCorrect": true }
       ],
-      "correctOptionIds": ["b"],
-      "explanation": "Ottawa is the capital city of Canada, not Toronto which is the largest city."
+      "explanation": "Colors with longer wavelengths appear toward the red end of the spectrum. Red has the longest wavelength (around 700nm), followed by orange (around 620nm)."
     }
   ]
 }

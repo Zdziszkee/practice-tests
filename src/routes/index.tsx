@@ -1,3 +1,4 @@
+// practice-tests/src/routes/index.tsx
 import { Title } from "@solidjs/meta";
 import { createSignal, Show } from "solid-js";
 import { Quiz } from "../types/quiz";
@@ -37,37 +38,30 @@ export default function Home() {
           <h3>Expected JSON Format:</h3>
           <pre>
             {`{
-  "id": "unique-quiz-id",
   "title": "Your Quiz Title",
   "description": "Quiz description (optional)",
   "questions": [
     {
-      "id": "q1",
       "question": "What is the capital of France?",
       "options": [
-        { "id": "a", "text": "Paris" },
-        { "id": "b", "text": "London" },
-        { "id": "c", "text": "Berlin" },
-        { "id": "d", "text": "Rome" }
+        { "text": "Paris", "isCorrect": true },
+        { "text": "London", "isCorrect": false },
+        { "text": "Berlin", "isCorrect": false },
+        { "text": "Rome", "isCorrect": false }
       ],
-      "correctOptionId": "a",
       "explanation": "Paris is the capital of France."
     },
     {
-      "id": "q2",
       "question": "Which of these are primary colors? (Select all that apply)",
       "options": [
-        { "id": "a", "text": "Red" },
-        { "id": "b", "text": "Green" },
-        { "id": "c", "text": "Blue" },
-        { "id": "d", "text": "Yellow" },
-        { "id": "e", "text": "Orange" }
+        { "text": "Red", "isCorrect": true },
+        { "text": "Green", "isCorrect": false },
+        { "text": "Blue", "isCorrect": true },
+        { "text": "Yellow", "isCorrect": true },
+        { "text": "Orange", "isCorrect": false }
       ],
-      "correctOptionIds": ["a", "c", "d"],
-      "multipleAnswer": true,
       "explanation": "Red, blue, and yellow are primary colors in traditional color theory."
     }
-    // More questions...
   ]
 }`}
           </pre>

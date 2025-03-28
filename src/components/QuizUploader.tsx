@@ -1,4 +1,3 @@
-// practice-tests/src/components/QuizUploader.tsx
 import { createSignal } from "solid-js";
 import { Quiz } from "../types/quiz";
 
@@ -23,64 +22,73 @@ export default function QuizUploader(props: QuizUploaderProps) {
     reader.onload = (e) => {
       try {
         const content = e.target?.result as string;
-        const quizData = JSON.parse(content);
+        const rawData = JSON.parse(content);
 
         // Basic validation
         if (
-          !quizData.title ||
-          !quizData.questions ||
-          !Array.isArray(quizData.questions)
+          !rawData.title ||
+          !rawData.questions ||
+          !Array.isArray(rawData.questions)
         ) {
           throw new Error("Invalid quiz format. Missing title or questions.");
         }
 
-        // Validate each question and handle both legacy and new formats
-        const processedQuestions = quizData.questions.map(
-          (q: any, i: number) => {
-            if (!q.question || !q.options || !Array.isArray(q.options)) {
+        // Further validation for questions
+        rawData.questions.forEach((q: any, idx: number) => {
+          if (!q.question || !Array.isArray(q.options)) {
+            throw new Error(
+              `Invalid question at index ${idx}. Missing question text or options array.`,
+            );
+          }
+
+          // Check if all options have text and isCorrect properties
+          q.options.forEach((opt: any, optIdx: number) => {
+            if (typeof opt.text === "undefined") {
               throw new Error(
-                `Invalid question format at index ${i}. Check question and options.`,
+                `Missing 'text' for option ${optIdx} in question ${idx}.`,
               );
             }
 
-            // Handle both formats
-            if ("correctOptionId" in q && !("correctOptionIds" in q)) {
-              if (!q.correctOptionId) {
-                throw new Error(
-                  `Missing correctOptionId for question at index ${i}.`,
-                );
-              }
-              return {
-                ...q,
-                correctOptionIds: [q.correctOptionId],
-                multipleAnswer: false,
-              };
-            }
-
-            if ("correctOptionIds" in q) {
+            // Support both explicit isCorrect and legacy formats
+            if (typeof opt.isCorrect === "undefined") {
               if (
-                !Array.isArray(q.correctOptionIds) ||
-                q.correctOptionIds.length === 0
+                q.correctOptionId === opt.id ||
+                (Array.isArray(q.correctOptionIds) &&
+                  q.correctOptionIds.includes(opt.id))
               ) {
-                throw new Error(
-                  `Invalid correctOptionIds for question at index ${i}.`,
-                );
+                opt.isCorrect = true;
+              } else {
+                opt.isCorrect = false;
               }
-              return {
-                ...q,
-                multipleAnswer: q.correctOptionIds.length > 1,
-              };
             }
+          });
 
-            throw new Error(
-              `Missing correctOptionId or correctOptionIds for question at index ${i}.`,
-            );
-          },
-        );
+          // Count how many correct options there are
+          const correctCount = q.options.filter(
+            (opt: any) => opt.isCorrect,
+          ).length;
+
+          // If no correct answers, this is an error
+          if (correctCount === 0) {
+            throw new Error(`Question at index ${idx} has no correct answer.`);
+          }
+
+          // Simplify to just what we need
+          return {
+            question: q.question,
+            options: q.options.map((opt: any) => ({
+              text: opt.text,
+              isCorrect: Boolean(opt.isCorrect),
+            })),
+            explanation: q.explanation || "",
+            multipleAnswer: correctCount > 1,
+          };
+        });
 
         const quiz: Quiz = {
-          ...quizData,
-          questions: processedQuestions,
+          title: rawData.title,
+          description: rawData.description || "",
+          questions: rawData.questions,
         };
 
         props.onQuizLoaded(quiz);

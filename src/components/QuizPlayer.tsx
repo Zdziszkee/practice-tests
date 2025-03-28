@@ -1,4 +1,3 @@
-// practice-tests/src/components/QuizPlayer.tsx
 import { createSignal, createEffect, For, Show } from "solid-js";
 import { Quiz, QuizQuestion } from "../types/quiz";
 import QuizQuestionComponent from "./QuizQuestion";
@@ -11,8 +10,9 @@ interface QuizPlayerProps {
 export default function QuizPlayer(props: QuizPlayerProps) {
   const [questions, setQuestions] = createSignal<QuizQuestion[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = createSignal(0);
-  const [answers, setAnswers] = createSignal<Record<string, string[]>>({});
-  const [answeredQuestions, setAnsweredQuestions] = createSignal<Set<string>>(
+  // Track answers by question index and option indices
+  const [answers, setAnswers] = createSignal<Record<number, number[]>>({});
+  const [answeredQuestions, setAnsweredQuestions] = createSignal<Set<number>>(
     new Set(),
   );
   const [showResults, setShowResults] = createSignal(false);
@@ -26,17 +26,19 @@ export default function QuizPlayer(props: QuizPlayerProps) {
         Array.isArray(props.quiz.questions) &&
         props.quiz.questions.length > 0
       ) {
-        // Process questions to ensure multipleAnswer flag is set
+        // Process the questions to determine if they're multiple-answer
         const processedQuestions = props.quiz.questions.map((q) => {
+          // Count how many correct options there are
+          const correctCount = q.options.filter(
+            (option) => option.isCorrect,
+          ).length;
           return {
             ...q,
-            multipleAnswer:
-              Array.isArray(q.correctOptionIds) &&
-              q.correctOptionIds.length > 1,
+            multipleAnswer: correctCount > 1,
           };
         });
 
-        setQuestions(shuffleArray(processedQuestions));
+        setQuestions(shuffleArray([...processedQuestions]));
         setError(null);
       } else {
         setError("Invalid quiz format or no questions found");
@@ -59,51 +61,47 @@ export default function QuizPlayer(props: QuizPlayerProps) {
     return null;
   };
 
-  const isAnswered = (questionId: string) => {
-    return answeredQuestions().has(questionId);
+  const isAnswered = (questionIndex: number) => {
+    return answeredQuestions().has(questionIndex);
   };
 
   const handleAnswer = (
-    questionId: string,
-    optionId: string,
+    questionIndex: number,
+    optionIndex: number,
     isChecked: boolean,
   ) => {
-    const question = questions().find((q) => q.id === questionId);
+    const question = questions()[questionIndex];
     if (!question) return;
 
-    const currentAnswers = answers()[questionId] || [];
+    const currentAnswers = answers()[questionIndex] || [];
 
     if (question.multipleAnswer) {
       // For multiple choice: toggle the selection
       let updatedAnswers = [...currentAnswers];
 
-      if (isChecked && !updatedAnswers.includes(optionId)) {
-        updatedAnswers.push(optionId);
+      if (isChecked && !updatedAnswers.includes(optionIndex)) {
+        updatedAnswers.push(optionIndex);
       } else if (!isChecked) {
-        updatedAnswers = updatedAnswers.filter((id) => id !== optionId);
+        updatedAnswers = updatedAnswers.filter((idx) => idx !== optionIndex);
       }
 
-      setAnswers({ ...answers(), [questionId]: updatedAnswers });
+      setAnswers({ ...answers(), [questionIndex]: updatedAnswers });
     } else {
       // For single choice: replace existing answer
-      setAnswers({ ...answers(), [questionId]: [optionId] });
+      setAnswers({ ...answers(), [questionIndex]: [optionIndex] });
     }
   };
 
   const handleQuestionSubmit = () => {
-    const question = currentQuestion();
-    if (question) {
-      // Mark this question as answered
-      const newAnsweredQuestions = new Set(answeredQuestions());
-      newAnsweredQuestions.add(question.id);
-      setAnsweredQuestions(newAnsweredQuestions);
-    }
+    const qIndex = currentQuestionIndex();
+
+    // Mark this question as answered
+    const newAnsweredQuestions = new Set(answeredQuestions());
+    newAnsweredQuestions.add(qIndex);
+    setAnsweredQuestions(newAnsweredQuestions);
   };
 
   const nextQuestion = () => {
-    const current = currentQuestion();
-    if (!current) return;
-
     if (currentQuestionIndex() < questions().length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex() + 1);
     } else {
@@ -121,18 +119,23 @@ export default function QuizPlayer(props: QuizPlayerProps) {
     let correct = 0;
     let total = 0;
 
-    questions().forEach((q) => {
+    questions().forEach((q, qIndex) => {
       total++;
-      const userAnswers = answers()[q.id] || [];
+      const userAnswers = answers()[qIndex] || [];
+
+      // Get all correct option indices
+      const correctOptionIndices = q.options
+        .map((opt, idx) => (opt.isCorrect ? idx : -1))
+        .filter((idx) => idx !== -1);
 
       // For a question to be correct:
       // 1. All correct options must be selected
       // 2. No incorrect options can be selected
-      const allCorrectSelected = q.correctOptionIds.every((id) =>
-        userAnswers.includes(id),
+      const allCorrectSelected = correctOptionIndices.every((idx) =>
+        userAnswers.includes(idx),
       );
-      const noIncorrectSelected = userAnswers.every((id) =>
-        q.correctOptionIds.includes(id),
+      const noIncorrectSelected = userAnswers.every((idx) =>
+        correctOptionIndices.includes(idx),
       );
 
       if (allCorrectSelected && noIncorrectSelected) {
@@ -148,10 +151,10 @@ export default function QuizPlayer(props: QuizPlayerProps) {
   };
 
   const resetQuiz = () => {
-    setQuestions(shuffleArray([...props.quiz.questions] as QuizQuestion[]));
+    setQuestions(shuffleArray([...props.quiz.questions]));
     setCurrentQuestionIndex(0);
     setAnswers({});
-    setAnsweredQuestions(new Set<string>());
+    setAnsweredQuestions(new Set<number>());
     setShowResults(false);
   };
 
@@ -180,12 +183,13 @@ export default function QuizPlayer(props: QuizPlayerProps) {
 
               <h3>Review Questions</h3>
               <For each={questions()}>
-                {(question) => (
+                {(question, index) => (
                   <QuizQuestionComponent
                     question={question}
+                    questionIndex={index()}
                     onAnswer={() => {}}
                     isAnswered={true}
-                    selectedOptionIds={answers()[question.id] || []}
+                    selectedIndices={answers()[index()] || []}
                   />
                 )}
               </For>
@@ -204,13 +208,13 @@ export default function QuizPlayer(props: QuizPlayerProps) {
               </p>
             </div>
 
-            {/* Don't use accessor pattern here - just render conditionally */}
             {currentQuestion() ? (
               <QuizQuestionComponent
                 question={currentQuestion()!}
+                questionIndex={currentQuestionIndex()}
                 onAnswer={handleAnswer}
-                isAnswered={isAnswered(currentQuestion()!.id)}
-                selectedOptionIds={answers()[currentQuestion()!.id] || []}
+                isAnswered={isAnswered(currentQuestionIndex())}
+                selectedIndices={answers()[currentQuestionIndex()] || []}
                 onSubmit={handleQuestionSubmit}
               />
             ) : (
@@ -229,7 +233,7 @@ export default function QuizPlayer(props: QuizPlayerProps) {
                 <button
                   onClick={nextQuestion}
                   disabled={
-                    !currentQuestion() || !isAnswered(currentQuestion()!.id)
+                    !currentQuestion() || !isAnswered(currentQuestionIndex())
                   }
                 >
                   {currentQuestionIndex() < questions().length - 1
