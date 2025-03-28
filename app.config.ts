@@ -4,7 +4,7 @@ export default defineConfig({
   ssr: true,
   server: {
     baseURL: "",
-    preset: "static",
+    preset: "github-pages",
     prerender: {
       crawlLinks: true,
     },
