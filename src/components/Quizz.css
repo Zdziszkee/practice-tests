@@ -1,0 +1,106 @@
+/* practice-tests/src/components/Quiz.css */
+.quiz-player {
+    width: 100%;
+}
+
+.quiz-container {
+    margin-bottom: 2rem;
+}
+
+.quiz-header {
+    margin-bottom: 1.5rem;
+}
+
+.progress {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.option {
+    text-align: left;
+    background-color: var(--background-dark);
+    padding: 1rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.option:hover:not(:disabled) {
+    background-color: var(--primary);
+}
+
+.option.correct {
+    background-color: var(--success);
+}
+
+.option.incorrect {
+    background-color: var(--error);
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
+.explanation {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.explanation h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.explanation p {
+    margin: 0;
+}
+
+.quiz-results {
+    text-align: center;
+}
+
+.score {
+    margin: 2rem 0;
+}
+
+.score-value {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.score-percentage {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.restart-btn {
+    margin-top: 2rem;
+}
+
+.quiz-uploader {
+    margin-bottom: 2rem;
+}
+
+.error-message {
+    color: var(--error);
+    background-color: rgba(240, 71, 71, 0.1);
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+.loading {
+    color: var(--primary);
+    margin-top: 1rem;
+}

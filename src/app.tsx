@@ -10,10 +10,15 @@ export default function App() {
       base="/practice-tests"
       root={(props) => (
         <MetaProvider>
-          <Title>SolidStart - Basic</Title>
-          <a href="/">Index</a>
-          <a href="/about">About</a>
-          <Suspense>{props.children}</Suspense>
+          <Title>Quiz App</Title>
+          <header>
+            <div class="header-content">
+              <a href="/practice-tests">Quiz App</a>
+            </div>
+          </header>
+          <Suspense fallback={<div class="loading-screen">Loading...</div>}>
+            {props.children}
+          </Suspense>
         </MetaProvider>
       )}
     >
