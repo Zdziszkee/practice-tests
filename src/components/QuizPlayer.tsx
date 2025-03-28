@@ -1,3 +1,4 @@
+// practice-tests/src/components/QuizPlayer.tsx
 import { createSignal, createEffect, For, Show } from "solid-js";
 import { Quiz, QuizQuestion } from "../types/quiz";
 import QuizQuestionComponent from "./QuizQuestion";
@@ -11,6 +12,9 @@ export default function QuizPlayer(props: QuizPlayerProps) {
   const [questions, setQuestions] = createSignal<QuizQuestion[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = createSignal(0);
   const [answers, setAnswers] = createSignal<Record<string, string[]>>({});
+  const [answeredQuestions, setAnsweredQuestions] = createSignal<Set<string>>(
+    new Set(),
+  );
   const [showResults, setShowResults] = createSignal(false);
   const [error, setError] = createSignal<string | null>(null);
 
@@ -22,18 +26,8 @@ export default function QuizPlayer(props: QuizPlayerProps) {
         Array.isArray(props.quiz.questions) &&
         props.quiz.questions.length > 0
       ) {
-        // Handle backwards compatibility: convert single correctOptionId to array if needed
+        // Process questions to ensure multipleAnswer flag is set
         const processedQuestions = props.quiz.questions.map((q) => {
-          // @ts-ignore - handle legacy format
-          if ("correctOptionId" in q && !("correctOptionIds" in q)) {
-            return {
-              q,
-              // @ts-ignore - handling legacy format
-              correctOptionIds: [q.correctOptionId],
-              multipleAnswer: false,
-            };
-          }
-          // If question already has correctOptionIds array
           return {
             ...q,
             multipleAnswer:
@@ -42,7 +36,7 @@ export default function QuizPlayer(props: QuizPlayerProps) {
           };
         });
 
-        setQuestions(shuffleArray(processedQuestions as QuizQuestion[]));
+        setQuestions(shuffleArray(processedQuestions));
         setError(null);
       } else {
         setError("Invalid quiz format or no questions found");
@@ -66,20 +60,7 @@ export default function QuizPlayer(props: QuizPlayerProps) {
   };
 
   const isAnswered = (questionId: string) => {
-    // For multiple choice, any selection counts as answered
-    // For single choice, need to check if there's at least one answer
-    const currentAnswers = answers()[questionId] || [];
-    const currentQ = questions().find((q) => q.id === questionId);
-
-    if (!currentQ) return false;
-
-    // For single answer questions, require exactly one answer
-    if (!currentQ.multipleAnswer) {
-      return currentAnswers.length === 1;
-    }
-
-    // For multiple answer questions, any selection is fine for progression
-    return currentAnswers.length > 0;
+    return answeredQuestions().has(questionId);
   };
 
   const handleAnswer = (
@@ -106,6 +87,16 @@ export default function QuizPlayer(props: QuizPlayerProps) {
     } else {
       // For single choice: replace existing answer
       setAnswers({ ...answers(), [questionId]: [optionId] });
+    }
+  };
+
+  const handleQuestionSubmit = () => {
+    const question = currentQuestion();
+    if (question) {
+      // Mark this question as answered
+      const newAnsweredQuestions = new Set(answeredQuestions());
+      newAnsweredQuestions.add(question.id);
+      setAnsweredQuestions(newAnsweredQuestions);
     }
   };
 
@@ -160,6 +151,7 @@ export default function QuizPlayer(props: QuizPlayerProps) {
     setQuestions(shuffleArray([...props.quiz.questions] as QuizQuestion[]));
     setCurrentQuestionIndex(0);
     setAnswers({});
+    setAnsweredQuestions(new Set<string>());
     setShowResults(false);
   };
 
@@ -219,6 +211,7 @@ export default function QuizPlayer(props: QuizPlayerProps) {
                 onAnswer={handleAnswer}
                 isAnswered={isAnswered(currentQuestion()!.id)}
                 selectedOptionIds={answers()[currentQuestion()!.id] || []}
+                onSubmit={handleQuestionSubmit}
               />
             ) : (
               <div>Loading question...</div>

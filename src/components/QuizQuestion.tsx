@@ -1,4 +1,3 @@
-// practice-tests/src/components/QuizQuestion.tsx
 import { createSignal, Show, createEffect } from "solid-js";
 import { QuizQuestion as QuizQuestionType, QuizOption } from "../types/quiz";
 import { shuffleArray } from "../utils/helpers";
@@ -8,10 +7,23 @@ interface QuizQuestionProps {
   onAnswer: (questionId: string, optionId: string, isChecked: boolean) => void;
   isAnswered: boolean;
   selectedOptionIds?: string[];
+  onSubmit?: () => void;
 }
 
 export default function QuizQuestion(props: QuizQuestionProps) {
   const [options, setOptions] = createSignal<QuizOption[]>([]);
+  const [tempSelections, setTempSelections] = createSignal<string[]>(
+    props.selectedOptionIds || [],
+  );
+  const [localAnswered, setLocalAnswered] = createSignal(false);
+
+  // Reset tempSelections when question changes
+  createEffect(() => {
+    if (props.question?.id) {
+      setTempSelections(props.selectedOptionIds || []);
+      setLocalAnswered(props.isAnswered);
+    }
+  });
 
   createEffect(() => {
     if (props.question && Array.isArray(props.question.options)) {
@@ -20,9 +32,7 @@ export default function QuizQuestion(props: QuizQuestionProps) {
   });
 
   const isOptionSelected = (optionId: string) => {
-    return (
-      props.selectedOptionIds && props.selectedOptionIds.includes(optionId)
-    );
+    return tempSelections().includes(optionId);
   };
 
   const isOptionCorrect = (optionId: string) => {
@@ -30,24 +40,53 @@ export default function QuizQuestion(props: QuizQuestionProps) {
   };
 
   const getOptionClass = (optionId: string) => {
-    if (!props.isAnswered) return "";
+    if (!localAnswered() && !props.isAnswered) return "";
 
-    if (isOptionSelected(optionId)) {
-      return isOptionCorrect(optionId) ? "correct" : "incorrect";
-    } else if (props.isAnswered && isOptionCorrect(optionId)) {
-      // Show correct answers that weren't selected
-      return "missed-correct";
+    // When answered, highlight all correct options
+    if (localAnswered() || props.isAnswered) {
+      if (isOptionCorrect(optionId)) {
+        return isOptionSelected(optionId) ? "correct" : "missed-correct";
+      } else if (isOptionSelected(optionId)) {
+        return "incorrect";
+      }
     }
 
     return "";
   };
 
   const handleOptionClick = (optionId: string) => {
-    if (props.isAnswered) return;
+    if (localAnswered() || props.isAnswered) return;
 
     const isSelected = isOptionSelected(optionId);
-    props.onAnswer(props.question.id, optionId, !isSelected);
+
+    if (props.question.multipleAnswer) {
+      // Toggle selection for multiple choice
+      if (isSelected) {
+        setTempSelections(tempSelections().filter((id) => id !== optionId));
+      } else {
+        setTempSelections([...tempSelections(), optionId]);
+      }
+    } else {
+      // Single choice - replace selection
+      setTempSelections([optionId]);
+    }
   };
+
+  const handleSubmit = () => {
+    setLocalAnswered(true);
+
+    // Send all selections to parent
+    tempSelections().forEach((optionId) => {
+      props.onAnswer(props.question.id, optionId, true);
+    });
+
+    // Notify parent that question has been answered
+    if (props.onSubmit) {
+      props.onSubmit();
+    }
+  };
+
+  const hasSelections = () => tempSelections().length > 0;
 
   return (
     <div class="card quiz-question">
@@ -70,14 +109,14 @@ export default function QuizQuestion(props: QuizQuestionProps) {
                 <input
                   type="checkbox"
                   checked={isOptionSelected(option.id)}
-                  disabled={props.isAnswered}
+                  disabled={localAnswered() || props.isAnswered}
                   onChange={() => {}} // Handled by parent div click
                 />
               ) : (
                 <input
                   type="radio"
                   checked={isOptionSelected(option.id)}
-                  disabled={props.isAnswered}
+                  disabled={localAnswered() || props.isAnswered}
                   name={`question-${props.question.id}`}
                   onChange={() => {}} // Handled by parent div click
                 />
@@ -88,7 +127,24 @@ export default function QuizQuestion(props: QuizQuestionProps) {
         ))}
       </div>
 
-      <Show when={props.isAnswered && props.question.explanation}>
+      {/* Submit button only shown if not already answered */}
+      <Show when={!localAnswered() && !props.isAnswered}>
+        <div class="submit-area">
+          <button
+            class="submit-btn"
+            onClick={handleSubmit}
+            disabled={!hasSelections()}
+          >
+            Submit Answer
+          </button>
+        </div>
+      </Show>
+
+      <Show
+        when={
+          (localAnswered() || props.isAnswered) && props.question.explanation
+        }
+      >
         <div class="explanation">
           <h4>Explanation:</h4>
           <p>{props.question.explanation}</p>
