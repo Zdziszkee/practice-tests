@@ -1,4 +1,3 @@
-/* practice-tests/src/routes/index.tsx */
 import { Title } from "@solidjs/meta";
 import { createSignal, Show } from "solid-js";
 import { Quiz } from "../types/quiz";
@@ -54,6 +53,20 @@ export default function Home() {
       "correctOptionId": "a",
       "explanation": "Paris is the capital of France."
     },
+    {
+      "id": "q2",
+      "question": "Which of these are primary colors? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "Red" },
+        { "id": "b", "text": "Green" },
+        { "id": "c", "text": "Blue" },
+        { "id": "d", "text": "Yellow" },
+        { "id": "e", "text": "Orange" }
+      ],
+      "correctOptionIds": ["a", "c", "d"],
+      "multipleAnswer": true,
+      "explanation": "Red, blue, and yellow are primary colors in traditional color theory."
+    }
     // More questions...
   ]
 }`}

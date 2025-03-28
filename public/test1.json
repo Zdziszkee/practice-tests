@@ -1,0 +1,47 @@
+{
+  "id": "multiple-choice-test",
+  "title": "Multiple Choice Quiz Test",
+  "description": "A quiz with both single and multiple choice questions",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Which of these are primary colors? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "Red" },
+        { "id": "b", "text": "Green" },
+        { "id": "c", "text": "Blue" },
+        { "id": "d", "text": "Yellow" },
+        { "id": "e", "text": "Orange" }
+      ],
+      "correctOptionIds": ["a", "c", "d"],
+      "multipleAnswer": true,
+      "explanation": "The primary colors in the additive color model (light) are red, green, and blue. In the subtractive color model (pigments), they are cyan, magenta, and yellow."
+    },
+    {
+      "id": "q2",
+      "question": "Which of these programming languages are statically typed? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "JavaScript" },
+        { "id": "b", "text": "Python" },
+        { "id": "c", "text": "TypeScript" },
+        { "id": "d", "text": "Java" },
+        { "id": "e", "text": "Ruby" }
+      ],
+      "correctOptionIds": ["c", "d"],
+      "multipleAnswer": true,
+      "explanation": "TypeScript and Java are statically typed languages, meaning type checking is done at compile time."
+    },
+    {
+      "id": "q3",
+      "question": "What is the capital city of Canada?",
+      "options": [
+        { "id": "a", "text": "Toronto" },
+        { "id": "b", "text": "Ottawa" },
+        { "id": "c", "text": "Vancouver" },
+        { "id": "d", "text": "Montreal" }
+      ],
+      "correctOptionIds": ["b"],
+      "explanation": "Ottawa is the capital city of Canada, not Toronto which is the largest city."
+    }
+  ]
+}

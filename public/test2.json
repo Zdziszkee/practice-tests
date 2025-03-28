@@ -1,0 +1,53 @@
+{
+  "id": "cs-fundamentals",
+  "title": "Computer Science Fundamentals",
+  "description": "Test your knowledge of basic computer science concepts",
+  "questions": [
+    {
+      "id": "cs-q1",
+      "text": "What does CPU stand for?",
+      "options": [
+        "Central Processing Unit",
+        "Computer Personal Unit",
+        "Central Process Utility",
+        "Core Processing Unit"
+      ],
+      "correctOptionIndex": 0
+    },
+    {
+      "id": "cs-q2",
+      "text": "Which of the following is not a programming language?",
+      "options": ["Java", "Python", "SMTP", "C++"],
+      "correctOptionIndex": 2
+    },
+    {
+      "id": "cs-q3",
+      "text": "What does HTML stand for?",
+      "options": [
+        "Hyper Text Markup Language",
+        "High Tech Multi Language",
+        "Hyper Transfer Markup Language",
+        "Hyper Text Multiple Language"
+      ],
+      "correctOptionIndex": 0
+    },
+    {
+      "id": "cs-q4",
+      "text": "Which data structure operates on a Last In First Out (LIFO) principle?",
+      "options": ["Queue", "Stack", "Linked List", "Tree"],
+      "correctOptionIndex": 1
+    },
+    {
+      "id": "cs-q5",
+      "text": "Which of these is not an operating system?",
+      "options": ["Windows", "MacOS", "Oracle", "Linux"],
+      "correctOptionIndex": 2
+    },
+    {
+      "id": "cs-q6",
+      "text": "What is the time complexity of binary search?",
+      "options": ["O(n)", "O(n²)", "O(log n)", "O(n log n)"],
+      "correctOptionIndex": 2
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+// practice-tests/src/components/QuizUploader.tsx
 import { createSignal } from "solid-js";
 import { Quiz } from "../types/quiz";
 
@@ -22,26 +23,65 @@ export default function QuizUploader(props: QuizUploaderProps) {
     reader.onload = (e) => {
       try {
         const content = e.target?.result as string;
-        const quiz = JSON.parse(content) as Quiz;
+        const quizData = JSON.parse(content);
 
         // Basic validation
-        if (!quiz.title || !quiz.questions || !Array.isArray(quiz.questions)) {
+        if (
+          !quizData.title ||
+          !quizData.questions ||
+          !Array.isArray(quizData.questions)
+        ) {
           throw new Error("Invalid quiz format. Missing title or questions.");
         }
 
-        // Validate each question
-        quiz.questions.forEach((q, i) => {
-          if (
-            !q.question ||
-            !q.options ||
-            !Array.isArray(q.options) ||
-            !q.correctOptionId
-          ) {
+        // Validate each question and handle both legacy and new formats
+        const processedQuestions = quizData.questions.map(
+          (q: any, i: number) => {
+            if (!q.question || !q.options || !Array.isArray(q.options)) {
+              throw new Error(
+                `Invalid question format at index ${i}. Check question and options.`,
+              );
+            }
+
+            // Handle both formats
+            if ("correctOptionId" in q && !("correctOptionIds" in q)) {
+              if (!q.correctOptionId) {
+                throw new Error(
+                  `Missing correctOptionId for question at index ${i}.`,
+                );
+              }
+              return {
+                ...q,
+                correctOptionIds: [q.correctOptionId],
+                multipleAnswer: false,
+              };
+            }
+
+            if ("correctOptionIds" in q) {
+              if (
+                !Array.isArray(q.correctOptionIds) ||
+                q.correctOptionIds.length === 0
+              ) {
+                throw new Error(
+                  `Invalid correctOptionIds for question at index ${i}.`,
+                );
+              }
+              return {
+                ...q,
+                multipleAnswer: q.correctOptionIds.length > 1,
+              };
+            }
+
             throw new Error(
-              `Invalid question format at index ${i}. Check question, options, and correctOptionId.`,
+              `Missing correctOptionId or correctOptionIds for question at index ${i}.`,
             );
-          }
-        });
+          },
+        );
+
+        const quiz: Quiz = {
+          ...quizData,
+          questions: processedQuestions,
+        };
 
         props.onQuizLoaded(quiz);
       } catch (err) {
