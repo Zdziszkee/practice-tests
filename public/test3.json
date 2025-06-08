@@ -5,33 +5,78 @@
     {
       "question": "Jaka jest podstawowa różnica między klasą abstrakcyjną a interfejsem w Javie, jeśli chodzi o dziedziczenie/implementację?",
       "options": [
-        { "text": "Klasa może dziedziczyć po wielu klasach abstrakcyjnych, ale implementować tylko jeden interfejs.", "isCorrect": false },
-        { "text": "Klasa może dziedziczyć tylko po jednej klasie abstrakcyjnej, ale implementować wiele interfejsów.", "isCorrect": true },
-        { "text": "Zarówno klasy abstrakcyjne, jak i interfejsy pozwalają na wielokrotne dziedziczenie implementacji.", "isCorrect": false },
-        { "text": "Interfejsy mogą zawierać pola instancji, podczas gdy klasy abstrakcyjne nie.", "isCorrect": false }
+        {
+          "text": "Klasa może dziedziczyć po wielu klasach abstrakcyjnych, ale implementować tylko jeden interfejs.",
+          "isCorrect": false
+        },
+        {
+          "text": "Klasa może dziedziczyć tylko po jednej klasie abstrakcyjnej, ale implementować wiele interfejsów.",
+          "isCorrect": true
+        },
+        {
+          "text": "Zarówno klasy abstrakcyjne, jak i interfejsy pozwalają na wielokrotne dziedziczenie implementacji.",
+          "isCorrect": false
+        },
+        {
+          "text": "Interfejsy mogą zawierać pola instancji, podczas gdy klasy abstrakcyjne nie.",
+          "isCorrect": false
+        }
       ],
       "explanation": "W Javie klasa może rozszerzać (dziedziczyć) tylko jedną klasę (w tym abstrakcyjną), ale może implementować wiele interfejsów. Jest to kluczowa różnica dotycząca mechanizmu dziedziczenia."
     },
     {
       "question": "Które z poniższych stwierdzeń poprawnie opisują cechy klasy abstrakcyjnej w Javie? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "Nie można utworzyć jej instancji bezpośrednio za pomocą operatora 'new'.", "isCorrect": true },
-        { "text": "Może zawierać wyłącznie metody abstrakcyjne.", "isCorrect": false },
-        { "text": "Może zawierać zarówno metody abstrakcyjne, jak i metody z implementacją (konkretne).", "isCorrect": true },
-        { "text": "Może posiadać pola (zmienne) oraz konstruktory.", "isCorrect": true },
-        { "text": "Klasa dziedzicząca po klasie abstrakcyjnej musi zaimplementować wszystkie odziedziczone metody abstrakcyjne, chyba że sama jest abstrakcyjna.", "isCorrect": true },
-        { "text": "Służy głównie do definiowania kontraktu dla niepowiązanych klas.", "isCorrect": false }
+        {
+          "text": "Nie można utworzyć jej instancji bezpośrednio za pomocą operatora 'new'.",
+          "isCorrect": true
+        },
+        {
+          "text": "Może zawierać wyłącznie metody abstrakcyjne.",
+          "isCorrect": false
+        },
+        {
+          "text": "Może zawierać zarówno metody abstrakcyjne, jak i metody z implementacją (konkretne).",
+          "isCorrect": true
+        },
+        {
+          "text": "Może posiadać pola (zmienne) oraz konstruktory.",
+          "isCorrect": true
+        },
+        {
+          "text": "Klasa dziedzicząca po klasie abstrakcyjnej musi zaimplementować wszystkie odziedziczone metody abstrakcyjne, chyba że sama jest abstrakcyjna.",
+          "isCorrect": true
+        },
+        {
+          "text": "Służy głównie do definiowania kontraktu dla niepowiązanych klas.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Klasa abstrakcyjna nie może być instancjonowana, może zawierać metody abstrakcyjne i konkretne, pola i konstruktory. Klasy potomne muszą implementować metody abstrakcyjne (chyba że same są abstrakcyjne). Służy jako szablon dla blisko powiązanych klas."
     },
     {
       "question": "Które z poniższych cech charakteryzują interfejsy w Javie (uwzględniając zmiany od Javy 8)? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "Definiują kontrakt, który muszą spełnić klasy go implementujące.", "isCorrect": true },
-        { "text": "Przed Javą 8 mogły zawierać tylko stałe (public static final) i metody abstrakcyjne.", "isCorrect": true },
-        { "text": "Od Javy 8 mogą zawierać metody domyślne (z implementacją).", "isCorrect": true },
-        { "text": "Od Javy 8 mogą zawierać metody statyczne (z implementacją).", "isCorrect": true },
-        { "text": "Klasa może implementować tylko jeden interfejs.", "isCorrect": false },
+        {
+          "text": "Definiują kontrakt, który muszą spełnić klasy go implementujące.",
+          "isCorrect": true
+        },
+        {
+          "text": "Przed Javą 8 mogły zawierać tylko stałe (public static final) i metody abstrakcyjne.",
+          "isCorrect": true
+        },
+        {
+          "text": "Od Javy 8 mogą zawierać metody domyślne (z implementacją).",
+          "isCorrect": true
+        },
+        {
+          "text": "Od Javy 8 mogą zawierać metody statyczne (z implementacją).",
+          "isCorrect": true
+        },
+        {
+          "text": "Klasa może implementować tylko jeden interfejs.",
+          "isCorrect": false
+        },
         { "text": "Mogą posiadać konstruktory.", "isCorrect": false }
       ],
       "explanation": "Interfejsy definiują kontrakt. Przed Javą 8 zawierały tylko stałe i metody abstrakcyjne. Od Javy 8 mogą również zawierać metody domyślne i statyczne. Klasa może implementować wiele interfejsów. Interfejsy nie posiadają konstruktorów."
@@ -39,31 +84,70 @@
     {
       "question": "Co jest głównym celem użycia słowa kluczowego 'synchronized' w Javie do oznaczania metod lub bloków kodu?",
       "options": [
-        { "text": "Zapewnienie, że zmienne w metodzie są widoczne dla wszystkich wątków.", "isCorrect": false },
-        { "text": "Gwarancja, że tylko jeden wątek w danym momencie może wykonywać zsynchronizowaną metodę obiektu lub zsynchronizowany blok kodu na danym obiekcie (monitorze).", "isCorrect": true },
-        { "text": "Przyspieszenie wykonywania operacji atomowych na zmiennych.", "isCorrect": false },
-        { "text": "Umożliwienie komunikacji między wątkami za pomocą metod wait() i notify().", "isCorrect": false }
+        {
+          "text": "Zapewnienie, że zmienne w metodzie są widoczne dla wszystkich wątków.",
+          "isCorrect": false
+        },
+        {
+          "text": "Gwarancja, że tylko jeden wątek w danym momencie może wykonywać zsynchronizowaną metodę obiektu lub zsynchronizowany blok kodu na danym obiekcie (monitorze).",
+          "isCorrect": true
+        },
+        {
+          "text": "Przyspieszenie wykonywania operacji atomowych na zmiennych.",
+          "isCorrect": false
+        },
+        {
+          "text": "Umożliwienie komunikacji między wątkami za pomocą metod wait() i notify().",
+          "isCorrect": false
+        }
       ],
       "explanation": "Słowo kluczowe 'synchronized' zapewnia wzajemne wykluczanie, co oznacza, że tylko jeden wątek może w danym momencie wykonywać kod chroniony przez ten sam monitor (blokadę)."
     },
     {
       "question": "Które z poniższych cech opisują interfejs 'Lock' (np. 'ReentrantLock') w Javie w porównaniu do słowa kluczowego 'synchronized'? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "Jest mniej elastyczny niż 'synchronized'.", "isCorrect": false },
-        { "text": "Umożliwia próbę zdobycia blokady bez bezwzględnego oczekiwania (np. metoda tryLock()).", "isCorrect": true },
-        { "text": "Pozwala na przerywalne oczekiwanie na blokadę.", "isCorrect": true },
-        { "text": "Wymaga jawnego zwalniania blokady, zazwyczaj w bloku 'finally'.", "isCorrect": true },
-        { "text": "Automatycznie zwalnia blokadę po wyjściu z metody lub bloku.", "isCorrect": false }
+        {
+          "text": "Jest mniej elastyczny niż 'synchronized'.",
+          "isCorrect": false
+        },
+        {
+          "text": "Umożliwia próbę zdobycia blokady bez bezwzględnego oczekiwania (np. metoda tryLock()).",
+          "isCorrect": true
+        },
+        {
+          "text": "Pozwala na przerywalne oczekiwanie na blokadę.",
+          "isCorrect": true
+        },
+        {
+          "text": "Wymaga jawnego zwalniania blokady, zazwyczaj w bloku 'finally'.",
+          "isCorrect": true
+        },
+        {
+          "text": "Automatycznie zwalnia blokadę po wyjściu z metody lub bloku.",
+          "isCorrect": false
+        }
       ],
       "explanation": "'Lock' jest bardziej elastyczny niż 'synchronized', oferując m.in. tryLock(), przerywalne oczekiwanie oraz wymaga jawnego zwalniania blokady. 'synchronized' zwalnia blokadę automatycznie."
     },
     {
       "question": "Jaką gwarancję daje słowo kluczowe 'volatile' w Javie w odniesieniu do zmiennej?",
       "options": [
-        { "text": "Pełną ochronę przed warunkami wyścigu (race conditions) we wszystkich operacjach.", "isCorrect": false },
-        { "text": "Że operacje na tej zmiennej będą wykonywane transakcyjnie.", "isCorrect": false },
-        { "text": "Że odczyty i zapisy do zmiennej są atomowe (dla typów prostych i referencji) i zmiany wartości przez jeden wątek są natychmiast widoczne dla innych wątków.", "isCorrect": true },
-        { "text": "Że dostęp do zmiennej będzie możliwy tylko z jednego wątku naraz.", "isCorrect": false }
+        {
+          "text": "Pełną ochronę przed warunkami wyścigu (race conditions) we wszystkich operacjach.",
+          "isCorrect": false
+        },
+        {
+          "text": "Że operacje na tej zmiennej będą wykonywane transakcyjnie.",
+          "isCorrect": false
+        },
+        {
+          "text": "Że odczyty i zapisy do zmiennej są atomowe (dla typów prostych i referencji) i zmiany wartości przez jeden wątek są natychmiast widoczne dla innych wątków.",
+          "isCorrect": true
+        },
+        {
+          "text": "Że dostęp do zmiennej będzie możliwy tylko z jednego wątku naraz.",
+          "isCorrect": false
+        }
       ],
       "explanation": "'volatile' gwarantuje widoczność zmian wartości zmiennej między wątkami oraz atomowość odczytów/zapisów dla typów prostych i referencji, ale nie chroni przed race condition w złożonych operacjach (np. inkrementacja typu 'read-modify-write')."
     },
@@ -72,7 +156,10 @@
       "options": [
         { "text": "ConcurrentHashMap", "isCorrect": true },
         { "text": "Semaphore", "isCorrect": true },
-        { "text": "ArrayList (bez dodatkowej synchronizacji)", "isCorrect": false },
+        {
+          "text": "ArrayList (bez dodatkowej synchronizacji)",
+          "isCorrect": false
+        },
         { "text": "AtomicInteger", "isCorrect": true },
         { "text": "CountDownLatch", "isCorrect": true },
         { "text": "Object.wait()", "isCorrect": false }
@@ -82,62 +169,140 @@
     {
       "question": "W jakim kontekście używane są metody 'wait()', 'notify()' i 'notifyAll()' w Javie?",
       "options": [
-        { "text": "Do asynchronicznego wykonywania zadań w tle.", "isCorrect": false },
-        { "text": "Wewnątrz bloków lub metod oznaczonych słowem kluczowym 'volatile'.", "isCorrect": false },
-        { "text": "Wewnątrz bloków lub metod oznaczonych słowem kluczowym 'synchronized', do koordynacji wątków oczekujących na monitorze obiektu.", "isCorrect": true },
-        { "text": "Do bezpośredniego przesyłania danych między wątkami bez użycia współdzielonej pamięci.", "isCorrect": false }
+        {
+          "text": "Do asynchronicznego wykonywania zadań w tle.",
+          "isCorrect": false
+        },
+        {
+          "text": "Wewnątrz bloków lub metod oznaczonych słowem kluczowym 'volatile'.",
+          "isCorrect": false
+        },
+        {
+          "text": "Wewnątrz bloków lub metod oznaczonych słowem kluczowym 'synchronized', do koordynacji wątków oczekujących na monitorze obiektu.",
+          "isCorrect": true
+        },
+        {
+          "text": "Do bezpośredniego przesyłania danych między wątkami bez użycia współdzielonej pamięci.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Metody wait(), notify() i notifyAll() są metodami klasy Object i muszą być wywoływane wewnątrz zsynchronizowanego bloku lub metody na obiekcie, który pełni rolę monitora. Służą do implementacji mechanizmów warunków oczekiwania (condition variables)."
     },
     {
       "question": "Jak najlepiej opisać proces przetwarzania kodu źródłowego Java?",
       "options": [
-        { "text": "Jest wyłącznie kompilowany do kodu maszynowego specyficznego dla platformy.", "isCorrect": false },
-        { "text": "Jest wyłącznie interpretowany linia po linii przez JVM.", "isCorrect": false },
-        { "text": "Jest najpierw kompilowany do kodu bajtowego, a następnie ten kod bajtowy jest interpretowany przez JVM, która może również używać kompilacji JIT.", "isCorrect": true },
-        { "text": "Jest kompilowany bezpośrednio do kodu JavaScript w celu wykonania w przeglądarce.", "isCorrect": false }
+        {
+          "text": "Jest wyłącznie kompilowany do kodu maszynowego specyficznego dla platformy.",
+          "isCorrect": false
+        },
+        {
+          "text": "Jest wyłącznie interpretowany linia po linii przez JVM.",
+          "isCorrect": false
+        },
+        {
+          "text": "Jest najpierw kompilowany do kodu bajtowego, a następnie ten kod bajtowy jest interpretowany przez JVM, która może również używać kompilacji JIT.",
+          "isCorrect": true
+        },
+        {
+          "text": "Jest kompilowany bezpośrednio do kodu JavaScript w celu wykonania w przeglądarce.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Java jest językiem hybrydowym: kod źródłowy (.java) jest kompilowany do kodu bajtowego (.class), który jest następnie interpretowany przez JVM. JVM może dodatkowo kompilować kod bajtowy do kodu maszynowego w locie (JIT) dla optymalizacji."
     },
     {
       "question": "Czym jest JDBC (Java Database Connectivity)?",
       "options": [
-        { "text": "Specyficznym systemem zarządzania bazą danych (DBMS) napisanym w Javie.", "isCorrect": false },
-        { "text": "Językiem zapytań do baz danych, alternatywą dla SQL.", "isCorrect": false },
-        { "text": "API w Javie definiującym standardowy sposób łączenia się i interakcji aplikacji Java z bazami danych, niezależnie od konkretnego DBMS.", "isCorrect": true },
-        { "text": "Frameworkiem do mapowania obiektowo-relacyjnego (ORM) wbudowanym w standardową bibliotekę Javy.", "isCorrect": false }
+        {
+          "text": "Specyficznym systemem zarządzania bazą danych (DBMS) napisanym w Javie.",
+          "isCorrect": false
+        },
+        {
+          "text": "Językiem zapytań do baz danych, alternatywą dla SQL.",
+          "isCorrect": false
+        },
+        {
+          "text": "API w Javie definiującym standardowy sposób łączenia się i interakcji aplikacji Java z bazami danych, niezależnie od konkretnego DBMS.",
+          "isCorrect": true
+        },
+        {
+          "text": "Frameworkiem do mapowania obiektowo-relacyjnego (ORM) wbudowanym w standardową bibliotekę Javy.",
+          "isCorrect": false
+        }
       ],
       "explanation": "JDBC to API (interfejs programistyczny aplikacji), które dostarcza standardowy zestaw klas i interfejsów do komunikacji z bazami danych z poziomu Javy. Wymaga specyficznego sterownika JDBC dla danej bazy."
     },
     {
       "question": "Co to jest serializacja obiektu w Javie?",
       "options": [
-        { "text": "Proces szyfrowania danych obiektu przed zapisem do pliku.", "isCorrect": false },
-        { "text": "Proces konwersji stanu obiektu (jego danych) na strumień bajtów, który może być np. zapisany do pliku lub przesłany przez sieć.", "isCorrect": true },
-        { "text": "Proces kompilacji definicji klasy obiektu do kodu bajtowego.", "isCorrect": false },
-        { "text": "Proces tworzenia wielu kopii obiektu w pamięci.", "isCorrect": false }
+        {
+          "text": "Proces szyfrowania danych obiektu przed zapisem do pliku.",
+          "isCorrect": false
+        },
+        {
+          "text": "Proces konwersji stanu obiektu (jego danych) na strumień bajtów, który może być np. zapisany do pliku lub przesłany przez sieć.",
+          "isCorrect": true
+        },
+        {
+          "text": "Proces kompilacji definicji klasy obiektu do kodu bajtowego.",
+          "isCorrect": false
+        },
+        {
+          "text": "Proces tworzenia wielu kopii obiektu w pamięci.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Serializacja to konwersja stanu obiektu do strumienia bajtów. Deserializacja to proces odwrotny."
     },
     {
       "question": "Aby obiekt w Javie mógł być serializowany, jakie warunki muszą być głównie spełnione i jakie elementy są kluczowe w tym procesie? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "Klasa obiektu musi implementować interfejs java.io.Serializable.", "isCorrect": true },
-        { "text": "Do zapisu obiektu używa się klasy java.io.ObjectWriter.", "isCorrect": false },
-        { "text": "Do zapisu obiektu używa się klasy java.io.ObjectOutputStream.", "isCorrect": true },
-        { "text": "Pola oznaczone słowem kluczowym 'final' są automatycznie pomijane podczas serializacji.", "isCorrect": false },
-        { "text": "Pola oznaczone słowem kluczowym 'transient' są pomijane podczas serializacji.", "isCorrect": true },
-        { "text": "Zalecane jest zdefiniowanie pola 'private static final long serialVersionUID' do kontroli wersji.", "isCorrect": true }
+        {
+          "text": "Klasa obiektu musi implementować interfejs java.io.Serializable.",
+          "isCorrect": true
+        },
+        {
+          "text": "Do zapisu obiektu używa się klasy java.io.ObjectWriter.",
+          "isCorrect": false
+        },
+        {
+          "text": "Do zapisu obiektu używa się klasy java.io.ObjectOutputStream.",
+          "isCorrect": true
+        },
+        {
+          "text": "Pola oznaczone słowem kluczowym 'final' są automatycznie pomijane podczas serializacji.",
+          "isCorrect": false
+        },
+        {
+          "text": "Pola oznaczone słowem kluczowym 'transient' są pomijane podczas serializacji.",
+          "isCorrect": true
+        },
+        {
+          "text": "Zalecane jest zdefiniowanie pola 'private static final long serialVersionUID' do kontroli wersji.",
+          "isCorrect": true
+        }
       ],
       "explanation": "Klasa musi implementować java.io.Serializable. Używa się ObjectOutputStream do zapisu i ObjectInputStream do odczytu. Pola 'transient' są pomijane. 'serialVersionUID' jest ważny dla wersjonowania."
     },
     {
       "question": "Skąd głównie biorą się równania różniczkowe zwyczajne (RRZ) w fizyce?",
       "options": [
-        { "text": "Z potrzeby opisu zjawisk statystycznych w układach wielu cząstek.", "isCorrect": false },
-        { "text": "Z fundamentalnych praw opisujących zmiany wielkości fizycznych w czasie lub przestrzeni, gdy zmiana ta zależy od samej wielkości lub jej pochodnych względem jednej zmiennej niezależnej.", "isCorrect": true },
-        { "text": "Z konieczności dyskretyzacji przestrzeni i czasu w symulacjach komputerowych.", "isCorrect": false },
-        { "text": "Z analizy fourierowskiej sygnałów okresowych.", "isCorrect": false }
+        {
+          "text": "Z potrzeby opisu zjawisk statystycznych w układach wielu cząstek.",
+          "isCorrect": false
+        },
+        {
+          "text": "Z fundamentalnych praw opisujących zmiany wielkości fizycznych w czasie lub przestrzeni, gdy zmiana ta zależy od samej wielkości lub jej pochodnych względem jednej zmiennej niezależnej.",
+          "isCorrect": true
+        },
+        {
+          "text": "Z konieczności dyskretyzacji przestrzeni i czasu w symulacjach komputerowych.",
+          "isCorrect": false
+        },
+        {
+          "text": "Z analizy fourierowskiej sygnałów okresowych.",
+          "isCorrect": false
+        }
       ],
       "explanation": "RRZ w fizyce wynikają z praw opisujących dynamikę systemów, gdzie ewolucja wielkości fizycznej zależy od jej wartości i szybkości zmiany względem jednej zmiennej (np. czasu)."
     },
@@ -145,20 +310,44 @@
       "question": "Które z poniższych praw lub zjawisk fizycznych prowadzą bezpośrednio do sformułowania równań różniczkowych zwyczajnych? (Wybierz wszystkie pasujące)",
       "options": [
         { "text": "II zasada dynamiki Newtona (F=ma).", "isCorrect": true },
-        { "text": "Prawo rozpadu promieniotwórczego (dN/dt = -λN).", "isCorrect": true },
-        { "text": "Prawa Kirchhoffa dla obwodów RLC (opisujące prąd jako funkcję czasu).", "isCorrect": true },
-        { "text": "Równanie falowe opisujące propagację światła w przestrzeni trójwymiarowej.", "isCorrect": false },
-        { "text": "Zasada zachowania energii w układzie izolowanym.", "isCorrect": false }
+        {
+          "text": "Prawo rozpadu promieniotwórczego (dN/dt = -λN).",
+          "isCorrect": true
+        },
+        {
+          "text": "Prawa Kirchhoffa dla obwodów RLC (opisujące prąd jako funkcję czasu).",
+          "isCorrect": true
+        },
+        {
+          "text": "Równanie falowe opisujące propagację światła w przestrzeni trójwymiarowej.",
+          "isCorrect": false
+        },
+        {
+          "text": "Zasada zachowania energii w układzie izolowanym.",
+          "isCorrect": false
+        }
       ],
       "explanation": "II zasada Newtona (a=d²x/dt²), prawo rozpadu promieniotwórczego oraz prawa Kirchhoffa dla obwodów RLC prowadzą do RRZ. Równanie falowe jest RRC. Zasada zachowania energii jest zasadą, a nie bezpośrednio równaniem różniczkowym opisującym ewolucję."
     },
     {
       "question": "Co jest charakterystyczną cechą równań różniczkowych cząstkowych (RRC) odróżniającą je od równań różniczkowych zwyczajnych (RRZ)?",
       "options": [
-        { "text": "RRC są zawsze liniowe, podczas gdy RRZ mogą być nieliniowe.", "isCorrect": false },
-        { "text": "RRC opisują zjawiska, w których wielkości fizyczne zależą od wielu zmiennych niezależnych (np. czasu i współrzędnych przestrzennych).", "isCorrect": true },
-        { "text": "RRC mają zawsze rozwiązania analityczne, w przeciwieństwie do RRZ, które często wymagają metod numerycznych.", "isCorrect": false },
-        { "text": "RRC dotyczą wyłącznie zjawisk kwantowych.", "isCorrect": false }
+        {
+          "text": "RRC są zawsze liniowe, podczas gdy RRZ mogą być nieliniowe.",
+          "isCorrect": false
+        },
+        {
+          "text": "RRC opisują zjawiska, w których wielkości fizyczne zależą od wielu zmiennych niezależnych (np. czasu i współrzędnych przestrzennych).",
+          "isCorrect": true
+        },
+        {
+          "text": "RRC mają zawsze rozwiązania analityczne, w przeciwieństwie do RRZ, które często wymagają metod numerycznych.",
+          "isCorrect": false
+        },
+        {
+          "text": "RRC dotyczą wyłącznie zjawisk kwantowych.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Kluczową cechą RRC jest zależność opisywanych wielkości od wielu zmiennych niezależnych, podczas gdy RRZ opisują zależności od jednej zmiennej niezależnej."
     },
@@ -166,9 +355,15 @@
       "question": "Które z poniższych równań są przykładami równań różniczkowych cząstkowych stosowanych w fizyce? (Wybierz wszystkie pasujące)",
       "options": [
         { "text": "Równanie falowe (∂²u/∂t²) = c²∇²u", "isCorrect": true },
-        { "text": "Równanie przewodnictwa cieplnego (dyfuzji) ∂u/∂t = α∇²u", "isCorrect": true },
+        {
+          "text": "Równanie przewodnictwa cieplnego (dyfuzji) ∂u/∂t = α∇²u",
+          "isCorrect": true
+        },
         { "text": "Równanie Schrödingera iħ(∂ψ/∂t) = Hψ", "isCorrect": true },
-        { "text": "Równanie logistyczne opisujące wzrost populacji dP/dt = rP(1-P/K)", "isCorrect": false },
+        {
+          "text": "Równanie logistyczne opisujące wzrost populacji dP/dt = rP(1-P/K)",
+          "isCorrect": false
+        },
         { "text": "Równania Maxwella", "isCorrect": true }
       ],
       "explanation": "Równanie falowe, równanie przewodnictwa cieplnego, równanie Schrödingera oraz równania Maxwella są przykładami RRC. Równanie logistyczne jest RRZ."
@@ -187,84 +382,189 @@
       "question": "Które z poniższych są fundamentalnymi zasadami zachowania wielkości fizycznych w układzie izolowanym? (Wybierz wszystkie pasujące)",
       "options": [
         { "text": "Zasada zachowania energii.", "isCorrect": true },
-        { "text": "Zasada zachowania pędu (jeśli nie działają siły zewnętrzne).", "isCorrect": true },
+        {
+          "text": "Zasada zachowania pędu (jeśli nie działają siły zewnętrzne).",
+          "isCorrect": true
+        },
         { "text": "Zasada zachowania temperatury.", "isCorrect": false },
-        { "text": "Zasada zachowania momentu pędu (jeśli nie działają zewnętrzne momenty sił).", "isCorrect": true },
-        { "text": "Zasada zachowania ładunku elektrycznego.", "isCorrect": true }
+        {
+          "text": "Zasada zachowania momentu pędu (jeśli nie działają zewnętrzne momenty sił).",
+          "isCorrect": true
+        },
+        {
+          "text": "Zasada zachowania ładunku elektrycznego.",
+          "isCorrect": true
+        }
       ],
       "explanation": "Zasady zachowania energii, pędu, momentu pędu i ładunku elektrycznego są fundamentalne. Temperatura nie jest wielkością zachowywaną w ogólnym sensie (może się zmieniać np. przy przemianach fazowych, nawet w układzie izolowanym)."
     },
     {
       "question": "Jaki jest główny cel normalizacji baz danych?",
       "options": [
-        { "text": "Maksymalizacja prędkości wykonywania zapytań odczytujących dane.", "isCorrect": false },
-        { "text": "Zminimalizowanie redundancji danych i eliminacja anomalii związanych z modyfikacją danych.", "isCorrect": true },
-        { "text": "Uproszczenie struktury bazy danych poprzez łączenie wszystkich danych w jak najmniejszej liczbie tabel.", "isCorrect": false },
-        { "text": "Zwiększenie ilości danych przechowywanych w bazie w celu poprawy dokładności analiz.", "isCorrect": false }
+        {
+          "text": "Maksymalizacja prędkości wykonywania zapytań odczytujących dane.",
+          "isCorrect": false
+        },
+        {
+          "text": "Zminimalizowanie redundancji danych i eliminacja anomalii związanych z modyfikacją danych.",
+          "isCorrect": true
+        },
+        {
+          "text": "Uproszczenie struktury bazy danych poprzez łączenie wszystkich danych w jak najmniejszej liczbie tabel.",
+          "isCorrect": false
+        },
+        {
+          "text": "Zwiększenie ilości danych przechowywanych w bazie w celu poprawy dokładności analiz.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Głównym celem normalizacji jest redukcja redundancji danych, co prowadzi do eliminacji anomalii wstawiania, usuwania i aktualizacji, a także do zwiększenia spójności i integralności danych."
     },
     {
       "question": "Jak normalizacja baz danych wpływa na ich wydajność? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "Zawsze prowadzi do spadku wydajności operacji odczytu z powodu konieczności złączeń (JOIN).", "isCorrect": false },
-        { "text": "Może przyspieszyć operacje zapisu (INSERT, UPDATE, DELETE) dzięki zmniejszeniu redundancji.", "isCorrect": true },
-        { "text": "Wysoki stopień normalizacji może spowolnić złożone zapytania odczytujące dane z wielu tabel.", "isCorrect": true },
-        { "text": "Zmniejszenie redundancji może prowadzić do mniejszego rozmiaru bazy danych, co pozytywnie wpływa na operacje I/O.", "isCorrect": true },
-        { "text": "Denormalizacja jest zawsze złym pomysłem z punktu widzenia wydajności.", "isCorrect": false }
+        {
+          "text": "Zawsze prowadzi do spadku wydajności operacji odczytu z powodu konieczności złączeń (JOIN).",
+          "isCorrect": false
+        },
+        {
+          "text": "Może przyspieszyć operacje zapisu (INSERT, UPDATE, DELETE) dzięki zmniejszeniu redundancji.",
+          "isCorrect": true
+        },
+        {
+          "text": "Wysoki stopień normalizacji może spowolnić złożone zapytania odczytujące dane z wielu tabel.",
+          "isCorrect": true
+        },
+        {
+          "text": "Zmniejszenie redundancji może prowadzić do mniejszego rozmiaru bazy danych, co pozytywnie wpływa na operacje I/O.",
+          "isCorrect": true
+        },
+        {
+          "text": "Denormalizacja jest zawsze złym pomysłem z punktu widzenia wydajności.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Normalizacja generalnie przyspiesza operacje zapisu i zmniejsza rozmiar bazy. Może jednak spowolnić odczyty wymagające wielu złączeń. Celowa denormalizacja jest czasami stosowana dla optymalizacji odczytów, np. w hurtowniach danych."
     },
     {
       "question": "Czym jest klucz główny (Primary Key) w tabeli bazy danych?",
       "options": [
-        { "text": "Kolumną przechowującą najważniejsze dane biznesowe.", "isCorrect": false },
-        { "text": "Jedną lub więcej kolumn, których wartości jednoznacznie identyfikują każdy wiersz w tabeli, muszą być unikalne i nie mogą być NULL.", "isCorrect": true },
-        { "text": "Kolumną, która jest automatycznie indeksowana w celu sortowania wyników zapytań.", "isCorrect": false },
-        { "text": "Zawsze pojedynczą kolumną typu numerycznego, generowaną automatycznie przez system.", "isCorrect": false }
+        {
+          "text": "Kolumną przechowującą najważniejsze dane biznesowe.",
+          "isCorrect": false
+        },
+        {
+          "text": "Jedną lub więcej kolumn, których wartości jednoznacznie identyfikują każdy wiersz w tabeli, muszą być unikalne i nie mogą być NULL.",
+          "isCorrect": true
+        },
+        {
+          "text": "Kolumną, która jest automatycznie indeksowana w celu sortowania wyników zapytań.",
+          "isCorrect": false
+        },
+        {
+          "text": "Zawsze pojedynczą kolumną typu numerycznego, generowaną automatycznie przez system.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Klucz główny jednoznacznie identyfikuje każdy rekord, jego wartości muszą być unikalne i nie-NULL. Na PK automatycznie tworzony jest indeks."
     },
     {
       "question": "Jaka jest rola klucza obcego (Foreign Key) w relacyjnych bazach danych? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "Jednoznaczne identyfikowanie każdego wiersza w tabeli, w której jest zdefiniowany.", "isCorrect": false },
-        { "text": "Tworzenie i egzekwowanie powiązań (relacji) między tabelami.", "isCorrect": true },
-        { "text": "Zapewnienie integralności referencyjnej (np. nie można dodać zamówienia dla nieistniejącego klienta).", "isCorrect": true },
-        { "text": "Odnoszenie się do klucza głównego (lub unikalnego) w innej tabeli lub tej samej tabeli.", "isCorrect": true },
-        { "text": "Automatyczne szyfrowanie danych w kolumnie, na której jest zdefiniowany.", "isCorrect": false }
+        {
+          "text": "Jednoznaczne identyfikowanie każdego wiersza w tabeli, w której jest zdefiniowany.",
+          "isCorrect": false
+        },
+        {
+          "text": "Tworzenie i egzekwowanie powiązań (relacji) między tabelami.",
+          "isCorrect": true
+        },
+        {
+          "text": "Zapewnienie integralności referencyjnej (np. nie można dodać zamówienia dla nieistniejącego klienta).",
+          "isCorrect": true
+        },
+        {
+          "text": "Odnoszenie się do klucza głównego (lub unikalnego) w innej tabeli lub tej samej tabeli.",
+          "isCorrect": true
+        },
+        {
+          "text": "Automatyczne szyfrowanie danych w kolumnie, na której jest zdefiniowany.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Klucze obce służą do tworzenia relacji między tabelami i zapewnienia integralności referencyjnej, poprzez odniesienie do klucza głównego/unikalnego w tabeli nadrzędnej."
     },
     {
       "question": "Co to jest wyzwalacz (Trigger) w bazie danych?",
       "options": [
-        { "text": "Mechanizm ręcznego uruchamiania kopii zapasowej bazy danych.", "isCorrect": false },
-        { "text": "Specjalny rodzaj indeksu przyspieszający wyszukiwanie danych.", "isCorrect": false },
-        { "text": "Procedura składowana automatycznie wykonywana przez DBMS w odpowiedzi na określone zdarzenia DML (INSERT, UPDATE, DELETE) na tabeli.", "isCorrect": true },
-        { "text": "Zapytanie SQL, które jest cyklicznie wykonywane przez serwer bazy danych w określonych odstępach czasu.", "isCorrect": false }
+        {
+          "text": "Mechanizm ręcznego uruchamiania kopii zapasowej bazy danych.",
+          "isCorrect": false
+        },
+        {
+          "text": "Specjalny rodzaj indeksu przyspieszający wyszukiwanie danych.",
+          "isCorrect": false
+        },
+        {
+          "text": "Procedura składowana automatycznie wykonywana przez DBMS w odpowiedzi na określone zdarzenia DML (INSERT, UPDATE, DELETE) na tabeli.",
+          "isCorrect": true
+        },
+        {
+          "text": "Zapytanie SQL, które jest cyklicznie wykonywane przez serwer bazy danych w określonych odstępach czasu.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Wyzwalacz to procedura automatycznie uruchamiana w odpowiedzi na modyfikacje danych (operacje DML) w tabeli. Może służyć np. do logowania zmian czy wymuszania reguł biznesowych."
     },
     {
       "question": "Co oznacza atomowość (Atomicity) jako jedna z zasad ACID dla transakcji bazodanowych?",
       "options": [
-        { "text": "Że każda operacja w transakcji jest wykonywana na najmniejszych możliwych jednostkach danych.", "isCorrect": false },
-        { "text": "Że transakcja jest niepodzielna: albo wszystkie jej operacje są wykonane pomyślnie i zatwierdzone, albo żadna z nich nie jest trwale zapisana.", "isCorrect": true },
-        { "text": "Że efekty zatwierdzonej transakcji są widoczne natychmiast dla wszystkich innych transakcji.", "isCorrect": false },
-        { "text": "Że transakcja przeprowadza bazę danych z jednego spójnego stanu w inny spójny stan.", "isCorrect": false }
+        {
+          "text": "Że każda operacja w transakcji jest wykonywana na najmniejszych możliwych jednostkach danych.",
+          "isCorrect": false
+        },
+        {
+          "text": "Że transakcja jest niepodzielna: albo wszystkie jej operacje są wykonane pomyślnie i zatwierdzone, albo żadna z nich nie jest trwale zapisana.",
+          "isCorrect": true
+        },
+        {
+          "text": "Że efekty zatwierdzonej transakcji są widoczne natychmiast dla wszystkich innych transakcji.",
+          "isCorrect": false
+        },
+        {
+          "text": "Że transakcja przeprowadza bazę danych z jednego spójnego stanu w inny spójny stan.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Atomowość (A z ACID) gwarantuje, że transakcja jest traktowana jako pojedyncza, niepodzielna jednostka pracy – albo całość się powiedzie (COMMIT), albo całość jest wycofywana (ROLLBACK)."
     },
     {
       "question": "Które z poniższych właściwości opisują zasady ACID dla transakcji bazodanowych? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "Atomowość (Atomicity): Transakcja jest niepodzielna.", "isCorrect": true },
-        { "text": "Spójność (Consistency): Transakcja zachowuje integralność bazy danych.", "isCorrect": true },
-        { "text": "Integralność (Integrity): Odnosi się głównie do kluczy obcych i ograniczeń (jest częścią Spójności).", "isCorrect": false },
-        { "text": "Izolacja (Isolation): Współbieżne transakcje nie zakłócają się nawzajem.", "isCorrect": true },
-        { "text": "Trwałość (Durability): Efekty zatwierdzonej transakcji są trwałe.", "isCorrect": true },
-        { "text": "Dynamiczność (Dynamicity): Możliwość zmiany struktury transakcji w trakcie jej wykonywania.", "isCorrect": false }
+        {
+          "text": "Atomowość (Atomicity): Transakcja jest niepodzielna.",
+          "isCorrect": true
+        },
+        {
+          "text": "Spójność (Consistency): Transakcja zachowuje integralność bazy danych.",
+          "isCorrect": true
+        },
+        {
+          "text": "Integralność (Integrity): Odnosi się głównie do kluczy obcych i ograniczeń (jest częścią Spójności).",
+          "isCorrect": false
+        },
+        {
+          "text": "Izolacja (Isolation): Współbieżne transakcje nie zakłócają się nawzajem.",
+          "isCorrect": true
+        },
+        {
+          "text": "Trwałość (Durability): Efekty zatwierdzonej transakcji są trwałe.",
+          "isCorrect": true
+        },
+        {
+          "text": "Dynamiczność (Dynamicity): Możliwość zmiany struktury transakcji w trakcie jej wykonywania.",
+          "isCorrect": false
+        }
       ],
       "explanation": "ACID to Atomowość, Spójność, Izolacja i Trwałość. Integralność jest aspektem Spójności. Dynamiczność nie jest częścią ACID."
     },
@@ -273,7 +573,10 @@
       "options": [
         { "text": "Programowanie obiektowe", "isCorrect": false },
         { "text": "Programowanie funkcyjne", "isCorrect": false },
-        { "text": "Programowanie proceduralne (jako podtyp imperatywnego)", "isCorrect": true },
+        {
+          "text": "Programowanie proceduralne (jako podtyp imperatywnego)",
+          "isCorrect": true
+        },
         { "text": "Programowanie logiczne", "isCorrect": false }
       ],
       "explanation": "Programowanie imperatywne, a w szczególności jego podtyp - programowanie proceduralne, koncentruje się na sekwencji instrukcji i podziale na procedury/funkcje."
@@ -294,30 +597,60 @@
       "question": "Która z poniższych praktyk inżynierii oprogramowania polega na częstym integrowaniu zmian kodu od wielu deweloperów do wspólnego repozytorium, gdzie każda integracja jest weryfikowana przez automatyczną budowę i testy?",
       "options": [
         { "text": "Przeglądy kodu (Code Reviews)", "isCorrect": false },
-        { "text": "Ciągła integracja (Continuous Integration - CI)", "isCorrect": true },
+        {
+          "text": "Ciągła integracja (Continuous Integration - CI)",
+          "isCorrect": true
+        },
         { "text": "Refaktoryzacja (Refactoring)", "isCorrect": false },
-        { "text": "Kontrola wersji (Version Control System)", "isCorrect": false }
+        {
+          "text": "Kontrola wersji (Version Control System)",
+          "isCorrect": false
+        }
       ],
       "explanation": "Ciągła Integracja (CI) to praktyka częstego łączenia zmian kodu i automatycznej weryfikacji poprzez budowę i testy, co pozwala na wczesne wykrywanie problemów."
     },
     {
       "question": "Wymień korzyści płynące z przeprowadzania przeglądów kodu (Code Reviews). (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "Poprawa jakości kodu i wykrywanie błędów.", "isCorrect": true },
-        { "text": "Ułatwienie dzielenia się wiedzą w zespole.", "isCorrect": true },
+        {
+          "text": "Poprawa jakości kodu i wykrywanie błędów.",
+          "isCorrect": true
+        },
+        {
+          "text": "Ułatwienie dzielenia się wiedzą w zespole.",
+          "isCorrect": true
+        },
         { "text": "Promowanie spójności stylu kodowania.", "isCorrect": true },
-        { "text": "Zastąpienie potrzeby automatyzacji testów.", "isCorrect": false },
-        { "text": "Pomoc we wdrażaniu nowych członków zespołu.", "isCorrect": true }
+        {
+          "text": "Zastąpienie potrzeby automatyzacji testów.",
+          "isCorrect": false
+        },
+        {
+          "text": "Pomoc we wdrażaniu nowych członków zespołu.",
+          "isCorrect": true
+        }
       ],
       "explanation": "Przeglądy kodu poprawiają jakość, ułatwiają transfer wiedzy, promują spójność i pomagają nowym członkom zespołu. Nie zastępują jednak automatyzacji testów."
     },
     {
       "question": "Co to jest wymaganie w kontekście inżynierii oprogramowania?",
       "options": [
-        { "text": "Szczegółowy opis algorytmu użytego do implementacji funkcji.", "isCorrect": false },
-        { "text": "Opis usługi, którą system ma świadczyć, ograniczenia, pod którym ma działać, lub właściwości, którą ma posiadać.", "isCorrect": true },
-        { "text": "Lista błędów znalezionych podczas testowania systemu.", "isCorrect": false },
-        { "text": "Diagram UML przedstawiający architekturę systemu.", "isCorrect": false }
+        {
+          "text": "Szczegółowy opis algorytmu użytego do implementacji funkcji.",
+          "isCorrect": false
+        },
+        {
+          "text": "Opis usługi, którą system ma świadczyć, ograniczenia, pod którym ma działać, lub właściwości, którą ma posiadać.",
+          "isCorrect": true
+        },
+        {
+          "text": "Lista błędów znalezionych podczas testowania systemu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Diagram UML przedstawiający architekturę systemu.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Wymaganie definiuje 'co' system ma robić lub jakie ma mieć właściwości, a nie 'jak' ma to być zaimplementowane. Może dotyczyć funkcjonalności, jakości lub ograniczeń."
     },
@@ -327,29 +660,62 @@
         { "text": "Poprawna i jednoznaczna", "isCorrect": true },
         { "text": "Kompletna i spójna", "isCorrect": true },
         { "text": "Weryfikowalna (Testowalna)", "isCorrect": true },
-        { "text": "Napisana wyłącznie w formalnym języku matematycznym", "isCorrect": false },
-        { "text": "Modyfikowalna i identyfikowalna (Traceable)", "isCorrect": true },
-        { "text": "Zawsze jak najkrótsza, nawet kosztem szczegółowości", "isCorrect": false }
+        {
+          "text": "Napisana wyłącznie w formalnym języku matematycznym",
+          "isCorrect": false
+        },
+        {
+          "text": "Modyfikowalna i identyfikowalna (Traceable)",
+          "isCorrect": true
+        },
+        {
+          "text": "Zawsze jak najkrótsza, nawet kosztem szczegółowości",
+          "isCorrect": false
+        }
       ],
       "explanation": "Dobra SRS powinna być poprawna, jednoznaczna, kompletna, spójna, weryfikowalna, modyfikowalna, identyfikowalna i zrozumiała. Nie musi być napisana w języku formalnym, a zwięzłość nie powinna iść kosztem kompletności."
     },
     {
       "question": "Na czym polega refaktoryzacja kodu?",
       "options": [
-        { "text": "Na dodawaniu nowych funkcjonalności do istniejącego kodu.", "isCorrect": false },
-        { "text": "Na przepisywaniu kodu w innym języku programowania.", "isCorrect": false },
-        { "text": "Na zmianie wewnętrznej struktury kodu bez zmiany jego zewnętrznego zachowania (funkcjonalności), w celu poprawy jego jakości.", "isCorrect": true },
-        { "text": "Na usuwaniu nieużywanych fragmentów kodu (dead code).", "isCorrect": false }
+        {
+          "text": "Na dodawaniu nowych funkcjonalności do istniejącego kodu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Na przepisywaniu kodu w innym języku programowania.",
+          "isCorrect": false
+        },
+        {
+          "text": "Na zmianie wewnętrznej struktury kodu bez zmiany jego zewnętrznego zachowania (funkcjonalności), w celu poprawy jego jakości.",
+          "isCorrect": true
+        },
+        {
+          "text": "Na usuwaniu nieużywanych fragmentów kodu (dead code).",
+          "isCorrect": false
+        }
       ],
       "explanation": "Refaktoryzacja to restrukturyzacja kodu w celu poprawy jego czytelności, utrzymywalności i projektu, bez zmiany jego funkcjonalności. Usuwanie martwego kodu może być jednym z typów refaktoryzacji, ale nie jest to pełna definicja."
     },
     {
       "question": "Jaki jest przykład \"brzydkiego zapachu\" (code smell) w kodzie, który może sugerować potrzebę refaktoryzacji, oraz jaka technika refaktoryzacji mogłaby go poprawić?",
       "options": [
-        { "text": "Code smell: Krótka, zwięzła funkcja. Technika: Połączenie z inną funkcją (Inline Method).", "isCorrect": false },
-        { "text": "Code smell: Długa metoda (Long Method). Technika: Wydzielenie metody (Extract Method).", "isCorrect": true },
-        { "text": "Code smell: Użycie komentarzy do wyjaśnienia skomplikowanego kodu. Technika: Usunięcie wszystkich komentarzy.", "isCorrect": false },
-        { "text": "Code smell: Brak duplikacji kodu (DRY). Technika: Wprowadzenie duplikacji dla przejrzystości.", "isCorrect": false }
+        {
+          "text": "Code smell: Krótka, zwięzła funkcja. Technika: Połączenie z inną funkcją (Inline Method).",
+          "isCorrect": false
+        },
+        {
+          "text": "Code smell: Długa metoda (Long Method). Technika: Wydzielenie metody (Extract Method).",
+          "isCorrect": true
+        },
+        {
+          "text": "Code smell: Użycie komentarzy do wyjaśnienia skomplikowanego kodu. Technika: Usunięcie wszystkich komentarzy.",
+          "isCorrect": false
+        },
+        {
+          "text": "Code smell: Brak duplikacji kodu (DRY). Technika: Wprowadzenie duplikacji dla przejrzystości.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Długa metoda jest częstym 'code smell'. Techniką refaktoryzacji jest jej podział na mniejsze, bardziej zrozumiałe metody (Extract Method). Komentarze są czasem potrzebne, a zasada DRY jest pożądana."
     },
@@ -357,10 +723,22 @@
       "question": "W jakim celu mierzymy oprogramowanie i jego proces tworzenia? (Wybierz wszystkie pasujące)",
       "options": [
         { "text": "Do oceny jakości produktu i procesu.", "isCorrect": true },
-        { "text": "Do zarządzania projektem (np. śledzenie postępów, estymacja).", "isCorrect": true },
-        { "text": "Wyłącznie w celach akademickich, bez praktycznego zastosowania.", "isCorrect": false },
-        { "text": "Do podejmowania świadomych decyzji dotyczących rozwoju i utrzymania.", "isCorrect": true },
-        { "text": "Do porównywania różnych projektów, narzędzi lub technik.", "isCorrect": true }
+        {
+          "text": "Do zarządzania projektem (np. śledzenie postępów, estymacja).",
+          "isCorrect": true
+        },
+        {
+          "text": "Wyłącznie w celach akademickich, bez praktycznego zastosowania.",
+          "isCorrect": false
+        },
+        {
+          "text": "Do podejmowania świadomych decyzji dotyczących rozwoju i utrzymania.",
+          "isCorrect": true
+        },
+        {
+          "text": "Do porównywania różnych projektów, narzędzi lub technik.",
+          "isCorrect": true
+        }
       ],
       "explanation": "Mierzenie oprogramowania służy ocenie jakości, zarządzaniu projektem, podejmowaniu decyzji, poprawie procesów i porównywaniu. Ma to duże znaczenie praktyczne."
     },
@@ -377,20 +755,44 @@
     {
       "question": "W programowaniu obiektowym w Pythonie, jak konwencjonalnie sugeruje się, że atrybut lub metoda jest 'wewnętrzna' (przeznaczona do użytku wewnątrz klasy lub podklas, podobnie do 'protected' w innych językach)?",
       "options": [
-        { "text": "Poprzez użycie słowa kluczowego 'private' przed nazwą.", "isCorrect": false },
-        { "text": "Poprzez użycie podwójnego podkreślenia na początku nazwy (np. '__member').", "isCorrect": false },
-        { "text": "Poprzez użycie pojedynczego podkreślenia na początku nazwy (np. '_member').", "isCorrect": true },
-        { "text": "Poprzez umieszczenie jej w specjalnej sekcji 'protected:' w definicji klasy.", "isCorrect": false }
+        {
+          "text": "Poprzez użycie słowa kluczowego 'private' przed nazwą.",
+          "isCorrect": false
+        },
+        {
+          "text": "Poprzez użycie podwójnego podkreślenia na początku nazwy (np. '__member').",
+          "isCorrect": false
+        },
+        {
+          "text": "Poprzez użycie pojedynczego podkreślenia na początku nazwy (np. '_member').",
+          "isCorrect": true
+        },
+        {
+          "text": "Poprzez umieszczenie jej w specjalnej sekcji 'protected:' w definicji klasy.",
+          "isCorrect": false
+        }
       ],
       "explanation": "W Pythonie pojedyncze podkreślenie na początku nazwy atrybutu/metody (_member) jest konwencją sygnalizującą, że jest to element wewnętrzny, nieprzeznaczony do publicznego API. Podwójne podkreślenie aktywuje 'name mangling'."
     },
     {
       "question": "Jak w Pythonie podnosi się (zgłasza) wyjątek?",
       "options": [
-        { "text": "Używając słowa kluczowego 'throw' jak w Javie lub C++.", "isCorrect": false },
-        { "text": "Używając słowa kluczowego 'raise' a następnie nazwy wyjątku lub instancji wyjątku.", "isCorrect": true },
-        { "text": "Poprzez wywołanie funkcji 'exception.fire()'.", "isCorrect": false },
-        { "text": "Automatycznie, gdy funkcja zwróci wartość None.", "isCorrect": false }
+        {
+          "text": "Używając słowa kluczowego 'throw' jak w Javie lub C++.",
+          "isCorrect": false
+        },
+        {
+          "text": "Używając słowa kluczowego 'raise' a następnie nazwy wyjątku lub instancji wyjątku.",
+          "isCorrect": true
+        },
+        {
+          "text": "Poprzez wywołanie funkcji 'exception.fire()'.",
+          "isCorrect": false
+        },
+        {
+          "text": "Automatycznie, gdy funkcja zwróci wartość None.",
+          "isCorrect": false
+        }
       ],
       "explanation": "W Pythonie do zgłaszania wyjątków służy słowo kluczowe 'raise', np. 'raise ValueError(\"Niepoprawna wartość\")'."
     },
@@ -419,41 +821,92 @@
     {
       "question": "Co oznacza, że obiekt w Pythonie jest hashowalny (hashable)?",
       "options": [
-        { "text": "Że może być użyty jako wartość w słowniku.", "isCorrect": false },
-        { "text": "Że jego wartość hash nie zmienia się przez cały czas jego życia i może być porównywany z innymi obiektami, co pozwala używać go jako klucza w słowniku lub elementu zbioru.", "isCorrect": true },
-        { "text": "Że jest automatycznie szyfrowany przy zapisie do pliku.", "isCorrect": false },
-        { "text": "Że należy do typów zmiennych (mutable).", "isCorrect": false }
+        {
+          "text": "Że może być użyty jako wartość w słowniku.",
+          "isCorrect": false
+        },
+        {
+          "text": "Że jego wartość hash nie zmienia się przez cały czas jego życia i może być porównywany z innymi obiektami, co pozwala używać go jako klucza w słowniku lub elementu zbioru.",
+          "isCorrect": true
+        },
+        {
+          "text": "Że jest automatycznie szyfrowany przy zapisie do pliku.",
+          "isCorrect": false
+        },
+        {
+          "text": "Że należy do typów zmiennych (mutable).",
+          "isCorrect": false
+        }
       ],
       "explanation": "Hashowalny obiekt ma stałą wartość hash i może być porównywany. Jest to warunek konieczny, aby obiekt mógł być kluczem w słowniku lub elementem zbioru. Typy niezmienne są zazwyczaj hashowalne."
     },
     {
       "question": "Jaka jest główna rola konstruktora w klasie C++?",
       "options": [
-        { "text": "Zwolnienie zasobów zaalokowanych przez obiekt.", "isCorrect": false },
-        { "text": "Inicjalizacja obiektu, nadanie wartości początkowych jego polom i alokacja zasobów.", "isCorrect": true },
-        { "text": "Skopiowanie jednego obiektu do drugiego.", "isCorrect": false },
-        { "text": "Zdefiniowanie interfejsu publicznego klasy.", "isCorrect": false }
+        {
+          "text": "Zwolnienie zasobów zaalokowanych przez obiekt.",
+          "isCorrect": false
+        },
+        {
+          "text": "Inicjalizacja obiektu, nadanie wartości początkowych jego polom i alokacja zasobów.",
+          "isCorrect": true
+        },
+        {
+          "text": "Skopiowanie jednego obiektu do drugiego.",
+          "isCorrect": false
+        },
+        {
+          "text": "Zdefiniowanie interfejsu publicznego klasy.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Konstruktor jest specjalną metodą wywoływaną podczas tworzenia obiektu, odpowiedzialną za jego inicjalizację."
     },
     {
       "question": "Kiedy automatycznie wywoływany jest destruktor obiektu w C++? (Wybierz wszystkie pasujące, typowe sytuacje)",
       "options": [
-        { "text": "Gdy obiekt jest tworzony za pomocą operatora 'new'.", "isCorrect": false },
-        { "text": "Gdy obiekt lokalny (na stosie) wychodzi poza swój zakres (np. koniec funkcji, bloku).", "isCorrect": true },
-        { "text": "Gdy na obiekcie dynamicznie zaalokowanym (przez 'new') wywoływany jest operator 'delete'.", "isCorrect": true },
-        { "text": "Za każdym razem, gdy wywoływana jest metoda tego obiektu.", "isCorrect": false },
-        { "text": "Gdy program się kończy, dla obiektów globalnych i statycznych.", "isCorrect": true }
+        {
+          "text": "Gdy obiekt jest tworzony za pomocą operatora 'new'.",
+          "isCorrect": false
+        },
+        {
+          "text": "Gdy obiekt lokalny (na stosie) wychodzi poza swój zakres (np. koniec funkcji, bloku).",
+          "isCorrect": true
+        },
+        {
+          "text": "Gdy na obiekcie dynamicznie zaalokowanym (przez 'new') wywoływany jest operator 'delete'.",
+          "isCorrect": true
+        },
+        {
+          "text": "Za każdym razem, gdy wywoływana jest metoda tego obiektu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Gdy program się kończy, dla obiektów globalnych i statycznych.",
+          "isCorrect": true
+        }
       ],
       "explanation": "Destruktor jest wywoływany, gdy obiekt przestaje istnieć: dla obiektów na stosie przy wyjściu z zakresu, dla obiektów na stercie przy wywołaniu 'delete', oraz dla obiektów globalnych/statycznych przy zakończeniu programu."
     },
     {
       "question": "W C++, jeśli klasa 'Pochodna' dziedziczy publicznie po klasie 'Bazowa' ('class Pochodna : public Bazowa'), jak zmieniają się modyfikatory dostępu składowych klasy 'Bazowa' w klasie 'Pochodna'?",
       "options": [
-        { "text": "Wszystkie składowe 'Bazowa' stają się 'private' w 'Pochodna'.", "isCorrect": false },
-        { "text": "Składowe 'public' z 'Bazowa' stają się 'public' w 'Pochodna', a 'protected' z 'Bazowa' stają się 'protected' w 'Pochodna'.", "isCorrect": true },
-        { "text": "Składowe 'public' z 'Bazowa' stają się 'protected' w 'Pochodna', a 'protected' z 'Bazowa' stają się 'private' w 'Pochodna'.", "isCorrect": false },
-        { "text": "Modyfikatory dostępu nie zmieniają się, ale składowe 'private' z 'Bazowa' stają się bezpośrednio dostępne w 'Pochodna'.", "isCorrect": false }
+        {
+          "text": "Wszystkie składowe 'Bazowa' stają się 'private' w 'Pochodna'.",
+          "isCorrect": false
+        },
+        {
+          "text": "Składowe 'public' z 'Bazowa' stają się 'public' w 'Pochodna', a 'protected' z 'Bazowa' stają się 'protected' w 'Pochodna'.",
+          "isCorrect": true
+        },
+        {
+          "text": "Składowe 'public' z 'Bazowa' stają się 'protected' w 'Pochodna', a 'protected' z 'Bazowa' stają się 'private' w 'Pochodna'.",
+          "isCorrect": false
+        },
+        {
+          "text": "Modyfikatory dostępu nie zmieniają się, ale składowe 'private' z 'Bazowa' stają się bezpośrednio dostępne w 'Pochodna'.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Przy dziedziczeniu publicznym: public -> public, protected -> protected. Składowe private klasy bazowej pozostają private i nie są bezpośrednio dostępne w klasie pochodnej."
     },
@@ -472,50 +925,110 @@
     {
       "question": "Co mówi Twierdzenie Halla (o małżeństwach) w kontekście grafów dwudzielnych G = (X ∪ Y, E)?",
       "options": [
-        { "text": "Że w każdym grafie dwudzielnym istnieje skojarzenie doskonałe.", "isCorrect": false },
-        { "text": "Że istnieje skojarzenie nasycające wszystkie wierzchołki X wtedy i tylko wtedy, gdy dla każdego podzbioru W ⊆ X, liczba jego sąsiadów |N(W)| w Y jest mniejsza lub równa |W|.", "isCorrect": false },
-        { "text": "Że istnieje skojarzenie nasycające wszystkie wierzchołki X wtedy i tylko wtedy, gdy dla każdego podzbioru W ⊆ X, liczba jego sąsiadów |N(W)| w Y jest większa lub równa |W|.", "isCorrect": true },
-        { "text": "Że maksymalne skojarzenie w grafie dwudzielnym jest równe minimalnemu pokryciu wierzchołkowemu.", "isCorrect": false }
+        {
+          "text": "Że w każdym grafie dwudzielnym istnieje skojarzenie doskonałe.",
+          "isCorrect": false
+        },
+        {
+          "text": "Że istnieje skojarzenie nasycające wszystkie wierzchołki X wtedy i tylko wtedy, gdy dla każdego podzbioru W ⊆ X, liczba jego sąsiadów |N(W)| w Y jest mniejsza lub równa |W|.",
+          "isCorrect": false
+        },
+        {
+          "text": "Że istnieje skojarzenie nasycające wszystkie wierzchołki X wtedy i tylko wtedy, gdy dla każdego podzbioru W ⊆ X, liczba jego sąsiadów |N(W)| w Y jest większa lub równa |W|.",
+          "isCorrect": true
+        },
+        {
+          "text": "Że maksymalne skojarzenie w grafie dwudzielnym jest równe minimalnemu pokryciu wierzchołkowemu.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Twierdzenie Halla warunkuje istnienie skojarzenia nasycającego zbiór X tym, że dowolny podzbiór W wierzchołków z X musi mieć co najmniej |W| sąsiadów w Y. Ostatnia opcja to twierdzenie Koniga."
     },
     {
       "question": "Algorytm Hopcrofta-Karpa służy do znajdowania maksymalnego skojarzenia w grafie dwudzielnym. Na jakiej koncepcji opiera się jego działanie?",
       "options": [
-        { "text": "Na iteracyjnym usuwaniu wierzchołków o najmniejszym stopniu.", "isCorrect": false },
-        { "text": "Na dynamicznym programowaniu opartym na podziałach grafu.", "isCorrect": false },
-        { "text": "Na iteracyjnym znajdowaniu maksymalnego zbioru najkrótszych rozłącznych wierzchołkowo ścieżek rozszerzających.", "isCorrect": true },
-        { "text": "Na metodzie symulowanego wyżarzania w celu znalezienia optymalnego skojarzenia.", "isCorrect": false }
+        {
+          "text": "Na iteracyjnym usuwaniu wierzchołków o najmniejszym stopniu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Na dynamicznym programowaniu opartym na podziałach grafu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Na iteracyjnym znajdowaniu maksymalnego zbioru najkrótszych rozłącznych wierzchołkowo ścieżek rozszerzających.",
+          "isCorrect": true
+        },
+        {
+          "text": "Na metodzie symulowanego wyżarzania w celu znalezienia optymalnego skojarzenia.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Algorytm Hopcrofta-Karpa iteracyjnie wyszukuje i wykorzystuje ścieżki rozszerzające (augmenting paths) względem bieżącego skojarzenia, aby je powiększać."
     },
     {
       "question": "Które z poniższych są poprawnymi metodami lub wzorami używanymi do obliczania sum skończonych? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "Wzór na sumę ciągu arytmetycznego: S_n = n/2 * (a_1 + a_n)", "isCorrect": true },
-        { "text": "Metoda całkowania przez części dla sum dyskretnych.", "isCorrect": true },
-        { "text": "Wykorzystanie funkcji tworzących i manipulacji algebraicznych na nich.", "isCorrect": true },
-        { "text": "Różniczkowanie wzoru na n-ty wyraz ciągu.", "isCorrect": false },
-        { "text": "Indukcja matematyczna do dowodzenia poprawności przypuszczalnego wzoru na sumę.", "isCorrect": true }
+        {
+          "text": "Wzór na sumę ciągu arytmetycznego: S_n = n/2 * (a_1 + a_n)",
+          "isCorrect": true
+        },
+        {
+          "text": "Metoda całkowania przez części dla sum dyskretnych.",
+          "isCorrect": true
+        },
+        {
+          "text": "Wykorzystanie funkcji tworzących i manipulacji algebraicznych na nich.",
+          "isCorrect": true
+        },
+        {
+          "text": "Różniczkowanie wzoru na n-ty wyraz ciągu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Indukcja matematyczna do dowodzenia poprawności przypuszczalnego wzoru na sumę.",
+          "isCorrect": true
+        }
       ],
       "explanation": "Wzory na sumy ciągów, sumowanie przez części (analog całkowania przez części), funkcje tworzące oraz indukcja matematyczna to validne metody. Różniczkowanie n-tego wyrazu nie służy bezpośrednio do obliczania sum."
     },
     {
       "question": "Co oznaczają liczby Stirlinga drugiego rodzaju S(n, k) (lub {n nad k})?",
       "options": [
-        { "text": "Liczbę sposobów podziału zbioru n-elementowego na k niepustych, uporządkowanych podzbiorów.", "isCorrect": false },
-        { "text": "Liczbę sposobów podziału zbioru n-elementowego na k niepustych, nierozróżnialnych podzbiorów.", "isCorrect": true },
-        { "text": "Liczbę permutacji zbioru n-elementowego, które mają dokładnie k cykli.", "isCorrect": false },
-        { "text": "Liczbę k-elementowych podzbiorów zbioru n-elementowego (symbol Newtona).", "isCorrect": false }
+        {
+          "text": "Liczbę sposobów podziału zbioru n-elementowego na k niepustych, uporządkowanych podzbiorów.",
+          "isCorrect": false
+        },
+        {
+          "text": "Liczbę sposobów podziału zbioru n-elementowego na k niepustych, nierozróżnialnych podzbiorów.",
+          "isCorrect": true
+        },
+        {
+          "text": "Liczbę permutacji zbioru n-elementowego, które mają dokładnie k cykli.",
+          "isCorrect": false
+        },
+        {
+          "text": "Liczbę k-elementowych podzbiorów zbioru n-elementowego (symbol Newtona).",
+          "isCorrect": false
+        }
       ],
       "explanation": "Liczby Stirlinga drugiego rodzaju S(n, k) określają liczbę sposobów podziału zbioru n-elementowego na k niepustych, nierozróżnialnych bloków (podzbiorów)."
     },
     {
       "question": "Jak definiowane są liczby Bella B_n?",
       "options": [
-        { "text": "Jako suma liczb Stirlinga pierwszego rodzaju: B_n = Σ_{k=0 to n} c(n, k).", "isCorrect": false },
-        { "text": "Jako iloczyn pierwszych n liczb naturalnych (silnia).", "isCorrect": false },
-        { "text": "Jako całkowita liczba sposobów podziału zbioru n-elementowego na dowolną liczbę niepustych, nierozróżnialnych podzbiorów, czyli B_n = Σ_{k=0 to n} S(n, k).", "isCorrect": true },
+        {
+          "text": "Jako suma liczb Stirlinga pierwszego rodzaju: B_n = Σ_{k=0 to n} c(n, k).",
+          "isCorrect": false
+        },
+        {
+          "text": "Jako iloczyn pierwszych n liczb naturalnych (silnia).",
+          "isCorrect": false
+        },
+        {
+          "text": "Jako całkowita liczba sposobów podziału zbioru n-elementowego na dowolną liczbę niepustych, nierozróżnialnych podzbiorów, czyli B_n = Σ_{k=0 to n} S(n, k).",
+          "isCorrect": true
+        },
         { "text": "Jako n-ta liczba w ciągu Fibonacciego.", "isCorrect": false }
       ],
       "explanation": "Liczby Bella B_n to suma liczb Stirlinga drugiego rodzaju S(n, k) po wszystkich możliwych wartościach k (od 0 do n), reprezentująca całkowitą liczbę podziałów zbioru n-elementowego."
@@ -525,7 +1038,10 @@
       "options": [
         { "text": "Tylko pręciki.", "isCorrect": false },
         { "text": "Tylko czopki.", "isCorrect": true },
-        { "text": "Zarówno pręciki, jak i czopki w równym stopniu.", "isCorrect": false },
+        {
+          "text": "Zarówno pręciki, jak i czopki w równym stopniu.",
+          "isCorrect": false
+        },
         { "text": "Komórki zwojowe siatkówki.", "isCorrect": false }
       ],
       "explanation": "Za widzenie barwne odpowiedzialne są czopki. Istnieją trzy typy czopków (S, M, L), każdy wrażliwy na inną długość fali świetlnej."
@@ -533,31 +1049,70 @@
     {
       "question": "Które z poniższych stwierdzeń są zgodne z prawami Grassmanna dotyczącymi mieszania barw? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "Dowolny kolor można odtworzyć przez addytywne mieszanie trzech odpowiednio dobranych barw podstawowych (prawo trójchromatyczności).", "isCorrect": true },
-        { "text": "Jeśli kolor A pasuje do koloru B, to kolor B niekoniecznie musi pasować do koloru A.", "isCorrect": false },
-        { "text": "Wynik mieszania barw zależy od kolejności, w jakiej są one mieszane.", "isCorrect": false },
-        { "text": "Jeśli kolor C jest mieszaniną A i B, to zmiana intensywności C o współczynnik k jest równoważna zmianie intensywności A i B o ten sam współczynnik k (prawo proporcjonalności/liniowości).", "isCorrect": true },
-        { "text": "Prawa Grassmanna dotyczą wyłącznie substraktywnego mieszania barw.", "isCorrect": false }
+        {
+          "text": "Dowolny kolor można odtworzyć przez addytywne mieszanie trzech odpowiednio dobranych barw podstawowych (prawo trójchromatyczności).",
+          "isCorrect": true
+        },
+        {
+          "text": "Jeśli kolor A pasuje do koloru B, to kolor B niekoniecznie musi pasować do koloru A.",
+          "isCorrect": false
+        },
+        {
+          "text": "Wynik mieszania barw zależy od kolejności, w jakiej są one mieszane.",
+          "isCorrect": false
+        },
+        {
+          "text": "Jeśli kolor C jest mieszaniną A i B, to zmiana intensywności C o współczynnik k jest równoważna zmianie intensywności A i B o ten sam współczynnik k (prawo proporcjonalności/liniowości).",
+          "isCorrect": true
+        },
+        {
+          "text": "Prawa Grassmanna dotyczą wyłącznie substraktywnego mieszania barw.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Prawo trójchromatyczności i prawo proporcjonalności są częścią praw Grassmanna. Mieszanie barw jest symetryczne i addytywne (kolejność nie ma znaczenia dla ostatecznego wyniku, jeśli chodzi o składowe). Prawa te dotyczą percepcji mieszanin barw, głównie w kontekście addytywnym."
     },
     {
       "question": "Jaka jest podstawowa różnica między addytywnym (np. RGB) a substraktywnym (np. CMYK) modelem koloru?",
       "options": [
-        { "text": "Model addytywny używa barw podstawowych Cyjan, Magenta, Żółty, a substraktywny Czerwony, Zielony, Niebieski.", "isCorrect": false },
-        { "text": "W modelu addytywnym kolory powstają przez dodawanie świateł (punktem wyjścia jest czerń), a w substraktywnym przez odejmowanie (absorpcję) światła przez pigmenty (punktem wyjścia jest biel).", "isCorrect": true },
-        { "text": "Model addytywny jest używany w druku, a substraktywny na ekranach monitorów.", "isCorrect": false },
-        { "text": "Mieszanie wszystkich barw podstawowych w modelu addytywnym daje czerń, a w substraktywnym biel.", "isCorrect": false }
+        {
+          "text": "Model addytywny używa barw podstawowych Cyjan, Magenta, Żółty, a substraktywny Czerwony, Zielony, Niebieski.",
+          "isCorrect": false
+        },
+        {
+          "text": "W modelu addytywnym kolory powstają przez dodawanie świateł (punktem wyjścia jest czerń), a w substraktywnym przez odejmowanie (absorpcję) światła przez pigmenty (punktem wyjścia jest biel).",
+          "isCorrect": true
+        },
+        {
+          "text": "Model addytywny jest używany w druku, a substraktywny na ekranach monitorów.",
+          "isCorrect": false
+        },
+        {
+          "text": "Mieszanie wszystkich barw podstawowych w modelu addytywnym daje czerń, a w substraktywnym biel.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Model addytywny (RGB) tworzy kolory przez dodawanie świateł (czarny+światła=kolor, wszystkie=biały), używany w urządzeniach emitujących światło. Model substraktywny (CMY(K)) tworzy kolory przez absorpcję światła (biały-światło=kolor, wszystkie=czarny), używany w druku."
     },
     {
       "question": "Czym charakteryzuje się grafika rastrowa (bitmapowa)? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "Obraz jest reprezentowany jako siatka pikseli.", "isCorrect": true },
-        { "text": "Skalowanie obrazu w górę nie powoduje utraty jakości.", "isCorrect": false },
-        { "text": "Rozmiar pliku zależy głównie od złożoności obiektów geometrycznych, a nie wymiarów obrazu.", "isCorrect": false },
-        { "text": "Dobrze nadaje się do reprezentacji zdjęć i obrazów o płynnych przejściach tonalnych.", "isCorrect": true },
+        {
+          "text": "Obraz jest reprezentowany jako siatka pikseli.",
+          "isCorrect": true
+        },
+        {
+          "text": "Skalowanie obrazu w górę nie powoduje utraty jakości.",
+          "isCorrect": false
+        },
+        {
+          "text": "Rozmiar pliku zależy głównie od złożoności obiektów geometrycznych, a nie wymiarów obrazu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Dobrze nadaje się do reprezentacji zdjęć i obrazów o płynnych przejściach tonalnych.",
+          "isCorrect": true
+        },
         { "text": "Typowe formaty to SVG, AI, EPS.", "isCorrect": false }
       ],
       "explanation": "Grafika rastrowa to siatka pikseli. Skalowanie w górę powoduje pikselizację. Rozmiar pliku zależy od wymiarów i głębi kolorów. Jest idealna dla zdjęć. Formaty to JPG, PNG, GIF. SVG, AI, EPS to formaty wektorowe."
@@ -565,11 +1120,23 @@
     {
       "question": "Które z poniższych cech opisują grafikę wektorową? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "Obraz jest opisywany za pomocą obiektów geometrycznych zdefiniowanych matematycznie.", "isCorrect": true },
+        {
+          "text": "Obraz jest opisywany za pomocą obiektów geometrycznych zdefiniowanych matematycznie.",
+          "isCorrect": true
+        },
         { "text": "Skalowalność bez utraty jakości.", "isCorrect": true },
-        { "text": "Rozmiar pliku jest zwykle mniejszy niż w grafice rastrowej dla obrazów o charakterze geometrycznym.", "isCorrect": true },
-        { "text": "Edycja polega na modyfikowaniu poszczególnych pikseli.", "isCorrect": false },
-        { "text": "Idealna do logotypów, ilustracji i diagramów.", "isCorrect": true }
+        {
+          "text": "Rozmiar pliku jest zwykle mniejszy niż w grafice rastrowej dla obrazów o charakterze geometrycznym.",
+          "isCorrect": true
+        },
+        {
+          "text": "Edycja polega na modyfikowaniu poszczególnych pikseli.",
+          "isCorrect": false
+        },
+        {
+          "text": "Idealna do logotypów, ilustracji i diagramów.",
+          "isCorrect": true
+        }
       ],
       "explanation": "Grafika wektorowa używa obiektów geometrycznych, jest skalowalna bez utraty jakości, pliki są często mniejsze dla grafik nie-fotorealistycznych, edycja dotyczy obiektów, idealna do logo i ilustracji."
     },
@@ -578,7 +1145,10 @@
       "options": [
         { "text": "Kompresja stratna (np. JPEG)", "isCorrect": false },
         { "text": "Kompresja bezstratna (np. PNG, RLE)", "isCorrect": true },
-        { "text": "Transformacja DCT (Discrete Cosine Transform) sama w sobie.", "isCorrect": false },
+        {
+          "text": "Transformacja DCT (Discrete Cosine Transform) sama w sobie.",
+          "isCorrect": false
+        },
         { "text": "Podpróbkowanie chrominancji.", "isCorrect": false }
       ],
       "explanation": "Kompresja bezstratna (lossless) zmniejsza rozmiar pliku bez utraty jakichkolwiek informacji, umożliwiając pełne odtworzenie oryginału. Kompresja stratna usuwa część danych."
@@ -586,10 +1156,22 @@
     {
       "question": "Które z wymienionych technik są typowo stosowane w algorytmach kompresji stratnej obrazów rastrowych, takich jak JPEG? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "RLE (Run-Length Encoding) jako główny mechanizm redukcji danych.", "isCorrect": false },
-        { "text": "Transformacje do dziedziny częstotliwości (np. DCT).", "isCorrect": true },
-        { "text": "Kwantyzacja współczynników transformaty.", "isCorrect": true },
-        { "text": "Podpróbkowanie chrominancji (Chroma Subsampling).", "isCorrect": true },
+        {
+          "text": "RLE (Run-Length Encoding) jako główny mechanizm redukcji danych.",
+          "isCorrect": false
+        },
+        {
+          "text": "Transformacje do dziedziny częstotliwości (np. DCT).",
+          "isCorrect": true
+        },
+        {
+          "text": "Kwantyzacja współczynników transformaty.",
+          "isCorrect": true
+        },
+        {
+          "text": "Podpróbkowanie chrominancji (Chroma Subsampling).",
+          "isCorrect": true
+        },
         { "text": "Słownikowe kodowanie LZW.", "isCorrect": false }
       ],
       "explanation": "Kompresja stratna (np. JPEG) często wykorzystuje transformację DCT, kwantyzację jej współczynników oraz podpróbkowanie chrominancji. RLE i LZW to techniki kompresji bezstratnej."
@@ -597,10 +1179,22 @@
     {
       "question": "Co to są transformacje afiniczne na płaszczyźnie?",
       "options": [
-        { "text": "Przekształcenia, które zawsze zachowują kąty i długości odcinków.", "isCorrect": false },
-        { "text": "Przekształcenia geometryczne zachowujące współliniowość punktów, równoległość linii i stosunki długości odcinków na równoległych liniach.", "isCorrect": true },
-        { "text": "Wyłącznie operacje translacji i rotacji.", "isCorrect": false },
-        { "text": "Przekształcenia, które mapują dowolny czworokąt na inny dowolny czworokąt (jak transformacje rzutowe).", "isCorrect": false }
+        {
+          "text": "Przekształcenia, które zawsze zachowują kąty i długości odcinków.",
+          "isCorrect": false
+        },
+        {
+          "text": "Przekształcenia geometryczne zachowujące współliniowość punktów, równoległość linii i stosunki długości odcinków na równoległych liniach.",
+          "isCorrect": true
+        },
+        {
+          "text": "Wyłącznie operacje translacji i rotacji.",
+          "isCorrect": false
+        },
+        {
+          "text": "Przekształcenia, które mapują dowolny czworokąt na inny dowolny czworokąt (jak transformacje rzutowe).",
+          "isCorrect": false
+        }
       ],
       "explanation": "Transformacje afiniczne zachowują współliniowość, równoległość i stosunki długości na równoległych liniach. Nie muszą zachowywać kątów (chyba że są izometriami) ani długości. Translacja i rotacja są przykładami, ale nie jedynymi."
     },
@@ -618,10 +1212,22 @@
     {
       "question": "Czym, z punktu widzenia aplikacji, różni się transmisja strumieniowa (np. TCP) od datagramowej (np. UDP)?",
       "options": [
-        { "text": "Transmisja strumieniowa jest szybsza, ale mniej niezawodna niż datagramowa.", "isCorrect": false },
-        { "text": "Transmisja strumieniowa gwarantuje dostarczenie danych w kolejności i bez błędów, podczas gdy datagramowa nie daje takich gwarancji i przesyła dane w oddzielnych pakietach.", "isCorrect": true },
-        { "text": "Transmisja datagramowa wymaga nawiązania połączenia, a strumieniowa jest bezpołączeniowa.", "isCorrect": false },
-        { "text": "Tylko transmisja datagramowa obsługuje kontrolę przepływu.", "isCorrect": false }
+        {
+          "text": "Transmisja strumieniowa jest szybsza, ale mniej niezawodna niż datagramowa.",
+          "isCorrect": false
+        },
+        {
+          "text": "Transmisja strumieniowa gwarantuje dostarczenie danych w kolejności i bez błędów, podczas gdy datagramowa nie daje takich gwarancji i przesyła dane w oddzielnych pakietach.",
+          "isCorrect": true
+        },
+        {
+          "text": "Transmisja datagramowa wymaga nawiązania połączenia, a strumieniowa jest bezpołączeniowa.",
+          "isCorrect": false
+        },
+        {
+          "text": "Tylko transmisja datagramowa obsługuje kontrolę przepływu.",
+          "isCorrect": false
+        }
       ],
       "explanation": "TCP (strumieniowa) jest połączeniowa, niezawodna, zapewnia kolejność i kontrolę przepływu. UDP (datagramowa) jest bezpołączeniowa, niegwarantowana, przesyła dane w niezależnych datagramach."
     },
@@ -629,41 +1235,89 @@
       "question": "Jakie gwarancje bezpieczeństwa zapewnia protokół TLS (Transport Layer Security)? (Wybierz wszystkie pasujące)",
       "options": [
         { "text": "Poufność danych poprzez szyfrowanie.", "isCorrect": true },
-        { "text": "Integralność danych poprzez kody uwierzytelniania wiadomości (MAC).", "isCorrect": true },
-        { "text": "Uwierzytelnianie serwera (i opcjonalnie klienta) za pomocą certyfikatów cyfrowych.", "isCorrect": true },
-        { "text": "Ochronę przed wszystkimi typami ataków DDoS.", "isCorrect": false },
-        { "text": "Przyspieszenie transmisji danych w porównaniu do czystego TCP.", "isCorrect": false }
+        {
+          "text": "Integralność danych poprzez kody uwierzytelniania wiadomości (MAC).",
+          "isCorrect": true
+        },
+        {
+          "text": "Uwierzytelnianie serwera (i opcjonalnie klienta) za pomocą certyfikatów cyfrowych.",
+          "isCorrect": true
+        },
+        {
+          "text": "Ochronę przed wszystkimi typami ataków DDoS.",
+          "isCorrect": false
+        },
+        {
+          "text": "Przyspieszenie transmisji danych w porównaniu do czystego TCP.",
+          "isCorrect": false
+        }
       ],
       "explanation": "TLS zapewnia poufność (szyfrowanie), integralność (MAC) i uwierzytelnianie. Nie chroni bezpośrednio przed DDoS ani nie przyspiesza transmisji (wręcz przeciwnie, handshake TLS dodaje pewien narzut)."
     },
     {
       "question": "Dlaczego standardy zdalnego wywołania procedury (RPC) często wykorzystują formalne języki opisu interfejsu (IDL)?",
       "options": [
-        { "text": "Aby automatycznie generować dokumentację użytkownika końcowego.", "isCorrect": false },
-        { "text": "Aby zapewnić niezależność od języka programowania, jednoznaczność kontraktu i umożliwić automatyczne generowanie kodu marshallingu/unmarshallingu.", "isCorrect": true },
-        { "text": "Aby narzucić użycie konkretnego protokołu transportowego, np. UDP.", "isCorrect": false },
-        { "text": "Aby skompilować cały system (klienta i serwer) do jednego pliku wykonywalnego.", "isCorrect": false }
+        {
+          "text": "Aby automatycznie generować dokumentację użytkownika końcowego.",
+          "isCorrect": false
+        },
+        {
+          "text": "Aby zapewnić niezależność od języka programowania, jednoznaczność kontraktu i umożliwić automatyczne generowanie kodu marshallingu/unmarshallingu.",
+          "isCorrect": true
+        },
+        {
+          "text": "Aby narzucić użycie konkretnego protokołu transportowego, np. UDP.",
+          "isCorrect": false
+        },
+        {
+          "text": "Aby skompilować cały system (klienta i serwer) do jednego pliku wykonywalnego.",
+          "isCorrect": false
+        }
       ],
       "explanation": "IDL w RPC służy do definiowania kontraktu niezależnie od języka, co umożliwia generowanie kodu dla różnych platform i zapewnia jednoznaczność interfejsu oraz automatyzację tworzenia kodu obsługującego komunikację."
     },
     {
       "question": "Od czego głównie zależy maksymalna częstotliwość działania (F_max) kodu HDL zaimplementowanego na układzie FPGA?",
       "options": [
-        { "text": "Od liczby dostępnych bramek logicznych w układzie FPGA.", "isCorrect": false },
-        { "text": "Od odwrotności najdłuższego opóźnienia propagacji sygnału na ścieżce krytycznej (T_crit) w jednym cyklu zegarowym.", "isCorrect": true },
-        { "text": "Od pojemności pamięci RAM dostępnej w systemie z FPGA.", "isCorrect": false },
-        { "text": "Od szybkości kompilacji kodu HDL przez narzędzia syntezy.", "isCorrect": false }
+        {
+          "text": "Od liczby dostępnych bramek logicznych w układzie FPGA.",
+          "isCorrect": false
+        },
+        {
+          "text": "Od odwrotności najdłuższego opóźnienia propagacji sygnału na ścieżce krytycznej (T_crit) w jednym cyklu zegarowym.",
+          "isCorrect": true
+        },
+        {
+          "text": "Od pojemności pamięci RAM dostępnej w systemie z FPGA.",
+          "isCorrect": false
+        },
+        {
+          "text": "Od szybkości kompilacji kodu HDL przez narzędzia syntezy.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Maksymalna częstotliwość (F_max) jest ograniczona przez najdłuższą ścieżkę krytyczną (T_crit), czyli F_max = 1 / T_crit. T_crit to suma opóźnień T_clk2q, T_logic, T_route i T_su."
     },
     {
       "question": "Które z poniższych opóźnień są składowymi czasu ścieżki krytycznej (T_crit) w układzie FPGA, wpływającymi na F_max? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "T_clk2q (Clock-to-Q delay przerzutnika źródłowego).", "isCorrect": true },
-        { "text": "T_logic (Opóźnienie logiki kombinacyjnej).", "isCorrect": true },
+        {
+          "text": "T_clk2q (Clock-to-Q delay przerzutnika źródłowego).",
+          "isCorrect": true
+        },
+        {
+          "text": "T_logic (Opóźnienie logiki kombinacyjnej).",
+          "isCorrect": true
+        },
         { "text": "T_compile (Czas kompilacji kodu HDL).", "isCorrect": false },
-        { "text": "T_route (Opóźnienie propagacji przez ścieżki połączeniowe).", "isCorrect": true },
-        { "text": "T_su (Setup time przerzutnika docelowego).", "isCorrect": true }
+        {
+          "text": "T_route (Opóźnienie propagacji przez ścieżki połączeniowe).",
+          "isCorrect": true
+        },
+        {
+          "text": "T_su (Setup time przerzutnika docelowego).",
+          "isCorrect": true
+        }
       ],
       "explanation": "Ścieżka krytyczna T_crit jest sumą opóźnień: T_clk2q (przerzutnika źródłowego) + T_logic (logiki kombinacyjnej) + T_route (połączeń) + T_su (przerzutnika docelowego). Czas kompilacji nie jest częścią T_crit."
     },
@@ -672,28 +1326,58 @@
       "options": [
         { "text": "Analiza i Elaboracja", "isCorrect": false },
         { "text": "Synteza (Synthesis)", "isCorrect": true },
-        { "text": "Implementacja (Rozmieszczenie i Trasowanie)", "isCorrect": false },
-        { "text": "Generacja pliku programującego (Bitstream Generation)", "isCorrect": false }
+        {
+          "text": "Implementacja (Rozmieszczenie i Trasowanie)",
+          "isCorrect": false
+        },
+        {
+          "text": "Generacja pliku programującego (Bitstream Generation)",
+          "isCorrect": false
+        }
       ],
       "explanation": "Synteza (Logic Synthesis i Technology Mapping) jest etapem, na którym opis RTL jest przekształcany w netlistę bramek i mapowany na konkretne zasoby sprzętowe FPGA."
     },
     {
       "question": "Co definiuje 'ENTITY' w języku VHDL?",
       "options": [
-        { "text": "Wewnętrzną implementację i zachowanie modułu sprzętowego.", "isCorrect": false },
-        { "text": "Interfejs zewnętrzny modułu sprzętowego, czyli jego porty wejściowe, wyjściowe i ich typy.", "isCorrect": true },
-        { "text": "Sekwencyjny blok instrukcji wykonywany współbieżnie z innymi procesami.", "isCorrect": false },
-        { "text": "Zbiór wspólnych deklaracji typów, stałych i funkcji używanych w projekcie.", "isCorrect": false }
+        {
+          "text": "Wewnętrzną implementację i zachowanie modułu sprzętowego.",
+          "isCorrect": false
+        },
+        {
+          "text": "Interfejs zewnętrzny modułu sprzętowego, czyli jego porty wejściowe, wyjściowe i ich typy.",
+          "isCorrect": true
+        },
+        {
+          "text": "Sekwencyjny blok instrukcji wykonywany współbieżnie z innymi procesami.",
+          "isCorrect": false
+        },
+        {
+          "text": "Zbiór wspólnych deklaracji typów, stałych i funkcji używanych w projekcie.",
+          "isCorrect": false
+        }
       ],
       "explanation": "'ENTITY' w VHDL definiuje interfejs modułu, czyli jego \"czarną skrzynkę\" z portami, oddzielając go od implementacji (ARCHITECTURE)."
     },
     {
       "question": "Jakie elementy mogą być zawarte w 'ARCHITECTURE' w VHDL? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "Opis strukturalny (połączenie instancji innych komponentów).", "isCorrect": true },
-        { "text": "Opis behawioralny/algorytmiczny (np. przy użyciu 'PROCESS').", "isCorrect": true },
-        { "text": "Opis przepływu danych (współbieżne przypisania sygnałów).", "isCorrect": true },
-        { "text": "Deklaracje portów modułu (te są w 'ENTITY').", "isCorrect": false },
+        {
+          "text": "Opis strukturalny (połączenie instancji innych komponentów).",
+          "isCorrect": true
+        },
+        {
+          "text": "Opis behawioralny/algorytmiczny (np. przy użyciu 'PROCESS').",
+          "isCorrect": true
+        },
+        {
+          "text": "Opis przepływu danych (współbieżne przypisania sygnałów).",
+          "isCorrect": true
+        },
+        {
+          "text": "Deklaracje portów modułu (te są w 'ENTITY').",
+          "isCorrect": false
+        },
         { "text": "Wyłącznie definicje maszyn stanów.", "isCorrect": false }
       ],
       "explanation": "Architektura opisuje implementację modułu i może zawierać opisy strukturalne, behawioralne (w tym procesy i maszyny stanów) oraz przepływu danych. Deklaracje portów znajdują się w 'ENTITY'."
@@ -701,59 +1385,128 @@
     {
       "question": "Czym jest 'PROCESS' w VHDL?",
       "options": [
-        { "text": "Definicją interfejsu modułu sprzętowego.", "isCorrect": false },
-        { "text": "Blokiem sekwencyjnych instrukcji, który wykonuje się współbieżnie z innymi procesami i przypisaniami, aktywowany przez zmiany na sygnałach z listy czułości lub instrukcję 'WAIT'.", "isCorrect": true },
-        { "text": "Zbiorem predefiniowanych funkcji i procedur dostarczanych przez standard IEEE.", "isCorrect": false },
-        { "text": "Fizycznym układem scalonym implementującym logikę.", "isCorrect": false }
+        {
+          "text": "Definicją interfejsu modułu sprzętowego.",
+          "isCorrect": false
+        },
+        {
+          "text": "Blokiem sekwencyjnych instrukcji, który wykonuje się współbieżnie z innymi procesami i przypisaniami, aktywowany przez zmiany na sygnałach z listy czułości lub instrukcję 'WAIT'.",
+          "isCorrect": true
+        },
+        {
+          "text": "Zbiorem predefiniowanych funkcji i procedur dostarczanych przez standard IEEE.",
+          "isCorrect": false
+        },
+        {
+          "text": "Fizycznym układem scalonym implementującym logikę.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Proces w VHDL to blok sekwencyjnych instrukcji, wykonywany współbieżnie. Jego wykonanie jest wyzwalane przez zdarzenia na sygnałach z listy czułości lub przez instrukcje 'WAIT'."
     },
     {
       "question": "W jaki sposób typowo implementuje się maszynę stanów (FSM) w VHDL?",
       "options": [
-        { "text": "Jako pojedynczą, złożoną instrukcję 'CASE' poza jakimkolwiek procesem.", "isCorrect": false },
-        { "text": "Poprzez bezpośrednie łączenie bramek AND, OR, NOT w opisie strukturalnym.", "isCorrect": false },
-        { "text": "Wewnątrz jednego lub dwóch procesów, używając typu wyliczeniowego dla stanów, sygnału stanu oraz logiki kombinacyjnej do wyznaczania następnego stanu i wyjść.", "isCorrect": true },
-        { "text": "Wyłącznie za pomocą zewnętrznych bibliotek i gotowych komponentów FSM.", "isCorrect": false }
+        {
+          "text": "Jako pojedynczą, złożoną instrukcję 'CASE' poza jakimkolwiek procesem.",
+          "isCorrect": false
+        },
+        {
+          "text": "Poprzez bezpośrednie łączenie bramek AND, OR, NOT w opisie strukturalnym.",
+          "isCorrect": false
+        },
+        {
+          "text": "Wewnątrz jednego lub dwóch procesów, używając typu wyliczeniowego dla stanów, sygnału stanu oraz logiki kombinacyjnej do wyznaczania następnego stanu i wyjść.",
+          "isCorrect": true
+        },
+        {
+          "text": "Wyłącznie za pomocą zewnętrznych bibliotek i gotowych komponentów FSM.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Maszyny stanów w VHDL są najczęściej implementowane przy użyciu jednego (lub dwóch) procesów. Jeden proces (zegarowy) do aktualizacji stanu, drugi (kombinacyjny) lub część pierwszego do logiki przejść i wyjść. Stany definiuje się typem wyliczeniowym."
     },
     {
       "question": "Co to jest 'PACKAGE' w VHDL i jaki jest jego główny cel?",
       "options": [
-        { "text": "Sfinalizowany plik konfiguracyjny (bitstream) gotowy do załadowania na układ FPGA.", "isCorrect": false },
-        { "text": "Służy do grupowania wspólnych deklaracji (np. typów, stałych, funkcji, komponentów), które mogą być używane w wielu jednostkach projektowych, promując reużywalność kodu.", "isCorrect": true },
-        { "text": "Specjalny typ architektury używany wyłącznie do symulacji.", "isCorrect": false },
-        { "text": "Blok opisujący testbench dla modułu VHDL.", "isCorrect": false }
+        {
+          "text": "Sfinalizowany plik konfiguracyjny (bitstream) gotowy do załadowania na układ FPGA.",
+          "isCorrect": false
+        },
+        {
+          "text": "Służy do grupowania wspólnych deklaracji (np. typów, stałych, funkcji, komponentów), które mogą być używane w wielu jednostkach projektowych, promując reużywalność kodu.",
+          "isCorrect": true
+        },
+        {
+          "text": "Specjalny typ architektury używany wyłącznie do symulacji.",
+          "isCorrect": false
+        },
+        {
+          "text": "Blok opisujący testbench dla modułu VHDL.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Pakiet (PACKAGE) w VHDL służy do grupowania deklaracji, które mogą być współdzielone między różnymi częściami projektu, działając jak biblioteka lub moduł."
     },
     {
       "question": "Jaka jest główna zaleta reprezentacji wskaźnikowej listy (linked list) w porównaniu do reprezentacji tablicowej (array-based list)?",
       "options": [
-        { "text": "Szybszy dostęp do elementu o zadanym indeksie (O(1)).", "isCorrect": false },
-        { "text": "Mniejszy narzut pamięciowy na przechowywanie struktury.", "isCorrect": false },
-        { "text": "Elastyczne wstawianie i usuwanie elementów w dowolnym miejscu listy (O(1) przy znanym wskaźniku).", "isCorrect": true },
-        { "text": "Możliwość przechowywania tylko elementów tego samego typu.", "isCorrect": false }
+        {
+          "text": "Szybszy dostęp do elementu o zadanym indeksie (O(1)).",
+          "isCorrect": false
+        },
+        {
+          "text": "Mniejszy narzut pamięciowy na przechowywanie struktury.",
+          "isCorrect": false
+        },
+        {
+          "text": "Elastyczne wstawianie i usuwanie elementów w dowolnym miejscu listy (O(1) przy znanym wskaźniku).",
+          "isCorrect": true
+        },
+        {
+          "text": "Możliwość przechowywania tylko elementów tego samego typu.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Główną zaletą list wskaźnikowych jest efektywne (czas O(1), jeśli mamy wskaźnik na odpowiednie miejsce) wstawianie i usuwanie elementów, bez potrzeby przesuwania innych elementów, co jest kosztochłonne w tablicach."
     },
     {
       "question": "Co opisuje notacja O-duże (Big O notation) w kontekście złożoności obliczeniowej algorytmu?",
       "options": [
-        { "text": "Dokładną liczbę operacji wykonywanych przez algorytm.", "isCorrect": false },
-        { "text": "Dolne ograniczenie asymptotyczne czasu wykonania (najlepszy przypadek).", "isCorrect": false },
-        { "text": "Górne ograniczenie asymptotyczne czasu wykonania lub zajętości pamięci, opisujące jak zasoby rosną wraz z rozmiarem danych wejściowych w najgorszym przypadku.", "isCorrect": true },
-        { "text": "Średni czas wykonania algorytmu dla typowych danych wejściowych.", "isCorrect": false }
+        {
+          "text": "Dokładną liczbę operacji wykonywanych przez algorytm.",
+          "isCorrect": false
+        },
+        {
+          "text": "Dolne ograniczenie asymptotyczne czasu wykonania (najlepszy przypadek).",
+          "isCorrect": false
+        },
+        {
+          "text": "Górne ograniczenie asymptotyczne czasu wykonania lub zajętości pamięci, opisujące jak zasoby rosną wraz z rozmiarem danych wejściowych w najgorszym przypadku.",
+          "isCorrect": true
+        },
+        {
+          "text": "Średni czas wykonania algorytmu dla typowych danych wejściowych.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Notacja O-duże (O(f(n))) opisuje górne ograniczenie asymptotyczne, wskazując, że czas/pamięć algorytmu nie rośnie szybciej niż pewna stała pomnożona przez f(n) dla dużych n. Jest to często używane do opisu najgorszego przypadku."
     },
     {
       "question": "W jakiej kolejności odwiedzane są węzły drzewa binarnego podczas przeglądania inorder (poprzecznego)?",
       "options": [
-        { "text": "Korzeń -> Lewe poddrzewo -> Prawe poddrzewo", "isCorrect": false },
-        { "text": "Lewe poddrzewo -> Prawe poddrzewo -> Korzeń", "isCorrect": false },
-        { "text": "Lewe poddrzewo -> Korzeń -> Prawe poddrzewo", "isCorrect": true },
+        {
+          "text": "Korzeń -> Lewe poddrzewo -> Prawe poddrzewo",
+          "isCorrect": false
+        },
+        {
+          "text": "Lewe poddrzewo -> Prawe poddrzewo -> Korzeń",
+          "isCorrect": false
+        },
+        {
+          "text": "Lewe poddrzewo -> Korzeń -> Prawe poddrzewo",
+          "isCorrect": true
+        },
         { "text": "Poziomami, od lewej do prawej", "isCorrect": false }
       ],
       "explanation": "Przeglądanie inorder (poprzeczne) odwiedza węzły w kolejności: Lewe poddrzewo, następnie Korzeń, a na końcu Prawe poddrzewo. Dla BST daje to posortowaną sekwencję kluczy."
@@ -765,7 +1518,10 @@
         { "text": "Lista krawędzi (Edge List).", "isCorrect": true },
         { "text": "Drzewo binarne poszukiwań (BST).", "isCorrect": false },
         { "text": "Lista sąsiedztwa (Adjacency List).", "isCorrect": true },
-        { "text": "Tablica haszująca (Hash Table) przechowująca tylko wierzchołki.", "isCorrect": false }
+        {
+          "text": "Tablica haszująca (Hash Table) przechowująca tylko wierzchołki.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Popularne reprezentacje grafów to macierz sąsiedztwa, lista sąsiedztwa oraz lista krawędzi. Macierz incydencji jest również stosowana, choć rzadziej. BST i tablice haszujące wierzchołków to inne struktury danych."
     },
@@ -775,49 +1531,103 @@
         { "text": "Stos (Stack)", "isCorrect": false },
         { "text": "Kolejka (Queue)", "isCorrect": true },
         { "text": "Kopiec (Heap)", "isCorrect": false },
-        { "text": "Lista powiązana (Linked List) bez specjalnego porządku", "isCorrect": false }
+        {
+          "text": "Lista powiązana (Linked List) bez specjalnego porządku",
+          "isCorrect": false
+        }
       ],
       "explanation": "Algorytm BFS używa kolejki (FIFO - First-In, First-Out) do przechowywania wierzchołków, co zapewnia eksplorację grafu warstwa po warstwie."
     },
     {
       "question": "Do czego służy algorytm Dijkstry i jakie jest jego główne ograniczenie?",
       "options": [
-        { "text": "Do znajdowania najdłuższej ścieżki w grafie ważonym; nie działa dla grafów z cyklami.", "isCorrect": false },
-        { "text": "Do znajdowania minimalnego drzewa rozpinającego; działa tylko dla grafów spójnych.", "isCorrect": false },
-        { "text": "Do znajdowania najkrótszych ścieżek od pojedynczego źródła w grafie ważonym; nie działa poprawnie dla grafów z ujemnymi wagami krawędzi.", "isCorrect": true },
-        { "text": "Do sortowania topologicznego w grafie skierowanym acyklicznym; nie działa dla grafów z cyklami.", "isCorrect": false }
+        {
+          "text": "Do znajdowania najdłuższej ścieżki w grafie ważonym; nie działa dla grafów z cyklami.",
+          "isCorrect": false
+        },
+        {
+          "text": "Do znajdowania minimalnego drzewa rozpinającego; działa tylko dla grafów spójnych.",
+          "isCorrect": false
+        },
+        {
+          "text": "Do znajdowania najkrótszych ścieżek od pojedynczego źródła w grafie ważonym; nie działa poprawnie dla grafów z ujemnymi wagami krawędzi.",
+          "isCorrect": true
+        },
+        {
+          "text": "Do sortowania topologicznego w grafie skierowanym acyklicznym; nie działa dla grafów z cyklami.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Algorytm Dijkstry znajduje najkrótsze ścieżki od jednego źródła w grafach z nieujemnymi wagami krawędzi. Jeśli wagi są ujemne, należy użyć np. algorytmu Bellmana-Forda."
     },
     {
       "question": "Które z poniższych są podstawowymi zadaniami systemu operacyjnego? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "Zarządzanie procesami i czasem procesora.", "isCorrect": true },
-        { "text": "Kompilacja kodu źródłowego aplikacji użytkownika.", "isCorrect": false },
+        {
+          "text": "Zarządzanie procesami i czasem procesora.",
+          "isCorrect": true
+        },
+        {
+          "text": "Kompilacja kodu źródłowego aplikacji użytkownika.",
+          "isCorrect": false
+        },
         { "text": "Zarządzanie pamięcią operacyjną.", "isCorrect": true },
-        { "text": "Zarządzanie systemem plików i urządzeniami wejścia/wyjścia.", "isCorrect": true },
-        { "text": "Dostarczanie bibliotek do tworzenia grafiki 3D.", "isCorrect": false },
-        { "text": "Zapewnienie interfejsu użytkownika oraz ochrony i bezpieczeństwa.", "isCorrect": true }
+        {
+          "text": "Zarządzanie systemem plików i urządzeniami wejścia/wyjścia.",
+          "isCorrect": true
+        },
+        {
+          "text": "Dostarczanie bibliotek do tworzenia grafiki 3D.",
+          "isCorrect": false
+        },
+        {
+          "text": "Zapewnienie interfejsu użytkownika oraz ochrony i bezpieczeństwa.",
+          "isCorrect": true
+        }
       ],
       "explanation": "System operacyjny zarządza procesami, pamięcią, systemem plików, urządzeniami I/O, zapewnia interfejs użytkownika oraz mechanizmy ochrony i bezpieczeństwa. Kompilacja czy biblioteki graficzne to zadania aplikacji lub dodatkowego oprogramowania."
     },
     {
       "question": "Jaka jest główna cecha struktury mikrojądra systemu operacyjnego?",
       "options": [
-        { "text": "Wszystkie komponenty systemu, włącznie ze sterownikami, działają w jednej przestrzeni adresowej jądra dla maksymalnej wydajności.", "isCorrect": false },
-        { "text": "Jądro systemu jest zminimalizowane i zawiera tylko podstawowe funkcje (np. IPC, zarządzanie procesami), a pozostałe usługi (np. system plików) działają jako serwery w przestrzeni użytkownika.", "isCorrect": true },
-        { "text": "System jest podzielony na hierarchiczne warstwy, gdzie każda warstwa korzysta tylko z usług warstwy niższej.", "isCorrect": false },
-        { "text": "Funkcjonalność jądra może być dynamicznie rozszerzana poprzez ładowanie modułów w czasie działania.", "isCorrect": false }
+        {
+          "text": "Wszystkie komponenty systemu, włącznie ze sterownikami, działają w jednej przestrzeni adresowej jądra dla maksymalnej wydajności.",
+          "isCorrect": false
+        },
+        {
+          "text": "Jądro systemu jest zminimalizowane i zawiera tylko podstawowe funkcje (np. IPC, zarządzanie procesami), a pozostałe usługi (np. system plików) działają jako serwery w przestrzeni użytkownika.",
+          "isCorrect": true
+        },
+        {
+          "text": "System jest podzielony na hierarchiczne warstwy, gdzie każda warstwa korzysta tylko z usług warstwy niższej.",
+          "isCorrect": false
+        },
+        {
+          "text": "Funkcjonalność jądra może być dynamicznie rozszerzana poprzez ładowanie modułów w czasie działania.",
+          "isCorrect": false
+        }
       ],
       "explanation": "W strukturze mikrojądra tylko absolutnie niezbędne funkcje (jak komunikacja międzyprocesowa i podstawowe zarządzanie procesami/pamięcią) działają w jądrze. Reszta usług to procesy w przestrzeni użytkownika, co zwiększa modularność i niezawodność kosztem pewnego narzutu na komunikację."
     },
     {
       "question": "Czym różni się proces od wątku w systemach operacyjnych?",
       "options": [
-        { "text": "Procesy współdzielą przestrzeń adresową, a wątki mają oddzielne przestrzenie adresowe.", "isCorrect": false },
-        { "text": "Wątki są cięższymi jednostkami wykonania niż procesy.", "isCorrect": false },
-        { "text": "Proces ma własną przestrzeń adresową i zasoby, podczas gdy wątki w ramach jednego procesu współdzielą jego przestrzeń adresową i zasoby, ale mają własne stosy i liczniki programu.", "isCorrect": true },
-        { "text": "Tylko procesy mogą być planowane przez system operacyjny, wątki są zarządzane wyłącznie przez aplikację.", "isCorrect": false }
+        {
+          "text": "Procesy współdzielą przestrzeń adresową, a wątki mają oddzielne przestrzenie adresowe.",
+          "isCorrect": false
+        },
+        {
+          "text": "Wątki są cięższymi jednostkami wykonania niż procesy.",
+          "isCorrect": false
+        },
+        {
+          "text": "Proces ma własną przestrzeń adresową i zasoby, podczas gdy wątki w ramach jednego procesu współdzielą jego przestrzeń adresową i zasoby, ale mają własne stosy i liczniki programu.",
+          "isCorrect": true
+        },
+        {
+          "text": "Tylko procesy mogą być planowane przez system operacyjny, wątki są zarządzane wyłącznie przez aplikację.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Proces to program w wykonaniu z własnymi zasobami. Wątki są jednostkami wykonania wewnątrz procesu, współdzielą jego zasoby (pamięć, otwarte pliki), ale mają własny kontekst (stos, licznik programu, rejestry)."
     },
@@ -825,8 +1635,14 @@
       "question": "Który z algorytmów planowania przydziału CPU jest wyłaszczający i przydziela każdemu procesowi mały kwant czasu, po czym przenosi go na koniec kolejki gotowych?",
       "options": [
         { "text": "FCFS (First-Come, First-Served)", "isCorrect": false },
-        { "text": "SJF (Shortest Job First) - wersja niewyłaszczająca", "isCorrect": false },
-        { "text": "Planowanie priorytetowe bez wywłaszczania", "isCorrect": false },
+        {
+          "text": "SJF (Shortest Job First) - wersja niewyłaszczająca",
+          "isCorrect": false
+        },
+        {
+          "text": "Planowanie priorytetowe bez wywłaszczania",
+          "isCorrect": false
+        },
         { "text": "Planowanie rotacyjne (Round Robin - RR)", "isCorrect": true }
       ],
       "explanation": "Planowanie rotacyjne (Round Robin) jest algorytmem wyłaszczającym, który zapewnia sprawiedliwy podział czasu CPU między procesy poprzez przydzielanie im kwantów czasu."
@@ -834,21 +1650,39 @@
     {
       "question": "Co to jest pamięć wirtualna w systemach operacyjnych?",
       "options": [
-        { "text": "Specjalny, bardzo szybki rodzaj pamięci RAM używany przez jądro systemu.", "isCorrect": false },
-        { "text": "Technika pozwalająca na wykonywanie procesów, które nie mieszczą się w całości w pamięci fizycznej RAM, poprzez użycie dysku jako przestrzeni wymiany.", "isCorrect": true },
+        {
+          "text": "Specjalny, bardzo szybki rodzaj pamięci RAM używany przez jądro systemu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Technika pozwalająca na wykonywanie procesów, które nie mieszczą się w całości w pamięci fizycznej RAM, poprzez użycie dysku jako przestrzeni wymiany.",
+          "isCorrect": true
+        },
         { "text": "Pamięć podręczna (cache) procesora.", "isCorrect": false },
-        { "text": "Logiczna organizacja pamięci w segmenty kodu, danych i stosu.", "isCorrect": false }
+        {
+          "text": "Logiczna organizacja pamięci w segmenty kodu, danych i stosu.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Pamięć wirtualna to mechanizm, który pozwala systemowi operacyjnemu na zarządzanie pamięcią w taki sposób, że programy mogą używać większej przestrzeni adresowej niż fizycznie dostępna pamięć RAM, wykorzystując do tego celu dysk twardy (swap space)."
     },
     {
       "question": "Które z poniższych są metodami przydziału pamięci, gdzie przestrzeń adresowa procesu może być rozproszona w nieciągłych obszarach pamięci fizycznej? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "Przydział ciągły ze stałym podziałem na partycje.", "isCorrect": false },
+        {
+          "text": "Przydział ciągły ze stałym podziałem na partycje.",
+          "isCorrect": false
+        },
         { "text": "Stronicowanie (Paging).", "isCorrect": true },
-        { "text": "Przydział ciągły z dynamicznym podziałem na partycje.", "isCorrect": false },
+        {
+          "text": "Przydział ciągły z dynamicznym podziałem na partycje.",
+          "isCorrect": false
+        },
         { "text": "Segmentacja (Segmentation).", "isCorrect": true },
-        { "text": "System kumpli (Buddy System) dla przydziału ciągłego.", "isCorrect": false }
+        {
+          "text": "System kumpli (Buddy System) dla przydziału ciągłego.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Stronicowanie i segmentacja to główne metody przydziału nieciągłego, pozwalające na rozproszenie logicznej przestrzeni adresowej procesu w pamięci fizycznej."
     },
@@ -856,31 +1690,64 @@
       "question": "Jakie informacje są typowo przechowywane w i-węźle (inode) w systemach plików typu Unix? (Wybierz wszystkie pasujące)",
       "options": [
         { "text": "Nazwa pliku.", "isCorrect": false },
-        { "text": "Metadane pliku, takie jak typ, rozmiar, daty, uprawnienia, właściciel.", "isCorrect": true },
-        { "text": "Wskaźniki do bloków danych pliku na dysku.", "isCorrect": true },
-        { "text": "Pełna ścieżka dostępu do pliku w systemie plików.", "isCorrect": false },
-        { "text": "Zawartość małych plików (dla bardzo małych plików w niektórych systemach).", "isCorrect": false }
+        {
+          "text": "Metadane pliku, takie jak typ, rozmiar, daty, uprawnienia, właściciel.",
+          "isCorrect": true
+        },
+        {
+          "text": "Wskaźniki do bloków danych pliku na dysku.",
+          "isCorrect": true
+        },
+        {
+          "text": "Pełna ścieżka dostępu do pliku w systemie plików.",
+          "isCorrect": false
+        },
+        {
+          "text": "Zawartość małych plików (dla bardzo małych plików w niektórych systemach).",
+          "isCorrect": false
+        }
       ],
       "explanation": "I-węzeł przechowuje metadane pliku (wszystko oprócz nazwy i ścieżki) oraz wskaźniki do bloków danych. Nazwa pliku jest przechowywana w strukturze katalogu, która mapuje nazwę na numer i-węzła."
     },
     {
       "question": "Czym jest macierz dostępów (Access Matrix) w kontekście ochrony systemów operacyjnych?",
       "options": [
-        { "text": "Macierzą opisującą fizyczne połączenia między komponentami systemu.", "isCorrect": false },
-        { "text": "Abstrakcyjnym modelem opisu praw dostępu, gdzie wiersze reprezentują domeny (np. użytkowników), kolumny obiekty (np. pliki), a komórki zawierają zbiór dozwolonych operacji.", "isCorrect": true },
-        { "text": "Tabelą używaną przez system plików do mapowania bloków logicznych na fizyczne.", "isCorrect": false },
-        { "text": "Strukturą danych używaną do implementacji pamięci wirtualnej (np. tablica stron).", "isCorrect": false }
+        {
+          "text": "Macierzą opisującą fizyczne połączenia między komponentami systemu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Abstrakcyjnym modelem opisu praw dostępu, gdzie wiersze reprezentują domeny (np. użytkowników), kolumny obiekty (np. pliki), a komórki zawierają zbiór dozwolonych operacji.",
+          "isCorrect": true
+        },
+        {
+          "text": "Tabelą używaną przez system plików do mapowania bloków logicznych na fizyczne.",
+          "isCorrect": false
+        },
+        {
+          "text": "Strukturą danych używaną do implementacji pamięci wirtualnej (np. tablica stron).",
+          "isCorrect": false
+        }
       ],
       "explanation": "Macierz dostępów to model teoretyczny, który definiuje prawa dostępu podmiotów (domen) do obiektów. Może być implementowana np. przez Listy Kontroli Dostępu (ACL) lub Listy Uprawnień (Capability Lists)."
     },
     {
       "question": "Które z poniższych są przykładami zagrożeń dla systemów komputerowych? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "Złośliwe oprogramowanie (wirusy, robaki, ransomware).", "isCorrect": true },
-        { "text": "Regularne aktualizacje oprogramowania.", "isCorrect": false },
+        {
+          "text": "Złośliwe oprogramowanie (wirusy, robaki, ransomware).",
+          "isCorrect": true
+        },
+        {
+          "text": "Regularne aktualizacje oprogramowania.",
+          "isCorrect": false
+        },
         { "text": "Ataki sieciowe (DoS, phishing, MitM).", "isCorrect": true },
         { "text": "Stosowanie silnych, unikalnych haseł.", "isCorrect": false },
-        { "text": "Naruszenia bezpieczeństwa fizycznego i błędy ludzkie.", "isCorrect": true }
+        {
+          "text": "Naruszenia bezpieczeństwa fizycznego i błędy ludzkie.",
+          "isCorrect": true
+        }
       ],
       "explanation": "Złośliwe oprogramowanie, ataki sieciowe, naruszenia bezpieczeństwa fizycznego i błędy ludzkie to typowe zagrożenia. Aktualizacje i silne hasła to środki zapobiegawcze."
     },
@@ -898,41 +1765,92 @@
       "question": "Opisz podstawowy cykl wykonywania rozkazu przez procesor (Fetch-Decode-Execute Cycle). Które kroki są jego częścią? (Wybierz wszystkie pasujące)",
       "options": [
         { "text": "Pobranie rozkazu (Fetch) z pamięci.", "isCorrect": true },
-        { "text": "Kompilacja rozkazu do kodu niższego poziomu.", "isCorrect": false },
-        { "text": "Dekodowanie rozkazu (Decode) przez jednostkę sterującą.", "isCorrect": true },
-        { "text": "Pobranie operandów (Fetch Operands), jeśli są wymagane.", "isCorrect": true },
-        { "text": "Wykonanie rozkazu (Execute) przez ALU lub inną jednostkę.", "isCorrect": true },
-        { "text": "Zapisanie wyniku (Write Back) do rejestru lub pamięci.", "isCorrect": true }
+        {
+          "text": "Kompilacja rozkazu do kodu niższego poziomu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Dekodowanie rozkazu (Decode) przez jednostkę sterującą.",
+          "isCorrect": true
+        },
+        {
+          "text": "Pobranie operandów (Fetch Operands), jeśli są wymagane.",
+          "isCorrect": true
+        },
+        {
+          "text": "Wykonanie rozkazu (Execute) przez ALU lub inną jednostkę.",
+          "isCorrect": true
+        },
+        {
+          "text": "Zapisanie wyniku (Write Back) do rejestru lub pamięci.",
+          "isCorrect": true
+        }
       ],
       "explanation": "Podstawowy cykl rozkazu obejmuje pobranie, dekodowanie, pobranie operandów (jeśli trzeba), wykonanie i zapisanie wyniku. Kompilacja odbywa się na znacznie wcześniejszym etapie (przed uruchomieniem programu)."
     },
     {
       "question": "Jaka jest główna rola przerwań w systemie komputerowym?",
       "options": [
-        { "text": "Wyłącznie do obsługi błędów krytycznych systemu.", "isCorrect": false },
-        { "text": "Pozwalają systemowi reagować na zdarzenia asynchroniczne (np. od urządzeń I/O, zegara systemowego), obsługiwać błędy, implementować wywołania systemowe i realizować wielozadaniowość.", "isCorrect": true },
-        { "text": "Do przyspieszania operacji matematycznych w procesorze.", "isCorrect": false },
-        { "text": "Do zarządzania pamięcią podręczną procesora (cache).", "isCorrect": false }
+        {
+          "text": "Wyłącznie do obsługi błędów krytycznych systemu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Pozwalają systemowi reagować na zdarzenia asynchroniczne (np. od urządzeń I/O, zegara systemowego), obsługiwać błędy, implementować wywołania systemowe i realizować wielozadaniowość.",
+          "isCorrect": true
+        },
+        {
+          "text": "Do przyspieszania operacji matematycznych w procesorze.",
+          "isCorrect": false
+        },
+        {
+          "text": "Do zarządzania pamięcią podręczną procesora (cache).",
+          "isCorrect": false
+        }
       ],
       "explanation": "Przerwania są fundamentalnym mechanizmem umożliwiającym komunikację z urządzeniami, obsługę błędów, realizację wywołań systemowych, wielozadaniowość i ogólną reakcję na zdarzenia asynchroniczne."
     },
     {
       "question": "Która z poniższych cech jest charakterystyczna dla architektury komputerów von Neumanna?",
       "options": [
-        { "text": "Oddzielne przestrzenie pamięci i magistrale dla instrukcji i danych (architektura harwardzka).", "isCorrect": false },
-        { "text": "Jedna wspólna przestrzeń pamięci i magistrala dla instrukcji i danych.", "isCorrect": true },
-        { "text": "Brak jednostki arytmetyczno-logicznej (ALU).", "isCorrect": false },
-        { "text": "Wykonywanie wielu instrukcji jednocześnie na wielu danych (architektura SIMD/MIMD).", "isCorrect": false }
+        {
+          "text": "Oddzielne przestrzenie pamięci i magistrale dla instrukcji i danych (architektura harwardzka).",
+          "isCorrect": false
+        },
+        {
+          "text": "Jedna wspólna przestrzeń pamięci i magistrala dla instrukcji i danych.",
+          "isCorrect": true
+        },
+        {
+          "text": "Brak jednostki arytmetyczno-logicznej (ALU).",
+          "isCorrect": false
+        },
+        {
+          "text": "Wykonywanie wielu instrukcji jednocześnie na wielu danych (architektura SIMD/MIMD).",
+          "isCorrect": false
+        }
       ],
       "explanation": "Kluczową cechą architektury von Neumanna jest współdzielona pamięć i magistrala dla instrukcji i danych, co prowadzi do tzw. \"wąskiego gardła von Neumanna\"."
     },
     {
       "question": "Jakie są dwie fundamentalne zasady działania idealnego wzmacniacza operacyjnego skonfigurowanego z ujemnym sprzężeniem zwrotnym (zakładając, że nie jest nasycony)?",
       "options": [
-        { "text": "Prąd wyjściowy jest zawsze równy sumie prądów wejściowych; napięcie wyjściowe jest równe napięciu zasilania.", "isCorrect": false },
-        { "text": "Napięcie na wejściu odwracającym (-) jest równe napięciu na wejściu nieodwracającym (+) (zasada wirtualnego zwarcia); prądy wejściowe do obu wejść są pomijalnie małe (idealnie zerowe).", "isCorrect": true },
-        { "text": "Wzmocnienie w otwartej pętli jest zawsze równe 1; impedancja wejściowa jest bliska zeru.", "isCorrect": false },
-        { "text": "Pasmo przenoszenia jest nieskończone; napięcie wyjściowe jest ograniczone tylko przez napięcie wejściowe.", "isCorrect": false }
+        {
+          "text": "Prąd wyjściowy jest zawsze równy sumie prądów wejściowych; napięcie wyjściowe jest równe napięciu zasilania.",
+          "isCorrect": false
+        },
+        {
+          "text": "Napięcie na wejściu odwracającym (-) jest równe napięciu na wejściu nieodwracającym (+) (zasada wirtualnego zwarcia); prądy wejściowe do obu wejść są pomijalnie małe (idealnie zerowe).",
+          "isCorrect": true
+        },
+        {
+          "text": "Wzmocnienie w otwartej pętli jest zawsze równe 1; impedancja wejściowa jest bliska zeru.",
+          "isCorrect": false
+        },
+        {
+          "text": "Pasmo przenoszenia jest nieskończone; napięcie wyjściowe jest ograniczone tylko przez napięcie wejściowe.",
+          "isCorrect": false
+        }
       ],
       "explanation": "W ujemnym sprzężeniu zwrotnym idealny wzmacniacz operacyjny charakteryzuje się wirtualnym zwarciem między wejściami (V+ = V-) oraz zerowymi prądami wejściowymi."
     },
@@ -949,10 +1867,19 @@
     {
       "question": "Czym charakteryzują się układy sekwencyjne w odróżnieniu od układów kombinacyjnych?",
       "options": [
-        { "text": "Ich stan wyjść zależy wyłącznie od aktualnego stanu wejść.", "isCorrect": false },
+        {
+          "text": "Ich stan wyjść zależy wyłącznie od aktualnego stanu wejść.",
+          "isCorrect": false
+        },
         { "text": "Nie posiadają elementów pamięciowych.", "isCorrect": false },
-        { "text": "Ich stan wyjść zależy od aktualnego stanu wejść oraz od poprzedniego stanu układu (historii wejść), ponieważ posiadają elementy pamięciowe.", "isCorrect": true },
-        { "text": "Są zawsze realizowane przy użyciu mniejszej liczby bramek logicznych niż układy kombinacyjne o podobnej funkcji.", "isCorrect": false }
+        {
+          "text": "Ich stan wyjść zależy od aktualnego stanu wejść oraz od poprzedniego stanu układu (historii wejść), ponieważ posiadają elementy pamięciowe.",
+          "isCorrect": true
+        },
+        {
+          "text": "Są zawsze realizowane przy użyciu mniejszej liczby bramek logicznych niż układy kombinacyjne o podobnej funkcji.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Układy sekwencyjne posiadają pamięć (np. przerzutniki), a ich wyjścia zależą od bieżących wejść i poprzedniego stanu. Wyjścia układów kombinacyjnych zależą tylko od bieżących wejść."
     },
@@ -970,61 +1897,136 @@
     {
       "question": "Co oznacza, że algorytm jest całkowicie poprawny (totally correct)?",
       "options": [
-        { "text": "Że zawsze zatrzymuje się po skończonej liczbie kroków, ale niekoniecznie daje poprawny wynik.", "isCorrect": false },
-        { "text": "Że jeśli się zatrzyma, to daje poprawny wynik, ale nie ma gwarancji, że się zatrzyma.", "isCorrect": false },
-        { "text": "Że zawsze zatrzymuje się po skończonej liczbie kroków ORAZ zawsze daje poprawny wynik dla poprawnych danych wejściowych.", "isCorrect": true },
-        { "text": "Że jest napisany w sposób optymalny pod względem złożoności czasowej.", "isCorrect": false }
+        {
+          "text": "Że zawsze zatrzymuje się po skończonej liczbie kroków, ale niekoniecznie daje poprawny wynik.",
+          "isCorrect": false
+        },
+        {
+          "text": "Że jeśli się zatrzyma, to daje poprawny wynik, ale nie ma gwarancji, że się zatrzyma.",
+          "isCorrect": false
+        },
+        {
+          "text": "Że zawsze zatrzymuje się po skończonej liczbie kroków ORAZ zawsze daje poprawny wynik dla poprawnych danych wejściowych.",
+          "isCorrect": true
+        },
+        {
+          "text": "Że jest napisany w sposób optymalny pod względem złożoności czasowej.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Algorytm całkowicie poprawny musi spełniać dwa warunki: własność STOPu (zawsze się zatrzymuje) i częściową poprawność (jeśli się zatrzyma, daje poprawny wynik)."
     },
     {
       "question": "Porównując język maszynowy, asembler i języki wysokiego poziomu, które stwierdzenie jest prawdziwe?",
       "options": [
-        { "text": "Języki wysokiego poziomu są najbardziej zależne od sprzętu.", "isCorrect": false },
-        { "text": "Asembler oferuje najwyższy poziom abstrakcji.", "isCorrect": false },
-        { "text": "Język maszynowy jest bezpośrednio wykonywany przez CPU, asembler wymaga asemblera do tłumaczenia, a języki wysokiego poziomu kompilatora lub interpretera.", "isCorrect": true },
-        { "text": "Tworzenie kodu w języku maszynowym jest najszybsze i najmniej podatne na błędy.", "isCorrect": false }
+        {
+          "text": "Języki wysokiego poziomu są najbardziej zależne od sprzętu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Asembler oferuje najwyższy poziom abstrakcji.",
+          "isCorrect": false
+        },
+        {
+          "text": "Język maszynowy jest bezpośrednio wykonywany przez CPU, asembler wymaga asemblera do tłumaczenia, a języki wysokiego poziomu kompilatora lub interpretera.",
+          "isCorrect": true
+        },
+        {
+          "text": "Tworzenie kodu w języku maszynowym jest najszybsze i najmniej podatne na błędy.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Język maszynowy to kod binarny dla CPU. Asembler to symboliczna reprezentacja języka maszynowego. Języki wysokiego poziomu oferują dużą abstrakcję i wymagają kompilacji/interpretacji. Są bardziej przenośne i łatwiejsze w użyciu niż języki niskiego poziomu."
     },
     {
       "question": "Które z poniższych są poprawnymi operacjami na wskaźnikach w języku C? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "Pobranie adresu zmiennej za pomocą operatora '&'.", "isCorrect": true },
-        { "text": "Dereferencja wskaźnika (dostęp do wartości pod adresem) za pomocą operatora '*'.", "isCorrect": true },
-        { "text": "Inkrementacja wskaźnika, która przesuwa go na następny element tego samego typu.", "isCorrect": true },
-        { "text": "Bezpośrednie dodawanie dwóch wskaźników w celu uzyskania sumy ich adresów.", "isCorrect": false },
-        { "text": "Porównywanie wskaźników wskazujących na elementy tej samej tablicy.", "isCorrect": true }
+        {
+          "text": "Pobranie adresu zmiennej za pomocą operatora '&'.",
+          "isCorrect": true
+        },
+        {
+          "text": "Dereferencja wskaźnika (dostęp do wartości pod adresem) za pomocą operatora '*'.",
+          "isCorrect": true
+        },
+        {
+          "text": "Inkrementacja wskaźnika, która przesuwa go na następny element tego samego typu.",
+          "isCorrect": true
+        },
+        {
+          "text": "Bezpośrednie dodawanie dwóch wskaźników w celu uzyskania sumy ich adresów.",
+          "isCorrect": false
+        },
+        {
+          "text": "Porównywanie wskaźników wskazujących na elementy tej samej tablicy.",
+          "isCorrect": true
+        }
       ],
       "explanation": "Operacje na wskaźnikach w C obejmują pobieranie adresu (&), dereferencję (*), arytmetykę wskaźników (np. ++, +, - skalowane o rozmiar typu) oraz porównywanie. Dodawanie dwóch wskaźników nie jest zdefiniowaną operacją w sensie uzyskania sensownego adresu."
     },
     {
       "question": "Jakie jest znaczenie kwalifikatora 'static' użytego dla zmiennej lokalnej wewnątrz funkcji w języku C?",
       "options": [
-        { "text": "Zmienna staje się widoczna globalnie we wszystkich plikach projektu.", "isCorrect": false },
-        { "text": "Zmienna jest przechowywana w rejestrze procesora dla szybszego dostępu.", "isCorrect": false },
-        { "text": "Zmienna zachowuje swoją wartość między kolejnymi wywołaniami funkcji, jest inicjalizowana tylko raz i istnieje przez cały czas działania programu, ale jej zasięg pozostaje lokalny.", "isCorrect": true },
-        { "text": "Kompilator jest informowany, że wartość zmiennej nie będzie zmieniana po inicjalizacji.", "isCorrect": false }
+        {
+          "text": "Zmienna staje się widoczna globalnie we wszystkich plikach projektu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Zmienna jest przechowywana w rejestrze procesora dla szybszego dostępu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Zmienna zachowuje swoją wartość między kolejnymi wywołaniami funkcji, jest inicjalizowana tylko raz i istnieje przez cały czas działania programu, ale jej zasięg pozostaje lokalny.",
+          "isCorrect": true
+        },
+        {
+          "text": "Kompilator jest informowany, że wartość zmiennej nie będzie zmieniana po inicjalizacji.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Lokalna zmienna statyczna w C ma czas życia równy czasowi działania programu, jest inicjalizowana raz i zachowuje wartość między wywołaniami funkcji, ale jej zasięg (widoczność) jest ograniczony do funkcji, w której została zadeklarowana."
     },
     {
       "question": "Co to jest relacja równoważności na zbiorze A?",
       "options": [
-        { "text": "Dowolna relacja, która jest zwrotna i symetryczna.", "isCorrect": false },
-        { "text": "Relacja, która jest zwrotna, symetryczna i przechodnia.", "isCorrect": true },
-        { "text": "Relacja, która jest tylko przechodnia.", "isCorrect": false },
-        { "text": "Relacja, która przyporządkowuje każdemu elementowi A dokładnie jeden element z A.", "isCorrect": false }
+        {
+          "text": "Dowolna relacja, która jest zwrotna i symetryczna.",
+          "isCorrect": false
+        },
+        {
+          "text": "Relacja, która jest zwrotna, symetryczna i przechodnia.",
+          "isCorrect": true
+        },
+        {
+          "text": "Relacja, która jest tylko przechodnia.",
+          "isCorrect": false
+        },
+        {
+          "text": "Relacja, która przyporządkowuje każdemu elementowi A dokładnie jeden element z A.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Relacja równoważności musi spełniać trzy warunki: być zwrotna (każdy element jest w relacji sam ze sobą), symetryczna (jeśli aRb to bRa) i przechodnia (jeśli aRb i bRc to aRc)."
     },
     {
       "question": "Które z poniższych praw dotyczących rozkładu kwantyfikatorów względem spójników logicznych jest prawdziwe dla dowolnych predykatów P(x) i Q(x)?",
       "options": [
-        { "text": "∀x (P(x) ∨ Q(x)) ⇔ (∀x P(x)) ∨ (∀x Q(x))", "isCorrect": false },
-        { "text": "∃x (P(x) ∧ Q(x)) ⇔ (∃x P(x)) ∧ (∃x Q(x))", "isCorrect": false },
-        { "text": "∀x (P(x) ∧ Q(x)) ⇔ (∀x P(x)) ∧ (∀x Q(x))", "isCorrect": true },
-        { "text": "Prawa De Morgana dla kwantyfikatorów to: ¬∀x P(x) ⇔ ∀x ¬P(x)", "isCorrect": false }
+        {
+          "text": "∀x (P(x) ∨ Q(x)) ⇔ (∀x P(x)) ∨ (∀x Q(x))",
+          "isCorrect": false
+        },
+        {
+          "text": "∃x (P(x) ∧ Q(x)) ⇔ (∃x P(x)) ∧ (∃x Q(x))",
+          "isCorrect": false
+        },
+        {
+          "text": "∀x (P(x) ∧ Q(x)) ⇔ (∀x P(x)) ∧ (∀x Q(x))",
+          "isCorrect": true
+        },
+        {
+          "text": "Prawa De Morgana dla kwantyfikatorów to: ¬∀x P(x) ⇔ ∀x ¬P(x)",
+          "isCorrect": false
+        }
       ],
       "explanation": "Rozkład kwantyfikatora ogólnego względem koniunkcji jest równoważnością: ∀x (P(x) ∧ Q(x)) ⇔ (∀x P(x)) ∧ (∀x Q(x)). Pozostałe opcje to błędne równoważności lub błędne zastosowanie praw De Morgana (powinno być ¬∀x P(x) ⇔ ∃x ¬P(x))."
     },
@@ -1051,19 +2053,40 @@
     {
       "question": "Jakie są podstawowe własności funkcji gęstości prawdopodobieństwa (PDF) f(x) dla ciągłej zmiennej losowej?",
       "options": [
-        { "text": "f(x) może przyjmować wartości ujemne; całka z f(x) po całej dziedzinie jest równa 0.", "isCorrect": false },
-        { "text": "f(x) ≥ 0 dla każdego x; całka z f(x) po całej dziedzinie jest równa 1.", "isCorrect": true },
-        { "text": "f(x) jest zawsze mniejsza lub równa 1; suma f(x) po wszystkich możliwych wartościach x jest równa 1.", "isCorrect": false },
-        { "text": "f(x) reprezentuje prawdopodobieństwo P(X=x); f(x) jest funkcją niemalejącą.", "isCorrect": false }
+        {
+          "text": "f(x) może przyjmować wartości ujemne; całka z f(x) po całej dziedzinie jest równa 0.",
+          "isCorrect": false
+        },
+        {
+          "text": "f(x) ≥ 0 dla każdego x; całka z f(x) po całej dziedzinie jest równa 1.",
+          "isCorrect": true
+        },
+        {
+          "text": "f(x) jest zawsze mniejsza lub równa 1; suma f(x) po wszystkich możliwych wartościach x jest równa 1.",
+          "isCorrect": false
+        },
+        {
+          "text": "f(x) reprezentuje prawdopodobieństwo P(X=x); f(x) jest funkcją niemalejącą.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Funkcja gęstości prawdopodobieństwa f(x) musi być nieujemna (f(x) ≥ 0) i całkować się do jedności (∫ f(x) dx = 1). Dla zmiennych ciągłych P(X=x) = 0."
     },
     {
       "question": "Co reprezentuje dystrybuanta F(x) zmiennej losowej X?",
       "options": [
-        { "text": "Prawdopodobieństwo, że X przyjmie dokładnie wartość x, tj. P(X=x).", "isCorrect": false },
-        { "text": "Prawdopodobieństwo, że X przyjmie wartość większą niż x, tj. P(X>x).", "isCorrect": false },
-        { "text": "Prawdopodobieństwo, że X przyjmie wartość mniejszą lub równą x, tj. P(X≤x).", "isCorrect": true },
+        {
+          "text": "Prawdopodobieństwo, że X przyjmie dokładnie wartość x, tj. P(X=x).",
+          "isCorrect": false
+        },
+        {
+          "text": "Prawdopodobieństwo, że X przyjmie wartość większą niż x, tj. P(X>x).",
+          "isCorrect": false
+        },
+        {
+          "text": "Prawdopodobieństwo, że X przyjmie wartość mniejszą lub równą x, tj. P(X≤x).",
+          "isCorrect": true
+        },
         { "text": "Wartość oczekiwaną zmiennej losowej X.", "isCorrect": false }
       ],
       "explanation": "Dystrybuanta F(x) jest zdefiniowana jako F(x) = P(X ≤ x), czyli prawdopodobieństwo, że zmienna losowa X przyjmie wartość nie większą niż x."
@@ -1071,42 +2094,96 @@
     {
       "question": "Które z poniższych stwierdzeń dotyczących rozkładu normalnego N(μ, σ²) są prawdziwe? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "Jego funkcja gęstości ma kształt dzwonu i jest symetryczna względem średniej μ.", "isCorrect": true },
-        { "text": "Odchylenie standardowe σ określa położenie centrum krzywej gęstości.", "isCorrect": false },
-        { "text": "Około 99.7% wartości leży w odległości ±3σ od średniej μ.", "isCorrect": true },
-        { "text": "Suma dwóch niezależnych zmiennych losowych o rozkładzie normalnym nie ma rozkładu normalnego.", "isCorrect": false },
-        { "text": "Jego dystrybuanta ma prostą postać analityczną wyrażoną przez funkcje elementarne.", "isCorrect": false }
+        {
+          "text": "Jego funkcja gęstości ma kształt dzwonu i jest symetryczna względem średniej μ.",
+          "isCorrect": true
+        },
+        {
+          "text": "Odchylenie standardowe σ określa położenie centrum krzywej gęstości.",
+          "isCorrect": false
+        },
+        {
+          "text": "Około 99.7% wartości leży w odległości ±3σ od średniej μ.",
+          "isCorrect": true
+        },
+        {
+          "text": "Suma dwóch niezależnych zmiennych losowych o rozkładzie normalnym nie ma rozkładu normalnego.",
+          "isCorrect": false
+        },
+        {
+          "text": "Jego dystrybuanta ma prostą postać analityczną wyrażoną przez funkcje elementarne.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Rozkład normalny jest symetryczny (dzwon), μ to średnia (centrum), σ to odchylenie standardowe (rozrzut). Reguła 68-95-99.7 jest prawdziwa. Suma niezależnych zmiennych normalnych jest normalna. Dystrybuanta nie ma prostej postaci analitycznej."
     },
     {
       "question": "Na czym polega metoda generowania liczb pseudolosowych o zadanym rozkładzie prawdopodobieństwa przez odwracanie dystrybuanty (Inverse Transform Sampling)?",
       "options": [
-        { "text": "Na wielokrotnym generowaniu liczb z rozkładu jednorodnego i akceptowaniu tylko tych, które pasują do zadanego rozkładu.", "isCorrect": false },
-        { "text": "Na wygenerowaniu liczby u z rozkładu jednorodnego U(0,1), a następnie obliczeniu wartości x = F⁻¹(u), gdzie F⁻¹ jest funkcją odwrotną do dystrybuanty żądanego rozkładu.", "isCorrect": true },
-        { "text": "Na użyciu Centralnego Twierdzenia Granicznego do aproksymacji zadanego rozkładu sumą wielu zmiennych jednorodnych.", "isCorrect": false },
-        { "text": "Na dyskretyzacji funkcji gęstości prawdopodobieństwa i losowaniu z tak utworzonego rozkładu dyskretnego.", "isCorrect": false }
+        {
+          "text": "Na wielokrotnym generowaniu liczb z rozkładu jednorodnego i akceptowaniu tylko tych, które pasują do zadanego rozkładu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Na wygenerowaniu liczby u z rozkładu jednorodnego U(0,1), a następnie obliczeniu wartości x = F⁻¹(u), gdzie F⁻¹ jest funkcją odwrotną do dystrybuanty żądanego rozkładu.",
+          "isCorrect": true
+        },
+        {
+          "text": "Na użyciu Centralnego Twierdzenia Granicznego do aproksymacji zadanego rozkładu sumą wielu zmiennych jednorodnych.",
+          "isCorrect": false
+        },
+        {
+          "text": "Na dyskretyzacji funkcji gęstości prawdopodobieństwa i losowaniu z tak utworzonego rozkładu dyskretnego.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Metoda odwracania dystrybuanty polega na zastosowaniu funkcji odwrotnej do dystrybuanty (F⁻¹) do liczby wygenerowanej z rozkładu jednorodnego U(0,1), aby otrzymać liczbę z docelowego rozkładu."
     },
     {
       "question": "Jak interpretujemy współczynnik korelacji Pearsona ρ(X,Y) bliski -1?",
       "options": [
-        { "text": "Brak jakiejkolwiek zależności między zmiennymi X i Y.", "isCorrect": false },
-        { "text": "Silna dodatnia zależność liniowa między X i Y.", "isCorrect": false },
-        { "text": "Silna ujemna zależność liniowa między X i Y (wzrostowi jednej zmiennej towarzyszy spadek drugiej).", "isCorrect": true },
-        { "text": "Silna zależność nieliniowa między X i Y.", "isCorrect": false }
+        {
+          "text": "Brak jakiejkolwiek zależności między zmiennymi X i Y.",
+          "isCorrect": false
+        },
+        {
+          "text": "Silna dodatnia zależność liniowa między X i Y.",
+          "isCorrect": false
+        },
+        {
+          "text": "Silna ujemna zależność liniowa między X i Y (wzrostowi jednej zmiennej towarzyszy spadek drugiej).",
+          "isCorrect": true
+        },
+        {
+          "text": "Silna zależność nieliniowa między X i Y.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Współczynnik korelacji Pearsona bliski -1 oznacza silną ujemną korelację liniową: gdy jedna zmienna rośnie, druga maleje, a punkty układają się blisko linii prostej o ujemnym nachyleniu."
     },
     {
       "question": "Które z poniższych stwierdzeń dotyczących współczynnika korelacji Pearsona są prawdziwe? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "Przyjmuje wartości z przedziału [0, 1].", "isCorrect": false },
-        { "text": "Jest miarą dowolnej zależności między dwiema zmiennymi losowymi.", "isCorrect": false },
-        { "text": "Jeśli zmienne X i Y są niezależne, to ich współczynnik korelacji wynosi 0.", "isCorrect": true },
-        { "text": "Współczynnik korelacji równy 0 zawsze oznacza, że zmienne są niezależne.", "isCorrect": false },
-        { "text": "Jest niezależny od zmiany skali i przesunięcia zmiennych (z dokładnością do znaku).", "isCorrect": true }
+        {
+          "text": "Przyjmuje wartości z przedziału [0, 1].",
+          "isCorrect": false
+        },
+        {
+          "text": "Jest miarą dowolnej zależności między dwiema zmiennymi losowymi.",
+          "isCorrect": false
+        },
+        {
+          "text": "Jeśli zmienne X i Y są niezależne, to ich współczynnik korelacji wynosi 0.",
+          "isCorrect": true
+        },
+        {
+          "text": "Współczynnik korelacji równy 0 zawsze oznacza, że zmienne są niezależne.",
+          "isCorrect": false
+        },
+        {
+          "text": "Jest niezależny od zmiany skali i przesunięcia zmiennych (z dokładnością do znaku).",
+          "isCorrect": true
+        }
       ],
       "explanation": "ρ(X,Y) jest w [-1, 1]. Mierzy zależność LINIOWĄ. Niezależność implikuje ρ=0, ale ρ=0 nie zawsze implikuje niezależność (chyba że rozkład jest normalny). Jest niezmienny na transformacje liniowe (skala, przesunięcie), z wyjątkiem znaku."
     },
@@ -1125,7 +2202,10 @@
       "options": [
         { "text": "Koszt, Czas, Zakres", "isCorrect": false },
         { "text": "Programista, Projektant, Tester", "isCorrect": false },
-        { "text": "Człowiek (Użytkownik), Technologia (System), Zadanie (Cel)", "isCorrect": true },
+        {
+          "text": "Człowiek (Użytkownik), Technologia (System), Zadanie (Cel)",
+          "isCorrect": true
+        },
         { "text": "Wygląd, Funkcjonalność, Wydajność", "isCorrect": false }
       ],
       "explanation": "Trójkąt wpływu (lub trójkąt projektowania interakcji) podkreśla konieczność uwzględnienia charakterystyk użytkownika (Człowiek), możliwości i ograniczeń systemu (Technologia) oraz celów i czynności do wykonania (Zadanie)."
@@ -1133,60 +2213,123 @@
     {
       "question": "Która z metod testowania interfejsu użytkownika polega na obserwacji reprezentatywnych użytkowników wykonujących typowe zadania w kontrolowanym środowisku, często z prośbą o \"myślenie na głos\"?",
       "options": [
-        { "text": "Ocena heurystyczna (Heuristic Evaluation)", "isCorrect": false },
+        {
+          "text": "Ocena heurystyczna (Heuristic Evaluation)",
+          "isCorrect": false
+        },
         { "text": "Testy A/B (A/B Testing)", "isCorrect": false },
         { "text": "Testy użyteczności (Usability Testing)", "isCorrect": true },
-        { "text": "Przejście poznawcze (Cognitive Walkthrough)", "isCorrect": false }
+        {
+          "text": "Przejście poznawcze (Cognitive Walkthrough)",
+          "isCorrect": false
+        }
       ],
       "explanation": "Testy użyteczności (Usability Testing) to metoda polegająca na bezpośredniej obserwacji użytkowników podczas interakcji z systemem w celu identyfikacji problemów z użytecznością. Protokół \"myślenia na głos\" jest często stosowany."
     },
     {
       "question": "Jaka jest rola protokołu ARP (Address Resolution Protocol) w sieciach lokalnych?",
       "options": [
-        { "text": "Przypisywanie dynamicznych adresów IP hostom w sieci (jak DHCP).", "isCorrect": false },
-        { "text": "Tłumaczenie nazw domenowych na adresy IP (jak DNS).", "isCorrect": false },
-        { "text": "Mapowanie adresów logicznych warstwy sieciowej (np. IP) na adresy fizyczne warstwy łącza danych (np. MAC).", "isCorrect": true },
-        { "text": "Szyfrowanie komunikacji między hostami w sieci lokalnej.", "isCorrect": false }
+        {
+          "text": "Przypisywanie dynamicznych adresów IP hostom w sieci (jak DHCP).",
+          "isCorrect": false
+        },
+        {
+          "text": "Tłumaczenie nazw domenowych na adresy IP (jak DNS).",
+          "isCorrect": false
+        },
+        {
+          "text": "Mapowanie adresów logicznych warstwy sieciowej (np. IP) na adresy fizyczne warstwy łącza danych (np. MAC).",
+          "isCorrect": true
+        },
+        {
+          "text": "Szyfrowanie komunikacji między hostami w sieci lokalnej.",
+          "isCorrect": false
+        }
       ],
       "explanation": "ARP służy do odnajdywania adresu MAC hosta w tej samej sieci lokalnej na podstawie jego znanego adresu IP, co jest niezbędne do adresowania ramek w warstwie 2."
     },
     {
       "question": "Do czego służy brama domyślna (default gateway) w konfiguracji sieciowej hosta?",
       "options": [
-        { "text": "Do identyfikacji hosta w sieci lokalnej za pomocą unikalnego adresu fizycznego.", "isCorrect": false },
-        { "text": "Do filtrowania niechcianego ruchu przychodzącego do hosta (działa jak firewall).", "isCorrect": false },
-        { "text": "Jest to adres routera, do którego host wysyła pakiety IP przeznaczone dla hostów znajdujących się poza jego własną siecią lokalną.", "isCorrect": true },
-        { "text": "Do przechowywania pamięci podręcznej ostatnio odwiedzanych stron internetowych.", "isCorrect": false }
+        {
+          "text": "Do identyfikacji hosta w sieci lokalnej za pomocą unikalnego adresu fizycznego.",
+          "isCorrect": false
+        },
+        {
+          "text": "Do filtrowania niechcianego ruchu przychodzącego do hosta (działa jak firewall).",
+          "isCorrect": false
+        },
+        {
+          "text": "Jest to adres routera, do którego host wysyła pakiety IP przeznaczone dla hostów znajdujących się poza jego własną siecią lokalną.",
+          "isCorrect": true
+        },
+        {
+          "text": "Do przechowywania pamięci podręcznej ostatnio odwiedzanych stron internetowych.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Brama domyślna to router, który umożliwia hostowi komunikację z urządzeniami w innych sieciach (np. w Internecie). Pakiety do sieci zewnętrznych są kierowane do bramy domyślnej."
     },
     {
       "question": "Jeśli oryginalna sieć to 192.168.1.0/24 i chcemy ją podzielić na 4 równe podsieci metodą FLSM, jaka będzie nowa maska podsieci i ile adresów IP dla hostów będzie miała każda z tych podsieci?",
       "options": [
-        { "text": "Maska /25 (255.255.255.128), 126 hostów na podsieć.", "isCorrect": false },
-        { "text": "Maska /26 (255.255.255.192), 62 hostów na podsieć.", "isCorrect": true },
-        { "text": "Maska /27 (255.255.255.224), 30 hostów na podsieć.", "isCorrect": false },
-        { "text": "Maska /24 (255.255.255.0), 254 hostów na podsieć (brak podziału).", "isCorrect": false }
+        {
+          "text": "Maska /25 (255.255.255.128), 126 hostów na podsieć.",
+          "isCorrect": false
+        },
+        {
+          "text": "Maska /26 (255.255.255.192), 62 hostów na podsieć.",
+          "isCorrect": true
+        },
+        {
+          "text": "Maska /27 (255.255.255.224), 30 hostów na podsieć.",
+          "isCorrect": false
+        },
+        {
+          "text": "Maska /24 (255.255.255.0), 254 hostów na podsieć (brak podziału).",
+          "isCorrect": false
+        }
       ],
       "explanation": "Aby podzielić sieć /24 na 4 podsieci, potrzebujemy pożyczyć 2 bity z części hosta (2²=4). Nowa maska to /24+2 = /26. Liczba bitów hosta w podsieci to 32-26=6. Liczba adresów dla hostów: 2⁶-2 = 64-2 = 62."
     },
     {
       "question": "Które z poniższych są kluczowymi funkcjami protokołu TCP (Transmission Control Protocol)? (Wybierz wszystkie pasujące)",
       "options": [
-        { "text": "Niezawodne dostarczanie danych z potwierdzeniami i retransmisjami.", "isCorrect": true },
-        { "text": "Brak potrzeby nawiązywania połączenia przed transmisją (bezpołączeniowość).", "isCorrect": false },
-        { "text": "Kontrola przepływu (flow control) zapobiegająca zalaniu odbiorcy.", "isCorrect": true },
-        { "text": "Kontrola zatorów (congestion control) w sieci.", "isCorrect": true },
-        { "text": "Przesyłanie danych w postaci oddzielnych, niezależnych datagramów.", "isCorrect": false }
+        {
+          "text": "Niezawodne dostarczanie danych z potwierdzeniami i retransmisjami.",
+          "isCorrect": true
+        },
+        {
+          "text": "Brak potrzeby nawiązywania połączenia przed transmisją (bezpołączeniowość).",
+          "isCorrect": false
+        },
+        {
+          "text": "Kontrola przepływu (flow control) zapobiegająca zalaniu odbiorcy.",
+          "isCorrect": true
+        },
+        {
+          "text": "Kontrola zatorów (congestion control) w sieci.",
+          "isCorrect": true
+        },
+        {
+          "text": "Przesyłanie danych w postaci oddzielnych, niezależnych datagramów.",
+          "isCorrect": false
+        }
       ],
       "explanation": "TCP jest protokołem połączeniowym, zapewniającym niezawodne dostarczanie, kontrolę przepływu i kontrolę zatorów. Przesyła dane jako strumień, a nie oddzielne datagramy (to cecha UDP)."
     },
     {
       "question": "Jak nazywa się proces ustanawiania połączenia TCP składający się z wymiany trzech segmentów (SYN, SYN-ACK, ACK)?",
       "options": [
-        { "text": "Dwukierunkowe uzgadnianie (Two-Way Handshake)", "isCorrect": false },
+        {
+          "text": "Dwukierunkowe uzgadnianie (Two-Way Handshake)",
+          "isCorrect": false
+        },
         { "text": "Protokół ARP", "isCorrect": false },
-        { "text": "Trójdrożne uzgadnianie (Three-Way Handshake)", "isCorrect": true },
+        {
+          "text": "Trójdrożne uzgadnianie (Three-Way Handshake)",
+          "isCorrect": true
+        },
         { "text": "Proces zamykania połączenia TCP (FIN)", "isCorrect": false }
       ],
       "explanation": "Proces inicjalizacji połączenia TCP, obejmujący wymianę segmentów SYN, SYN-ACK i ACK, nazywany jest trójdrożnym uzgadnianiem (three-way handshake)."
@@ -1194,7 +2337,10 @@
     {
       "question": "Który typ gramatyki w hierarchii Chomsky'ego jest rozpoznawany przez automat ze stosem (Pushdown Automaton - PDA)?",
       "options": [
-        { "text": "Typ 0: Gramatyki rekurencyjnie przeliczalne", "isCorrect": false },
+        {
+          "text": "Typ 0: Gramatyki rekurencyjnie przeliczalne",
+          "isCorrect": false
+        },
         { "text": "Typ 1: Gramatyki kontekstowe", "isCorrect": false },
         { "text": "Typ 2: Gramatyki bezkontekstowe", "isCorrect": true },
         { "text": "Typ 3: Gramatyki regularne", "isCorrect": false }
@@ -1204,20 +2350,44 @@
     {
       "question": "Czy deterministyczne automaty skończone (DFA) i niedeterministyczne automaty skończone (NFA) są równoważne pod względem mocy obliczeniowej?",
       "options": [
-        { "text": "Nie, NFA są silniejsze i rozpoznają szerszą klasę języków niż DFA.", "isCorrect": false },
-        { "text": "Tak, DFA i NFA są równoważne i rozpoznają tę samą klasę języków (języki regularne).", "isCorrect": true },
-        { "text": "Nie, DFA są silniejsze, ponieważ brak niedeterminizmu pozwala na bardziej złożone obliczenia.", "isCorrect": false },
-        { "text": "Są równoważne tylko dla języków o skończonej liczbie słów.", "isCorrect": false }
+        {
+          "text": "Nie, NFA są silniejsze i rozpoznają szerszą klasę języków niż DFA.",
+          "isCorrect": false
+        },
+        {
+          "text": "Tak, DFA i NFA są równoważne i rozpoznają tę samą klasę języków (języki regularne).",
+          "isCorrect": true
+        },
+        {
+          "text": "Nie, DFA są silniejsze, ponieważ brak niedeterminizmu pozwala na bardziej złożone obliczenia.",
+          "isCorrect": false
+        },
+        {
+          "text": "Są równoważne tylko dla języków o skończonej liczbie słów.",
+          "isCorrect": false
+        }
       ],
       "explanation": "DFA i NFA są równoważne – dla każdego NFA można skonstruować równoważny DFA (i vice versa, gdyż DFA jest szczególnym przypadkiem NFA). Oba typy automatów rozpoznają klasę języków regularnych."
     },
     {
       "question": "Jaka jest główna rola parsera (analizatora składniowego) w procesie kompilacji?",
       "options": [
-        { "text": "Podział kodu źródłowego na tokeny (leksémy).", "isCorrect": false },
-        { "text": "Sprawdzenie, czy ciąg tokenów jest zgodny z gramatyką języka i zbudowanie struktury reprezentującej budowę programu (np. drzewa AST).", "isCorrect": true },
-        { "text": "Optymalizacja kodu pośredniego w celu zwiększenia jego wydajności.", "isCorrect": false },
-        { "text": "Generowanie kodu maszynowego dla docelowej platformy.", "isCorrect": false }
+        {
+          "text": "Podział kodu źródłowego na tokeny (leksémy).",
+          "isCorrect": false
+        },
+        {
+          "text": "Sprawdzenie, czy ciąg tokenów jest zgodny z gramatyką języka i zbudowanie struktury reprezentującej budowę programu (np. drzewa AST).",
+          "isCorrect": true
+        },
+        {
+          "text": "Optymalizacja kodu pośredniego w celu zwiększenia jego wydajności.",
+          "isCorrect": false
+        },
+        {
+          "text": "Generowanie kodu maszynowego dla docelowej platformy.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Parser (analizator składniowy) analizuje ciąg tokenów pod kątem zgodności z gramatyką języka i buduje jego strukturalną reprezentację, najczęściej w postaci Abstrakcyjnego Drzewa Składniowego (AST)."
     },
@@ -1235,10 +2405,22 @@
     {
       "question": "Jaka jest rola CSS (Cascading Style Sheets) w tworzeniu stron internetowych?",
       "options": [
-        { "text": "Definiowanie struktury i semantyki treści strony.", "isCorrect": false },
-        { "text": "Opisywanie wyglądu i prezentacji dokumentu HTML (kolory, czcionki, układy).", "isCorrect": true },
-        { "text": "Dodawanie interaktywności i dynamicznej zmiany treści po stronie klienta.", "isCorrect": false },
-        { "text": "Obsługa komunikacji z serwerem i przetwarzanie danych formularzy.", "isCorrect": false }
+        {
+          "text": "Definiowanie struktury i semantyki treści strony.",
+          "isCorrect": false
+        },
+        {
+          "text": "Opisywanie wyglądu i prezentacji dokumentu HTML (kolory, czcionki, układy).",
+          "isCorrect": true
+        },
+        {
+          "text": "Dodawanie interaktywności i dynamicznej zmiany treści po stronie klienta.",
+          "isCorrect": false
+        },
+        {
+          "text": "Obsługa komunikacji z serwerem i przetwarzanie danych formularzy.",
+          "isCorrect": false
+        }
       ],
       "explanation": "CSS służy do stylizowania dokumentów HTML, czyli definiowania ich wyglądu, układu i ogólnej prezentacji wizualnej, oddzielając warstwę prezentacji od struktury (HTML) i zachowania (JavaScript)."
     },
@@ -1246,10 +2428,22 @@
       "question": "Które z poniższych technik CSS są kluczowe dla tworzenia responsywnych stron internetowych (RWD)? (Wybierz wszystkie pasujące)",
       "options": [
         { "text": "Media Queries", "isCorrect": true },
-        { "text": "Użycie wyłącznie stałych jednostek (np. px) dla wszystkich wymiarów.", "isCorrect": false },
-        { "text": "Elastyczne siatki (Fluid Grids) oparte na jednostkach względnych.", "isCorrect": true },
-        { "text": "Elastyczne obrazy (Flexible Images) z max-width: 100%.", "isCorrect": true },
-        { "text": "Techniki layoutu takie jak Flexbox i CSS Grid.", "isCorrect": true }
+        {
+          "text": "Użycie wyłącznie stałych jednostek (np. px) dla wszystkich wymiarów.",
+          "isCorrect": false
+        },
+        {
+          "text": "Elastyczne siatki (Fluid Grids) oparte na jednostkach względnych.",
+          "isCorrect": true
+        },
+        {
+          "text": "Elastyczne obrazy (Flexible Images) z max-width: 100%.",
+          "isCorrect": true
+        },
+        {
+          "text": "Techniki layoutu takie jak Flexbox i CSS Grid.",
+          "isCorrect": true
+        }
       ],
       "explanation": "Kluczowe techniki RWD w CSS to Media Queries, elastyczne siatki, elastyczne obrazy/media oraz nowoczesne systemy layoutu jak Flexbox i CSS Grid. Użycie wyłącznie stałych jednostek jest anty-wzorcem w RWD."
     },
@@ -1258,47 +2452,98 @@
       "options": [
         { "text": "var", "isCorrect": false },
         { "text": "let", "isCorrect": true },
-        { "text": "const (dla stałych, również zasięg blokowy)", "isCorrect": true }, // Uznaję to za poprawne, bo pytanie jest o "zmienną", a const to stała zmienna, ale ma block scope
-        { "text": "function (dla funkcji, które mają zasięg funkcyjny)", "isCorrect": false }
+        {
+          "text": "const (dla stałych, również zasięg blokowy)",
+          "isCorrect": true
+        },
+        {
+          "text": "function (dla funkcji, które mają zasięg funkcyjny)",
+          "isCorrect": false
+        }
       ],
       "explanation": "Słowo kluczowe 'let' wprowadzone w ES6 pozwala na deklarację zmiennych o zasięgu blokowym. 'const' również deklaruje identyfikatory o zasięgu blokowym, ale są one stałe."
     },
     {
       "question": "Do czego służą Promisy (Promises) oraz składnia async/await w JavaScript (ES6+)?",
       "options": [
-        { "text": "Do definiowania klas i dziedziczenia w programowaniu obiektowym.", "isCorrect": false },
-        { "text": "Do ułatwienia obsługi operacji asynchronicznych, unikając tzw. \"callback hell\".", "isCorrect": true },
-        { "text": "Do bezpośredniej manipulacji pamięcią i wskaźnikami.", "isCorrect": false },
-        { "text": "Do tworzenia animacji i efektów wizualnych na stronie.", "isCorrect": false }
+        {
+          "text": "Do definiowania klas i dziedziczenia w programowaniu obiektowym.",
+          "isCorrect": false
+        },
+        {
+          "text": "Do ułatwienia obsługi operacji asynchronicznych, unikając tzw. \"callback hell\".",
+          "isCorrect": true
+        },
+        {
+          "text": "Do bezpośredniej manipulacji pamięcią i wskaźnikami.",
+          "isCorrect": false
+        },
+        {
+          "text": "Do tworzenia animacji i efektów wizualnych na stronie.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Promisy i składnia async/await to mechanizmy w JavaScript służące do zarządzania operacjami asynchronicznymi (np. żądania sieciowe, odczyt plików) w bardziej czytelny i zarządzalny sposób niż tradycyjne funkcje zwrotne (callbacks)."
     },
     {
       "question": "Na czym polega szeregowanie zadań metodą EDF (Earliest Deadline First) w systemach czasu rzeczywistego?",
       "options": [
-        { "text": "Zadania są wykonywane w kolejności ich przyjścia (FCFS).", "isCorrect": false },
-        { "text": "Priorytet zadania jest stały i zależy od jego okresu (im krótszy okres, tym wyższy priorytet - jak w Rate Monotonic).", "isCorrect": false },
-        { "text": "Priorytet zadania jest dynamicznie przypisywany na podstawie jego absolutnego terminu ostatecznego; zadanie z najwcześniejszym terminem ma najwyższy priorytet.", "isCorrect": true },
-        { "text": "Zadania o najkrótszym przewidywanym czasie wykonania mają najwyższy priorytet.", "isCorrect": false }
+        {
+          "text": "Zadania są wykonywane w kolejności ich przyjścia (FCFS).",
+          "isCorrect": false
+        },
+        {
+          "text": "Priorytet zadania jest stały i zależy od jego okresu (im krótszy okres, tym wyższy priorytet - jak w Rate Monotonic).",
+          "isCorrect": false
+        },
+        {
+          "text": "Priorytet zadania jest dynamicznie przypisywany na podstawie jego absolutnego terminu ostatecznego; zadanie z najwcześniejszym terminem ma najwyższy priorytet.",
+          "isCorrect": true
+        },
+        {
+          "text": "Zadania o najkrótszym przewidywanym czasie wykonania mają najwyższy priorytet.",
+          "isCorrect": false
+        }
       ],
       "explanation": "EDF (Earliest Deadline First) to dynamiczny algorytm szeregowania, w którym zadanie z najbliższym terminem ostatecznym (deadline) otrzymuje najwyższy priorytet i jest wykonywane."
     },
     {
       "question": "Co to jest problem odwrócenia priorytetów (priority inversion) w systemach czasu rzeczywistego?",
       "options": [
-        { "text": "Sytuacja, gdy zadanie o niskim priorytecie wykonuje się szybciej niż zadanie o wysokim priorytecie z powodu lepszej optymalizacji kodu.", "isCorrect": false },
-        { "text": "Sytuacja, gdy zadanie o wysokim priorytecie jest blokowane przez zadanie o niższym priorytecie, które zajmuje potrzebny zasób, a dodatkowo może być wywłaszczone przez zadania o średnich priorytetach.", "isCorrect": true },
-        { "text": "Mechanizm celowego podnoszenia priorytetu zadania, które długo czeka na wykonanie, aby zapobiec jego głodzeniu.", "isCorrect": false },
-        { "text": "Błąd w algorytmie szeregowania, który powoduje, że zadania są wykonywane w odwrotnej kolejności priorytetów.", "isCorrect": false }
+        {
+          "text": "Sytuacja, gdy zadanie o niskim priorytecie wykonuje się szybciej niż zadanie o wysokim priorytecie z powodu lepszej optymalizacji kodu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Sytuacja, gdy zadanie o wysokim priorytecie jest blokowane przez zadanie o niższym priorytecie, które zajmuje potrzebny zasób, a dodatkowo może być wywłaszczone przez zadania o średnich priorytetach.",
+          "isCorrect": true
+        },
+        {
+          "text": "Mechanizm celowego podnoszenia priorytetu zadania, które długo czeka na wykonanie, aby zapobiec jego głodzeniu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Błąd w algorytmie szeregowania, który powoduje, że zadania są wykonywane w odwrotnej kolejności priorytetów.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Odwrócenie priorytetów ma miejsce, gdy zadanie wysokopriorytetowe musi czekać na zadanie niskopriorytetowe (które zajmuje zasób), a to niskopriorytetowe jest dodatkowo opóźniane przez zadania o średnich priorytetach."
     },
     {
       "question": "Który protokół rozwiązywania problemu odwrócenia priorytetów polega na tym, że zadanie o niższym priorytecie tymczasowo dziedziczy priorytet zadania o wysokim priorytecie, które na nie czeka?",
       "options": [
-        { "text": "Protokół pułapu priorytetów (Priority Ceiling Protocol - PCP)", "isCorrect": false },
-        { "text": "Protokół dziedziczenia priorytetów (Priority Inheritance Protocol - PIP)", "isCorrect": true },
-        { "text": "Algorytm EDF (Earliest Deadline First)", "isCorrect": false },
+        {
+          "text": "Protokół pułapu priorytetów (Priority Ceiling Protocol - PCP)",
+          "isCorrect": false
+        },
+        {
+          "text": "Protokół dziedziczenia priorytetów (Priority Inheritance Protocol - PIP)",
+          "isCorrect": true
+        },
+        {
+          "text": "Algorytm EDF (Earliest Deadline First)",
+          "isCorrect": false
+        },
         { "text": "Algorytm Rate Monotonic (RM)", "isCorrect": false }
       ],
       "explanation": "Protokół dziedziczenia priorytetów (PIP) polega na tymczasowym podniesieniu priorytetu zadania blokującego zasób do poziomu priorytetu zadania oczekującego o najwyższym priorytecie."
@@ -1306,20 +2551,44 @@
     {
       "question": "Jaką rolę pełni programowalny zegar przerwań (PIT) w procesie zarządzania czasem przez system operacyjny, np. przy realizacji funkcji Wait(ms)?",
       "options": [
-        { "text": "Bezpośrednio wykonuje funkcję Wait(ms) w sprzęcie, odciążając CPU.", "isCorrect": false },
-        { "text": "Generuje przerwania zegarowe w regularnych odstępach, co pozwala systemowi operacyjnemu aktualizować czas, wywoływać planistę i obsługiwać timery programowe, w tym wznawiać wątki po upływie czasu Wait(ms).", "isCorrect": true },
-        { "text": "Służy wyłącznie do utrzymywania daty i godziny, gdy komputer jest wyłączony (jak RTC).", "isCorrect": false },
-        { "text": "Synchronizuje zegar systemowy z zewnętrznymi serwerami czasu NTP.", "isCorrect": false }
+        {
+          "text": "Bezpośrednio wykonuje funkcję Wait(ms) w sprzęcie, odciążając CPU.",
+          "isCorrect": false
+        },
+        {
+          "text": "Generuje przerwania zegarowe w regularnych odstępach, co pozwala systemowi operacyjnemu aktualizować czas, wywoływać planistę i obsługiwać timery programowe, w tym wznawiać wątki po upływie czasu Wait(ms).",
+          "isCorrect": true
+        },
+        {
+          "text": "Służy wyłącznie do utrzymywania daty i godziny, gdy komputer jest wyłączony (jak RTC).",
+          "isCorrect": false
+        },
+        {
+          "text": "Synchronizuje zegar systemowy z zewnętrznymi serwerami czasu NTP.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Programowalny zegar przerwań generuje regularne przerwania (tyknięcia zegara), które są wykorzystywane przez system operacyjny do zarządzania czasem, w tym do implementacji funkcji oczekiwania (jak Wait(ms) czy sleep) poprzez budzenie zablokowanych wątków."
     },
     {
       "question": "Na czym polega metoda najmniejszych kwadratów (Ordinary Least Squares - OLS) stosowana do estymacji parametrów w modelu regresji liniowej?",
       "options": [
-        { "text": "Na minimalizacji sumy wartości absolutnych reszt (różnic między wartościami obserwowanymi a przewidywanymi).", "isCorrect": false },
-        { "text": "Na znalezieniu parametrów, które maksymalizują współczynnik korelacji między zmienną zależną a niezależnymi.", "isCorrect": false },
-        { "text": "Na znalezieniu parametrów modelu, które minimalizują sumę kwadratów reszt (różnic między wartościami obserwowanymi y_i a wartościami przewidywanymi przez model ŷ_i).", "isCorrect": true },
-        { "text": "Na wyborze podzbioru zmiennych niezależnych, które mają największy wpływ na zmienną zależną.", "isCorrect": false }
+        {
+          "text": "Na minimalizacji sumy wartości absolutnych reszt (różnic między wartościami obserwowanymi a przewidywanymi).",
+          "isCorrect": false
+        },
+        {
+          "text": "Na znalezieniu parametrów, które maksymalizują współczynnik korelacji między zmienną zależną a niezależnymi.",
+          "isCorrect": false
+        },
+        {
+          "text": "Na znalezieniu parametrów modelu, które minimalizują sumę kwadratów reszt (różnic między wartościami obserwowanymi y_i a wartościami przewidywanymi przez model ŷ_i).",
+          "isCorrect": true
+        },
+        {
+          "text": "Na wyborze podzbioru zmiennych niezależnych, które mają największy wpływ na zmienną zależną.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Metoda najmniejszych kwadratów (OLS) polega na minimalizacji sumy kwadratów różnic między rzeczywistymi wartościami zmiennej zależnej a wartościami przewidywanymi przez model liniowy."
     },
@@ -1338,10 +2607,22 @@
     {
       "question": "Czym jest problem grupowania obiektów (klastrowania) w analizie danych?",
       "options": [
-        { "text": "Przypisaniem każdemu obiektowi jednej z predefiniowanych kategorii na podstawie jego cech.", "isCorrect": false },
-        { "text": "Podziałem zbioru obiektów na grupy (klastry) tak, aby obiekty w tej samej grupie były podobne, a obiekty z różnych grup różne, bez wcześniejszej znajomości etykiet klas.", "isCorrect": true },
-        { "text": "Znalezieniem zależności liniowej między zmienną zależną a niezależnymi.", "isCorrect": false },
-        { "text": "Redukcją liczby wymiarów (cech) w zbiorze danych przy zachowaniu jak największej ilości informacji.", "isCorrect": false }
+        {
+          "text": "Przypisaniem każdemu obiektowi jednej z predefiniowanych kategorii na podstawie jego cech.",
+          "isCorrect": false
+        },
+        {
+          "text": "Podziałem zbioru obiektów na grupy (klastry) tak, aby obiekty w tej samej grupie były podobne, a obiekty z różnych grup różne, bez wcześniejszej znajomości etykiet klas.",
+          "isCorrect": true
+        },
+        {
+          "text": "Znalezieniem zależności liniowej między zmienną zależną a niezależnymi.",
+          "isCorrect": false
+        },
+        {
+          "text": "Redukcją liczby wymiarów (cech) w zbiorze danych przy zachowaniu jak największej ilości informacji.",
+          "isCorrect": false
+        }
       ],
       "explanation": "Grupowanie (klastrowanie) to zadanie uczenia nienadzorowanego polegające na odkrywaniu naturalnych grup (klastrów) w danych na podstawie podobieństwa między obiektami."
     },
