@@ -1,0 +1,1222 @@
+{
+  "title": "Kompleksowy Quiz z Zaawansowanych Zagadnień Informatyki",
+  "description": "Ten quiz weryfikuje dogłębne zrozumienie zagadnień z zakresu systemów cyfrowych, algorytmów, systemów operacyjnych, architektury komputerów i innych kluczowych dziedzin informatyki, bazując na dostarczonym materiale.",
+  "questions": [
+    {
+      "question": "Jaka jest fundamentalna zależność między maksymalną częstotliwością działania (F_max) a opóźnieniem na ścieżce krytycznej (T_crit) w układzie FPGA?",
+      "options": [
+        {
+          "text": "F_max jest odwrotnością T_crit (F_max = 1 / T_crit).",
+          "isCorrect": true
+        },
+        {
+          "text": "F_max jest wprost proporcjonalne do T_crit (F_max = c * T_crit).",
+          "isCorrect": false
+        },
+        {
+          "text": "F_max jest równe T_crit pomniejszonemu o czas narastania (T_su).",
+          "isCorrect": false
+        },
+        {
+          "text": "F_max nie zależy bezpośrednio od T_crit, a od skew zegarowego.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Maksymalna częstotliwość działania (F_max) kodu HDL na układzie FPGA jest z definicji odwrotnością najdłuższego opóźnienia propagacji sygnału na ścieżce krytycznej (T_crit) w jednym cyklu zegarowym. Wzór F_max = 1 / T_crit oznacza, że im krótszy jest krytyczny czas propagacji, tym wyższą częstotliwość zegara można zastosować."
+    },
+    {
+      "question": "Które z poniższych składników wchodzą w skład opóźnienia na ścieżce krytycznej (T_crit) między dwoma przerzutnikami w układzie FPGA? (Zaznacz wszystkie poprawne)",
+      "options": [
+        {
+          "text": "T_clk2q (Clock-to-Q delay) przerzutnika źródłowego.",
+          "isCorrect": true
+        },
+        {
+          "text": "T_logic (opóźnienie logiki kombinacyjnej).",
+          "isCorrect": true
+        },
+        {
+          "text": "T_route (opóźnienie propagacji przez ścieżki połączeniowe).",
+          "isCorrect": true
+        },
+        {
+          "text": "T_su (Setup time) przerzutnika docelowego.",
+          "isCorrect": true
+        },
+        {
+          "text": "T_hold (Hold time) przerzutnika docelowego.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ścieżka krytyczna to suma opóźnień na drodze sygnału od wyjścia jednego przerzutnika do wejścia kolejnego. Składa się na nią: czas potrzebny na ustabilizowanie się sygnału na wyjściu przerzutnika źródłowego (T_clk2q), czas przejścia przez logikę kombinacyjną (T_logic), czas propagacji przez połączenia fizyczne (T_route) oraz czas, przez który sygnał musi być stabilny przed zboczem zegara na wejściu przerzutnika docelowego (T_su). Czas podtrzymania (T_hold) jest innym ograniczeniem czasowym, ale nie jest składnikiem T_crit."
+    },
+    {
+      "question": "W którym etapie kompilacji kodu HDL następuje mapowanie generycznej listy połączeń na specyficzne zasoby docelowej architektury FPGA, takie jak LUT-y, bloki DSP i bloki RAM?",
+      "options": [
+        {
+          "text": "Mapowanie technologiczne (Technology Mapping) w ramach etapu Syntezy.",
+          "isCorrect": true
+        },
+        {
+          "text": "Rozmieszczenie (Place) w ramach etapu Implementacji.",
+          "isCorrect": false
+        },
+        { "text": "Elaboracja w ramach etapu Analizy.", "isCorrect": false },
+        {
+          "text": "Generacja pliku programującego (Bitstream Generation).",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Mapowanie technologiczne jest kluczowym podetapem Syntezy. To właśnie wtedy abstrakcyjna, zoptymalizowana logicznie netlista jest przekształcana na strukturę wykorzystującą konkretne, fizyczne bloki dostępne w wybranej rodzinie układów FPGA (LUT, DSP, BRAM). Etap Rozmieszczenia (Place) następuje później i fizycznie umieszcza te zmapowane bloki na chipie."
+    },
+    {
+      "question": "Porównując etapy Syntezy i Implementacji (Place & Route) w procesie kompilacji HDL, która z poniższych odpowiedzi najlepiej opisuje ich główne role?",
+      "options": [
+        {
+          "text": "Synteza tłumaczy kod HDL na logiczną strukturę (netlistę), a Implementacja rozmieszcza tę strukturę fizycznie na chipie FPGA i wytycza połączenia.",
+          "isCorrect": true
+        },
+        {
+          "text": "Synteza sprawdza błędy składniowe, a Implementacja błędy logiczne.",
+          "isCorrect": false
+        },
+        {
+          "text": "Synteza generuje plik bitstream, a Implementacja ładuje go do układu FPGA.",
+          "isCorrect": false
+        },
+        {
+          "text": "Synteza dotyczy logiki kombinacyjnej, a Implementacja logiki sekwencyjnej.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "To fundamentalne rozróżnienie. Synteza zajmuje się transformacją abstrakcyjnego opisu HDL w konkretną, ale jeszcze nieumiejscowioną, siatkę połączeń logicznych (netlistę) zoptymalizowaną pod kątem technologii. Implementacja (Place & Route) bierze tę netlistę i znajduje dla jej elementów fizyczne miejsca w strukturze FPGA oraz wytycza między nimi połączenia, uwzględniając ograniczenia czasowe."
+    },
+    {
+      "question": "Który element języka VHDL służy do zdefiniowania interfejsu zewnętrznego modułu, czyli jego portów wejściowych i wyjściowych, bez opisywania jego wewnętrznego działania?",
+      "options": [
+        { "text": "ENTITY", "isCorrect": true },
+        { "text": "ARCHITECTURE", "isCorrect": false },
+        { "text": "PROCESS", "isCorrect": false },
+        { "text": "PACKAGE", "isCorrect": false }
+      ],
+      "explanation": "Deklaracja ENTITY (jednostki) w VHDL pełni rolę 'czarnej skrzynki', definiując nazwę modułu i jego porty (wejścia, wyjścia, dwukierunkowe) wraz z typami danych. Oddziela to interfejs od implementacji, która jest zawarta w powiązanej z daną jednostką ARCHITECTURE."
+    },
+    {
+      "question": "W kontekście maszyny stanów (FSM) w VHDL, która z poniższych par metod implementacji jest powszechnie stosowana do opisania logiki przejść i aktualizacji stanu?",
+      "options": [
+        {
+          "text": "Dwa osobne procesy: jeden kombinacyjny dla logiki przejść i wyjść, drugi sekwencyjny (zegarowy) do aktualizacji stanu.",
+          "isCorrect": true
+        },
+        {
+          "text": "Dwie osobne architektury: jedna dla stanów, druga dla przejść.",
+          "isCorrect": false
+        },
+        {
+          "text": "Dwie osobne jednostki (ENTITY): jedna dla logiki kombinacyjnej, druga dla rejestru stanu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Jeden proces bez listy czułości, ale z instrukcją WAIT ON.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Powszechnie stosowanym i zalecanym stylem implementacji FSM w VHDL jest użycie dwóch procesów. Pierwszy proces jest czysto kombinacyjny (wrażliwy na stan bieżący i wejścia) i oblicza następny stan oraz wyjścia. Drugi proces jest sekwencyjny (wrażliwy na zegar i reset) i jego jedynym zadaniem jest przepisanie wartości z sygnału 'next_state' do sygnału 'current_state' na aktywnym zboczu zegara. Taki podział ułatwia syntezę i analizę czasową."
+    },
+    {
+      "question": "W jaki sposób programista może aktywnie wpłynąć na skrócenie ścieżki krytycznej (T_crit) i tym samym zwiększyć F_max swojego projektu w FPGA? (Zaznacz wszystkie poprawne)",
+      "options": [
+        {
+          "text": "Poprzez zastosowanie techniki pipeliningu, czyli dodawanie rejestrów (przerzutników) w celu podziału długich ścieżek logiki kombinacyjnej.",
+          "isCorrect": true
+        },
+        {
+          "text": "Poprzez refaktoryzację kodu HDL w celu uproszczenia złożonych wyrażeń logicznych.",
+          "isCorrect": true
+        },
+        {
+          "text": "Poprzez świadome użycie ograniczeń czasowych (timing constraints) w procesie syntezy i implementacji.",
+          "isCorrect": true
+        },
+        {
+          "text": "Poprzez zwiększenie napięcia zasilania układu FPGA powyżej wartości nominalnej.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Programista ma kluczowy wpływ na F_max. Pipelining (rejestrowanie sygnałów) to podstawowa technika skracania ścieżek kombinacyjnych. Optymalizacja kodu (np. unikanie długich instrukcji 'case' lub zagnieżdżonych 'if-else' bez rejestrów) zmniejsza T_logic. Użycie ograniczeń czasowych informuje narzędzia syntezy o wymaganiach projektowych, co pozwala im lepiej optymalizować rozmieszczenie i połączenia. Zwiększanie napięcia jest niezalecane i może uszkodzić układ."
+    },
+    {
+      "question": "Który rodzaj reprezentacji listy charakteryzuje się stałym czasem dostępu do elementu o zadanym indeksie (O(1)), ale jednocześnie liniowym czasem (O(n)) wstawiania lub usuwania elementu w środku listy?",
+      "options": [
+        {
+          "text": "Reprezentacja tablicowa (Array-based list)",
+          "isCorrect": true
+        },
+        {
+          "text": "Lista jednokierunkowa (Singly linked list)",
+          "isCorrect": false
+        },
+        {
+          "text": "Lista dwukierunkowa (Doubly linked list)",
+          "isCorrect": false
+        },
+        { "text": "Lista z kursorami (Cursor-based list)", "isCorrect": false }
+      ],
+      "explanation": "Reprezentacja tablicowa przechowuje elementy w ciągłym bloku pamięci, co pozwala na obliczenie adresu elementu o indeksie 'i' w czasie stałym. Jednak wstawienie lub usunięcie elementu w środku wymaga przesunięcia wszystkich kolejnych elementów, co jest operacją o złożoności O(n). Listy wskaźnikowe mają odwrotną charakterystykę."
+    },
+    {
+      "question": "Dla którego z poniższych algorytmów sortowania, złożoność czasowa w najgorszym przypadku wynosi O(n²), ale w przypadku średnim i najlepszym jest znacznie lepsza, zbliżając się do O(n)?",
+      "options": [
+        {
+          "text": "Sortowanie przez wstawianie (Insertion Sort)",
+          "isCorrect": true
+        },
+        {
+          "text": "Sortowanie przez scalanie (Merge Sort)",
+          "isCorrect": false
+        },
+        {
+          "text": "Sortowanie przez kopcowanie (Heap Sort)",
+          "isCorrect": false
+        },
+        { "text": "Sortowanie bąbelkowe (Bubble Sort)", "isCorrect": false }
+      ],
+      "explanation": "Sortowanie przez wstawianie ma złożoność O(n²) w najgorszym przypadku (dane posortowane odwrotnie). Jednak dla danych częściowo posortowanych lub losowych jego wydajność jest znacznie lepsza. W najlepszym przypadku (dane już posortowane) jego złożoność to O(n). Merge Sort i Heap Sort mają gwarantowaną złożoność O(n log n). Sortowanie bąbelkowe ma O(n²) zarówno w przypadku średnim, jak i najgorszym."
+    },
+    {
+      "question": "Jaka jest kolejność odwiedzania węzłów w drzewie binarnym przy przechodzeniu metodą Postorder (wsteczną)?",
+      "options": [
+        {
+          "text": "Lewe poddrzewo -> Prawe poddrzewo -> Korzeń",
+          "isCorrect": true
+        },
+        {
+          "text": "Korzeń -> Lewe poddrzewo -> Prawe poddrzewo",
+          "isCorrect": false
+        },
+        {
+          "text": "Lewe poddrzewo -> Korzeń -> Prawe poddrzewo",
+          "isCorrect": false
+        },
+        { "text": "Poziom po poziomie, od lewej do prawej", "isCorrect": false }
+      ],
+      "explanation": "Przechodzenie Postorder polega na rekurencyjnym odwiedzeniu najpierw całego lewego poddrzewa, następnie całego prawego poddrzewa, a na samym końcu korzenia danego poddrzewa. Jest to często używane np. do bezpiecznego usuwania węzłów drzewa (najpierw usuwa się dzieci, potem rodzica)."
+    },
+    {
+      "question": "W kontekście algorytmów przeszukiwania grafu, które z poniższych stwierdzeń są prawdziwe? (Zaznacz wszystkie poprawne)",
+      "options": [
+        {
+          "text": "Algorytm BFS (przeszukiwanie wszerz) używa kolejki (queue) do przechowywania wierzchołków do odwiedzenia.",
+          "isCorrect": true
+        },
+        {
+          "text": "Algorytm DFS (przeszukiwanie w głąb) może być użyty do sortowania topologicznego w skierowanym grafie acyklicznym (DAG).",
+          "isCorrect": true
+        },
+        {
+          "text": "Algorytm BFS zawsze znajduje najkrótszą ścieżkę (w sensie liczby krawędzi) w grafie nieważonym.",
+          "isCorrect": true
+        },
+        {
+          "text": "Algorytm DFS jest zazwyczaj implementowany przy użyciu kolejki priorytetowej.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "BFS, dzięki swojej naturze eksploracji 'warstwa po warstwie' i użyciu kolejki FIFO, gwarantuje znalezienie najkrótszej ścieżki w grafach nieważonych. DFS, eksplorujący 'w głąb', używa stosu (jawnie lub niejawnie przez rekurencję) i jest podstawą wielu ważnych algorytmów, w tym sortowania topologicznego i wykrywania cykli. Kolejka priorytetowa jest charakterystyczna dla algorytmów takich jak Dijkstra czy A*."
+    },
+    {
+      "question": "Co jest kluczowym ograniczeniem algorytmu Dijkstry i jaki algorytm należy zastosować w przypadku, gdy to ograniczenie nie jest spełnione?",
+      "options": [
+        {
+          "text": "Nie działa poprawnie dla grafów z krawędziami o ujemnych wagach; należy wtedy użyć algorytmu Bellmana-Forda.",
+          "isCorrect": true
+        },
+        {
+          "text": "Nie działa dla grafów skierowanych; należy wtedy użyć algorytmu Floyda-Warshalla.",
+          "isCorrect": false
+        },
+        {
+          "text": "Ma złożoność wykładniczą dla grafów gęstych; należy wtedy użyć algorytmu A*.",
+          "isCorrect": false
+        },
+        {
+          "text": "Wymaga, aby graf był acykliczny; należy wtedy użyć algorytmu przeszukiwania w głąb (DFS).",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Fundamentalnym ograniczeniem algorytmu Dijkstry, wynikającym z jego zachłannej natury, jest wymóg nieujemności wag krawędzi. W obecności krawędzi o ujemnej wadze algorytm może nie znaleźć poprawnych najkrótszych ścieżek. W takim przypadku należy zastosować algorytm Bellmana-Forda, który radzi sobie z ujemnymi wagami (i potrafi wykryć cykle o ujemnej sumie wag). Algorytm Dijkstry działa poprawnie zarówno dla grafów skierowanych, jak i nieskierowanych."
+    },
+    {
+      "question": "Który model struktury systemu operacyjnego charakteryzuje się minimalizacją kodu działającego w trybie jądra do absolutnego minimum (np. zarządzanie procesami, IPC), podczas gdy większość usług (system plików, sterowniki) działa jako osobne procesy w przestrzeni użytkownika?",
+      "options": [
+        { "text": "Struktura mikrojądra (Microkernel)", "isCorrect": true },
+        { "text": "Struktura monolityczna (Monolithic)", "isCorrect": false },
+        { "text": "Struktura warstwowa (Layered)", "isCorrect": false },
+        { "text": "Struktura hybrydowa (Hybrid)", "isCorrect": false }
+      ],
+      "explanation": "Definicja ta idealnie pasuje do architektury mikrojądra. Jej główną ideą jest zwiększenie niezawodności i modularności poprzez przeniesienie jak największej liczby usług systemowych z uprzywilejowanej przestrzeni jądra do przestrzeni użytkownika, gdzie działają jako serwery. Komunikacja między nimi odbywa się za pomocą mechanizmu IPC (Inter-Process Communication) dostarczanego przez mikrojądro."
+    },
+    {
+      "question": "Jaka jest zasadnicza różnica między procesem a wątkiem w systemie operacyjnym?",
+      "options": [
+        {
+          "text": "Procesy mają oddzielne przestrzenie adresowe, podczas gdy wątki w ramach jednego procesu współdzielą tę samą przestrzeň adresową.",
+          "isCorrect": true
+        },
+        {
+          "text": "Procesy są jednostkami wykorzystania CPU, a wątki jednostkami alokacji zasobów.",
+          "isCorrect": false
+        },
+        {
+          "text": "Tworzenie nowego wątku jest bardziej kosztowne niż tworzenie nowego procesu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Procesy nie mogą komunikować się ze sobą, podczas gdy wątki mogą.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Kluczową różnicą jest zarządzanie pamięcią. Każdy proces otrzymuje od systemu operacyjnego własną, izolowaną wirtualną przestrzeń adresową. Wątki, będące 'lekkimi procesami', działają w kontekście jednego procesu i współdzielą jego zasoby, w tym całą przestrzeń adresową (pamięć). Dzięki temu komunikacja między wątkami jest znacznie szybsza, ale wymaga jawnej synchronizacji, aby uniknąć warunków wyścigu."
+    },
+    {
+      "question": "Który z poniższych algorytmów planowania przydziału CPU jest wywłaszczający i zaprojektowany w celu zapewnienia sprawiedliwego podziału czasu procesora między procesami o podobnym priorytecie, co jest szczególnie korzystne w systemach interaktywnych?",
+      "options": [
+        {
+          "text": "Planowanie rotacyjne (Round Robin - RR)",
+          "isCorrect": true
+        },
+        { "text": "FCFS (First-Come, First-Served)", "isCorrect": false },
+        {
+          "text": "SJF (Shortest Job First) w wersji niewyłaszczającej",
+          "isCorrect": false
+        },
+        { "text": "Planowanie priorytetowe bez starzenia", "isCorrect": false }
+      ],
+      "explanation": "Planowanie rotacyjne (Round Robin) jest klasycznym algorytmem wywłaszczającym. Każdy proces otrzymuje stały, niewielki kwant czasu CPU. Jeśli go nie skończy w tym czasie, jest przerywany (wywłaszczany) i przenoszony na koniec kolejki gotowych. Zapewnia to, że żaden proces nie zmonopolizuje procesora i każdy otrzymuje regularnie swoją 'szansę', co jest kluczowe dla responsywności systemów interaktywnych."
+    },
+    {
+      "question": "Czym jest pamięć wirtualna i jaki problem rozwiązuje stronicowanie na żądanie (Demand Paging)?",
+      "options": [
+        {
+          "text": "Pamięć wirtualna to technika pozwalająca na wykonywanie programów większych niż fizyczna pamięć RAM, a stronicowanie na żądanie ładuje strony programu do RAM tylko wtedy, gdy są potrzebne.",
+          "isCorrect": true
+        },
+        {
+          "text": "Pamięć wirtualna to specjalny, szybki typ pamięci RAM, a stronicowanie na żądanie eliminuje fragmentację wewnętrzną.",
+          "isCorrect": false
+        },
+        {
+          "text": "Pamięć wirtualna to synonim pamięci cache procesora, a stronicowanie na żądanie to algorytm zastępowania stron.",
+          "isCorrect": false
+        },
+        {
+          "text": "Pamięć wirtualna to mechanizm ochrony pamięci, a stronicowanie na żądanie zapobiega błędom typu 'page fault'.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Pamięć wirtualna to fundamentalna koncepcja w nowoczesnych systemach operacyjnych, która oddziela logiczną przestrzeń adresową procesu od fizycznej pamięci RAM, często rozszerzając ją o przestrzeń na dysku. Stronicowanie na żądanie jest kluczowym mechanizmem implementującym pamięć wirtualną. Zamiast ładować cały program do RAM przed uruchomieniem, ładuje jego strony (fragmenty) dopiero w momencie pierwszego odwołania się do nich. To pozwala na uruchamianie bardzo dużych programów i zwiększa stopień wieloprogramowości."
+    },
+    {
+      "question": "W systemach plików typu Unix (np. ext4), gdzie przechowywane są metadane pliku, takie jak uprawnienia, rozmiar, daty modyfikacji i wskaźniki do bloków danych?",
+      "options": [
+        {
+          "text": "W strukturze nazywanej i-węzłem (inode).",
+          "isCorrect": true
+        },
+        {
+          "text": "Bezpośrednio w strukturze katalogu, obok nazwy pliku.",
+          "isCorrect": false
+        },
+        { "text": "W tablicy alokacji plików (FAT).", "isCorrect": false },
+        {
+          "text": "W superbloku (Superblock) systemu plików.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "W systemach Unix-like, i-węzeł (inode) jest podstawową strukturą danych przechowującą wszystkie informacje o pliku (metadane) Z WYJĄTKIEM jego nazwy. Nazwa pliku jest przechowywana w strukturze katalogu, ale jest ona jedynie dowiązaniem do numeru i-węzła. Takie rozdzielenie pozwala na istnienie wielu nazw dla tego samego pliku (hard links)."
+    },
+    {
+      "question": "Czym jest 'macierz dostępów' (Access Matrix) i jakie są jej dwie główne, praktyczne metody implementacji w systemach operacyjnych?",
+      "options": [
+        {
+          "text": "Jest to abstrakcyjny model praw dostępu, implementowany przez Listy Kontroli Dostępu (ACL) przypisane do obiektów lub Listy Uprawnień (Capability Lists) przypisane do domen.",
+          "isCorrect": true
+        },
+        {
+          "text": "Jest to sprzętowa tabela w MMU, implementowana przez tablice stron i tablice segmentów.",
+          "isCorrect": false
+        },
+        {
+          "text": "Jest to struktura danych w jądrze przechowująca hasła użytkowników, implementowana przez tablice haszujące lub szyfrowane bazy danych.",
+          "isCorrect": false
+        },
+        {
+          "text": "Jest to model opisujący zagrożenia, implementowany przez zapory sieciowe (firewalls) lub systemy wykrywania włamań (IDS).",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Macierz dostępów to teoretyczny model, w którym wiersze reprezentują domeny (np. użytkowników), a kolumny obiekty (np. pliki). Komórka [i, j] określa prawa domeny 'i' do obiektu 'j'. Ponieważ taka macierz byłaby ogromna i rzadka, w praktyce implementuje się ją na dwa sposoby: grupując prawa według kolumn (Listy Kontroli Dostępu - ACL, przechowywane z obiektami) lub grupując prawa według wierszy (Listy Uprawnień - Capabilities, przechowywane z domenami)."
+    },
+    {
+      "question": "Jaka jest prawidłowa sekwencja podstawowych kroków w cyklu wykonania rozkazu (Instruction Cycle) w architekturze von Neumanna?",
+      "options": [
+        {
+          "text": "Pobranie rozkazu -> Dekodowanie rozkazu -> Pobranie operandów -> Wykonanie rozkazu -> Zapisanie wyniku.",
+          "isCorrect": true
+        },
+        {
+          "text": "Dekodowanie rozkazu -> Pobranie rozkazu -> Wykonanie rozkazu -> Zapisanie wyniku -> Pobranie operandów.",
+          "isCorrect": false
+        },
+        {
+          "text": "Pobranie operandów -> Pobranie rozkazu -> Dekodowanie rozkazu -> Wykonanie rozkazu -> Zapisanie wyniku.",
+          "isCorrect": false
+        },
+        {
+          "text": "Wykonanie rozkazu -> Zapisanie wyniku -> Pobranie rozkazu -> Dekodowanie rozkazu -> Pobranie operandów.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Podstawowy cykl wykonania rozkazu jest sekwencyjny. Najpierw procesor musi pobrać (Fetch) instrukcję z pamięci, następnie ją zdekodować (Decode), aby zrozumieć, co ma zrobić. Jeśli operacja wymaga danych z pamięci, następuje ich pobranie (Fetch Operands). Dopiero wtedy operacja jest wykonywana (Execute) przez ALU lub inną jednostkę, a na końcu wynik jest zapisywany (Write Back) do rejestru lub pamięci."
+    },
+    {
+      "question": "Przerwania są fundamentalnym mechanizmem w nowoczesnych komputerach. Które z poniższych zadań są realizowane przy ich użyciu? (Zaznacz wszystkie poprawne)",
+      "options": [
+        {
+          "text": "Komunikacja z urządzeniami I/O (np. informowanie o zakończeniu transferu danych z dysku).",
+          "isCorrect": true
+        },
+        {
+          "text": "Implementacja wywołań systemowych (przejście z trybu użytkownika do trybu jądra).",
+          "isCorrect": true
+        },
+        {
+          "text": "Realizacja wielozadaniowości z wywłaszczaniem (poprzez przerwania od zegara systemowego).",
+          "isCorrect": true
+        },
+        {
+          "text": "Obsługa błędów i wyjątków programowych (np. dzielenie przez zero).",
+          "isCorrect": true
+        }
+      ],
+      "explanation": "Przerwania mają bardzo szerokie zastosowanie. Przerwania sprzętowe od urządzeń I/O pozwalają na efektywną, asynchroniczną komunikację. Przerwania programowe (pułapki) są mechanizmem wywołań systemowych i obsługi wyjątków. Przerwania od zegara systemowego (timer) są kręgosłupem wielozadaniowości z wywłaszczaniem, pozwalając systemowi operacyjnemu na regularne odzyskiwanie kontroli i planowanie przydziału CPU."
+    },
+    {
+      "question": "Głównym ograniczeniem architektury von Neumanna jest tzw. 'wąskie gardło von Neumanna'. Co ono oznacza i w jaki sposób jest łagodzone w nowoczesnych procesorach?",
+      "options": [
+        {
+          "text": "Oznacza ograniczenie wydajności przez wspólną magistralę dla instrukcji i danych; łagodzi się je przez stosowanie hierarchii pamięci podręcznej (cache), w tym oddzielnych L1 cache dla instrukcji i danych.",
+          "isCorrect": true
+        },
+        {
+          "text": "Oznacza, że programy muszą być wykonywane sekwencyjnie; łagodzi się je przez stosowanie zegarów o wyższej częstotliwości.",
+          "isCorrect": false
+        },
+        {
+          "text": "Oznacza duży pobór mocy przez jednostkę sterującą; łagodzi się je przez stosowanie architektury RISC.",
+          "isCorrect": false
+        },
+        {
+          "text": "Oznacza trudność w obsłudze przerwań; łagodzi się je przez stosowanie wektorowej tablicy przerwań.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Wąskie gardło von Neumanna wynika z faktu, że procesor musi konkurować o dostęp do tej samej magistrali pamięci, aby pobrać zarówno instrukcje, jak i dane. Nowoczesne procesory, choć generalnie oparte na modelu von Neumanna, stosują elementy architektury harwardzkiej wewnętrznie. Posiadają oddzielne, bardzo szybkie pamięci podręczne L1 dla instrukcji (I-cache) i danych (D-cache), co pozwala na jednoczesne ich pobieranie i znacząco łagodzi ten problem."
+    },
+    {
+      "question": "Wzmacniacz operacyjny w konfiguracji odwracającej ma rezystor wejściowy R1 = 10 kΩ i rezystor w pętli sprzężenia zwrotnego Rf = 50 kΩ. Jakie jest wzmocnienie napięciowe (A_v) tego układu?",
+      "options": [
+        { "text": "-5 V/V", "isCorrect": true },
+        { "text": "5 V/V", "isCorrect": false },
+        { "text": "6 V/V", "isCorrect": false },
+        { "text": "-6 V/V", "isCorrect": false }
+      ],
+      "explanation": "Wzmocnienie napięciowe wzmacniacza odwracającego jest dane wzorem A_v = -Rf / R1. Podstawiając wartości, otrzymujemy A_v = -50 kΩ / 10 kΩ = -5. Znak minus oznacza, że sygnał wyjściowy jest odwrócony w fazie o 180 stopni w stosunku do sygnału wejściowego."
+    },
+    {
+      "question": "Który z poniższych układów kombinacyjnych przyjmuje na wejściu N-bitowy kod binarny i aktywuje dokładnie jedno ze swoich 2^N wyjść?",
+      "options": [
+        { "text": "Dekoder", "isCorrect": true },
+        { "text": "Multiplekser", "isCorrect": false },
+        { "text": "Koder priorytetowy", "isCorrect": false },
+        { "text": "Pełny sumator", "isCorrect": false }
+      ],
+      "explanation": "Jest to definicja działania dekodera. Dla każdej unikalnej kombinacji na N wejściach, aktywowana jest jedna, i tylko jedna, z 2^N linii wyjściowych. Multiplekser działa odwrotnie (wybiera jedno z wielu wejść na jedno wyjście), a koder generuje kod binarny na podstawie aktywnego wejścia."
+    },
+    {
+      "question": "Jaka jest kluczowa różnica między maszyną stanów Moore'a a maszyną stanów Mealy'ego?",
+      "options": [
+        {
+          "text": "W maszynie Moore'a wyjścia zależą tylko od aktualnego stanu, a w maszynie Mealy'ego od aktualnego stanu ORAZ aktualnych wejść.",
+          "isCorrect": true
+        },
+        {
+          "text": "Maszyna Moore'a jest zawsze synchroniczna, a maszyna Mealy'ego może być asynchroniczna.",
+          "isCorrect": false
+        },
+        {
+          "text": "Maszyna Moore'a ma mniej stanów dla tego samego problemu niż maszyna Mealy'ego.",
+          "isCorrect": false
+        },
+        {
+          "text": "W maszynie Moore'a wyjścia zależą od aktualnych wejść, a w maszynie Mealy'ego tylko od aktualnego stanu.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "To fundamentalna różnica. W maszynie Moore'a wyjścia są jednoznacznie przypisane do stanów - po wejściu w dany stan, wyjście jest stałe, niezależnie od tego, co dzieje się na wejściach (do momentu zmiany stanu). W maszynie Mealy'ego wyjścia są generowane na przejściach, więc zależą zarówno od stanu, w którym maszyna się znajduje, jak i od wartości wejść, które powodują to przejście. Maszyny Mealy'ego mogą reagować szybciej i często wymagają mniej stanów."
+    },
+    {
+      "question": "Relacja R na zbiorze A jest relacją równoważności, jeśli spełnia trzy warunki. Który z poniższych warunków NIE jest jednym z nich?",
+      "options": [
+        {
+          "text": "Antysymetryczność (jeśli a R b i b R a, to a = b)",
+          "isCorrect": true
+        },
+        { "text": "Zwrotność (dla każdego a, a R a)", "isCorrect": false },
+        { "text": "Symetryczność (jeśli a R b, to b R a)", "isCorrect": false },
+        {
+          "text": "Przechodniość (jeśli a R b i b R c, to a R c)",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Relacja równoważności musi być zwrotna, symetryczna i przechodnia. Antysymetria jest własnością relacji częściowego porządku, a nie relacji równoważności. Własność symetryczności jest w pewnym sensie przeciwieństwem antysymetryczności (dla a ≠ b)."
+    },
+    {
+      "question": "Które z poniższych praw dotyczących rozkładu kwantyfikatorów jest prawdziwą równoważnością logiczną dla dowolnych predykatów P(x) i Q(x)?",
+      "options": [
+        {
+          "text": "∀x (P(x) ∧ Q(x)) ⇔ (∀x P(x)) ∧ (∀x Q(x))",
+          "isCorrect": true
+        },
+        {
+          "text": "∀x (P(x) ∨ Q(x)) ⇔ (∀x P(x)) ∨ (∀x Q(x))",
+          "isCorrect": false
+        },
+        {
+          "text": "∃x (P(x) ∧ Q(x)) ⇔ (∃x P(x)) ∧ (∃x Q(x))",
+          "isCorrect": false
+        },
+        {
+          "text": "Wszystkie powyższe są równoważnościami.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Kwantyfikator ogólny 'dla każdego' (∀) można rozłożyć względem koniunkcji 'i' (∧). Stwierdzenie 'dla każdego x, zachodzi P i Q' jest równoważne stwierdzeniu 'dla każdego x zachodzi P ORAZ dla każdego x zachodzi Q'. Pozostałe formuły nie są równoważnościami, a jedynie implikacjami w jedną stronę. Na przykład, każda liczba jest parzysta lub nieparzysta, ale nie jest prawdą, że każda liczba jest parzysta lub każda liczba jest nieparzysta."
+    },
+    {
+      "question": "Jaka jest ogólna własność obrazu przecięcia (iloczynu) dwóch zbiorów A i B przy funkcji f: X → Y?",
+      "options": [
+        { "text": "f(A ∩ B) ⊆ f(A) ∩ f(B)", "isCorrect": true },
+        { "text": "f(A ∩ B) = f(A) ∩ f(B)", "isCorrect": false },
+        { "text": "f(A ∩ B) ⊇ f(A) ∩ f(B)", "isCorrect": false },
+        { "text": "f(A ∩ B) = f(A) ∪ f(B)", "isCorrect": false }
+      ],
+      "explanation": "Obraz przecięcia zbiorów jest zawsze podzbiorem przecięcia obrazów tych zbiorów. Równość (f(A ∩ B) = f(A) ∩ f(B)) zachodzi tylko pod dodatkowym warunkiem, że funkcja f jest różnowartościowa (injekcją). Bez tego założenia inkluzja może być właściwa, np. dla f(x) = x², A = [-1, 0], B = [0, 1]."
+    },
+    {
+      "question": "Czym jest Centralne Twierdzenie Graniczne (CTG) i jaka jest jego główna rola w statystyce?",
+      "options": [
+        {
+          "text": "Mówi, że rozkład średniej z dużej próby będzie w przybliżeniu normalny, niezależnie od rozkładu populacji, co uzasadnia stosowanie metod opartych na rozkładzie normalnym.",
+          "isCorrect": true
+        },
+        {
+          "text": "Mówi, że każda zmienna losowa dąży do rozkładu normalnego, jeśli zbierze się wystarczająco dużo danych.",
+          "isCorrect": false
+        },
+        {
+          "text": "Określa, że 99.7% danych w rozkładzie normalnym leży w odległości 3 odchyleń standardowych od średniej.",
+          "isCorrect": false
+        },
+        {
+          "text": "Jest metodą generowania liczb losowych o rozkładzie normalnym przy użyciu generatora rozkładu jednorodnego.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Centralne Twierdzenie Graniczne jest jednym z filarów statystyki. Stwierdza ono, że nawet jeśli populacja, z której pobieramy próbę, nie ma rozkładu normalnego, to rozkład średnich arytmetycznych z wystarczająco dużych prób losowych pobranych z tej populacji będzie zbliżony do rozkładu normalnego. To pozwala na stosowanie testów statystycznych i budowanie przedziałów ufności opartych na właściwościach rozkładu normalnego dla szerokiej gamy problemów."
+    },
+    {
+      "question": "Na czym polega metoda generowania liczb pseudolosowych przez odwracanie dystrybuanty (Inverse Transform Sampling)?",
+      "options": [
+        {
+          "text": "Na wygenerowaniu liczby u z rozkładu jednorodnego U(0,1) i obliczeniu wartości x = F⁻¹(u), gdzie F⁻¹ jest funkcją odwrotną do dystrybuanty pożądanego rozkładu.",
+          "isCorrect": true
+        },
+        {
+          "text": "Na wielokrotnym rzucie kostką i sumowaniu wyników aż do uzyskania pożądanego rozkładu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Na losowaniu punktów pod krzywą gęstości prawdopodobieństwa i akceptowaniu tych, które spełniają określone warunki.",
+          "isCorrect": false
+        },
+        {
+          "text": "Na obliczeniu całki z funkcji gęstości prawdopodobieństwa w losowo wybranym punkcie.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Metoda odwracania dystrybuanty to potężna technika oparta na fakcie, że jeśli U jest zmienną losową o rozkładzie U(0,1), to zmienna X = F⁻¹(U) ma rozkład o dystrybuancie F. Algorytm polega więc na wygenerowaniu liczby 'u' z generatora jednorodnego, a następnie 'przepuszczeniu' jej przez funkcję odwrotną do dystrybuanty (kwantylową) docelowego rozkładu, aby uzyskać próbkę z tego rozkładu. Jej głównym ograniczeniem jest potrzeba posiadania analitycznej postaci F⁻¹."
+    },
+    {
+      "question": "Co oznacza stwierdzenie, że współczynnik korelacji Pearsona między dwiema zmiennymi X i Y wynosi 0 (ρ(X,Y) = 0)?",
+      "options": [
+        {
+          "text": "Oznacza brak liniowej zależności między zmiennymi X i Y, co nie wyklucza istnienia silnej zależności nieliniowej.",
+          "isCorrect": true
+        },
+        {
+          "text": "Oznacza, że zmienne X i Y są od siebie statystycznie niezależne.",
+          "isCorrect": false
+        },
+        {
+          "text": "Oznacza, że wzrostowi wartości jednej zmiennej towarzyszy spadek wartości drugiej zmiennej.",
+          "isCorrect": false
+        },
+        {
+          "text": "Oznacza, że obie zmienne mają zerową wariancję.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Współczynnik korelacji Pearsona jest miarą siły i kierunku wyłącznie LINIOWEJ zależności. Wartość 0 oznacza brak takiej zależności. Zmienne mogą być jednak silnie zależne w sposób nieliniowy (np. Y = X² dla X z przedziału [-1, 1]), a ich współczynnik korelacji może być bliski zeru. Niezależność statystyczna implikuje zerową korelację, ale zerowa korelacja nie implikuje niezależności (chyba że zmienne mają łączny rozkład normalny)."
+    },
+    {
+      "question": "Spiralny model projektowania oprogramowania (opracowany przez Barry'ego Boehma) jest rozszerzeniem modelu iteracyjnego, które jawnie wprowadza jeden kluczowy element do każdego cyklu. Jaki to element?",
+      "options": [
+        { "text": "Analiza i zarządzanie ryzykiem.", "isCorrect": true },
+        { "text": "Automatyczne testy jednostkowe.", "isCorrect": false },
+        { "text": "Projektowanie zorientowane obiektowo.", "isCorrect": false },
+        { "text": "Formalna weryfikacja poprawności kodu.", "isCorrect": false }
+      ],
+      "explanation": "Cechą wyróżniającą model spiralny jest systematyczne i jawne włączenie analizy ryzyka do każdej iteracji (pętli spirali). Każdy cykl obejmuje kwadranty poświęcone określeniu celów, ocenie alternatyw i identyfikacji ryzyk, rozwojowi produktu oraz planowaniu następnej fazy. To podejście jest szczególnie cenne w dużych i złożonych projektach, gdzie ryzyka technologiczne, rynkowe czy organizacyjne są znaczne."
+    },
+    {
+      "question": "Projektant interfejsu aplikacji do nawigacji dla rowerzystów musi wziąć pod uwagę, że użytkownik będzie w ruchu, może mieć jedną rękę zajętą, a słońce może utrudniać widoczność ekranu. W 'trójkącie wpływu' na projektowanie, które wierzchołki są najmocniej akcentowane przez te uwarunkowania?",
+      "options": [
+        {
+          "text": "Człowiek (kontekst użycia, ograniczenia percepcyjne i fizyczne) i Technologia (widoczność ekranu, interakcja dotykowa).",
+          "isCorrect": true
+        },
+        {
+          "text": "Zadanie (wyznaczanie trasy) i Technologia (algorytmy GPS).",
+          "isCorrect": false
+        },
+        {
+          "text": "Człowiek (preferencje estetyczne) i Zadanie (zapisywanie trasy).",
+          "isCorrect": false
+        },
+        {
+          "text": "Wyłącznie Technologia (moc baterii i dokładność GPS).",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Opisane warunki bezpośrednio odnoszą się do wierzchołka 'Człowiek' (kontekst użycia w terenie, ograniczenia fizyczne, percepcja w trudnych warunkach) oraz 'Technologia' (czytelność ekranu w słońcu, łatwość obsługi dotykowej jedną ręką). Projekt interfejsu musi być podporządkowany tym właśnie czynnikom, aby realizacja 'Zadania' (nawigacji) była w ogóle możliwa i bezpieczna."
+    },
+    {
+      "question": "Która metoda testowania interfejsu użytkownika polega na ocenie interfejsu przez ekspertów ds. użyteczności pod kątem zgodności z listą uznanych zasad projektowania (np. 10 heurystyk Jakoba Nielsena)?",
+      "options": [
+        {
+          "text": "Ocena heurystyczna (Heuristic Evaluation)",
+          "isCorrect": true
+        },
+        { "text": "Testy A/B (A/B Testing)", "isCorrect": false },
+        { "text": "Badania dzienniczkowe (Diary Studies)", "isCorrect": false },
+        {
+          "text": "Testy użyteczności z użytkownikami (Usability Testing)",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ocena heurystyczna to metoda inspekcji użyteczności, w której jeden lub więcej ekspertów ocenia interfejs, porównując go z listą ustalonych zasad projektowych (heurystyk). Jest to szybka i tania metoda pozwalająca na wczesne wykrycie wielu problemów z użytecznością, w przeciwieństwie do testów z użytkownikami, które wymagają rekrutacji i prowadzenia sesji z reprezentantami grupy docelowej."
+    },
+    {
+      "question": "Jaki jest główny cel protokołu ARP (Address Resolution Protocol) i jaki typ komunikacji jest używany do wysłania żądania ARP?",
+      "options": [
+        {
+          "text": "Mapowanie adresów IP na adresy MAC; żądanie jest wysyłane jako rozgłoszenie (broadcast).",
+          "isCorrect": true
+        },
+        {
+          "text": "Mapowanie adresów MAC na adresy IP; żądanie jest wysyłane jako unicast.",
+          "isCorrect": false
+        },
+        {
+          "text": "Ustanawianie połączenia między dwoma hostami; żądanie jest wysyłane jako multicast.",
+          "isCorrect": false
+        },
+        {
+          "text": "Automatyczne przydzielanie adresów IP; żądanie jest wysyłane jako rozgłoszenie (broadcast).",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "ARP jest kluczowym protokołem warstwy łącza danych, który dynamicznie tłumaczy adresy logiczne warstwy sieciowej (IP) na adresy fizyczne (MAC) w sieci lokalnej. Aby znaleźć nieznany adres MAC, host wysyła żądanie ARP (ARP Request) do wszystkich urządzeń w sieci lokalnej, używając adresu rozgłoszeniowego (broadcast). Dopiero odpowiedź (ARP Reply) jest wysyłana jako unicast."
+    },
+    {
+      "question": "W kontekście podziału sieci (subnettingu), jaka jest fundamentalna przewaga metody VLSM (Variable Length Subnet Masking) nad metodą FLSM (Fixed Length Subnet Masking)?",
+      "options": [
+        {
+          "text": "VLSM pozwala na tworzenie podsieci o różnych rozmiarach, co prowadzi do znacznie bardziej efektywnego wykorzystania przestrzeni adresowej.",
+          "isCorrect": true
+        },
+        {
+          "text": "VLSM jest prostsze w obliczeniach i konfiguracji, ponieważ wszystkie podsieci mają ten sam rozmiar.",
+          "isCorrect": false
+        },
+        {
+          "text": "VLSM pozwala na użycie większej liczby hostów w całej sieci niż FLSM.",
+          "isCorrect": false
+        },
+        {
+          "text": "VLSM jest wymagane do działania protokołów routingu, takich jak RIPv1, podczas gdy FLSM jest wystarczające dla OSPF.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Główną zaletą i celem VLSM jest elastyczność. Pozwala administratorowi sieci na tworzenie podsieci o różnych rozmiarach, dopasowanych do rzeczywistych potrzeb (np. duża podsieć dla działu z 100 komputerami i mała podsieć /30 dla połączenia punkt-punkt między routerami). FLSM marnuje adresy, ponieważ wszystkie podsieci muszą mieć rozmiar największej wymaganej podsieci. W rzeczywistości jest odwrotnie, protokoły classless (jak OSPF, EIGRP, RIPv2) wspierają VLSM, a classful (jak RIPv1) nie."
+    },
+    {
+      "question": "W trakcie trójetapowego nawiązywania połączenia TCP (three-way handshake), co zawiera segment wysyłany przez serwer do klienta w drugim kroku?",
+      "options": [
+        {
+          "text": "Ustawione flagi SYN i ACK, własny numer sekwencyjny (ISN_s) oraz numer potwierdzenia równy ISN_c + 1.",
+          "isCorrect": true
+        },
+        {
+          "text": "Tylko flagę ACK i numer potwierdzenia równy ISN_c + 1.",
+          "isCorrect": false
+        },
+        {
+          "text": "Tylko flagę SYN i własny numer sekwencyjny (ISN_s).",
+          "isCorrect": false
+        },
+        {
+          "text": "Ustawione flagi SYN i FIN, aby zasygnalizować gotowość do połączenia i natychmiastowego zamknięcia.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Drugi krok jest kluczowy, ponieważ serwer musi wykonać dwie czynności: potwierdzić otrzymanie żądania klienta i wysłać własne żądanie synchronizacji. Dlatego segment ten musi zawierać flagę SYN (synchronizacja numerów sekwencyjnych serwera) oraz flagę ACK (potwierdzenie). Numer sekwencyjny serwera (ISN_s) jest jego własnym, a numer potwierdzenia (ISN_c + 1) informuje klienta, że jego segment SYN dotarł poprawnie."
+    },
+    {
+      "question": "Dopasuj typ gramatyki z hierarchii Chomsky'ego do minimalnego automatu wymaganego do rozpoznawania języków przez nią generowanych.",
+      "options": [
+        {
+          "text": "Typ-3 (Regularna) - Automat Skończony (FA); Typ-2 (Bezkontekstowa) - Automat ze Stosem (PDA); Typ-0 (Rekurencyjnie Przeliczalna) - Maszyna Turinga.",
+          "isCorrect": true
+        },
+        {
+          "text": "Typ-3 (Regularna) - Automat ze Stosem (PDA); Typ-2 (Bezkontekstowa) - Automat Liniowo Ograniczony (LBA); Typ-1 (Kontekstowa) - Maszyna Turinga.",
+          "isCorrect": false
+        },
+        {
+          "text": "Typ-2 (Bezkontekstowa) - Automat Skończony (FA); Typ-1 (Kontekstowa) - Automat ze Stosem (PDA); Typ-0 (Rekurencyjnie Przeliczalna) - Maszyna Turinga.",
+          "isCorrect": false
+        },
+        {
+          "text": "Typ-3 (Regularna) - Maszyna Turinga; Typ-0 (Rekurencyjnie Przeliczalna) - Automat Skończony (FA).",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Hierarchia Chomsky'ego ma ścisły związek z hierarchią automatów. Języki regularne (Typ-3) są rozpoznawane przez najprostsze automaty skończone. Języki bezkontekstowe (Typ-2) wymagają dodatkowej pamięci w postaci stosu (PDA). Języki kontekstowe (Typ-1) wymagają automatu liniowo ograniczonego (LBA), a najogólniejsze języki rekurencyjnie przeliczalne (Typ-0) wymagają najpotężniejszego modelu, czyli maszyny Turinga."
+    },
+    {
+      "question": "Jaka jest fundamentalna różnica w sposobie budowania drzewa wyprowadzenia między parserami zstępującymi (np. LL) a wstępującymi (np. LR)?",
+      "options": [
+        {
+          "text": "Parsery zstępujące budują drzewo od korzenia (symbolu startowego) w dół do liści (tokenów), a parsery wstępujące od liści w górę do korzenia.",
+          "isCorrect": true
+        },
+        {
+          "text": "Parsery zstępujące używają stosu do przechowywania terminali, a parsery wstępujące do przechowywania nieterminali.",
+          "isCorrect": false
+        },
+        {
+          "text": "Parsery zstępujące są zawsze implementowane rekurencyjnie, a parsery wstępujące zawsze iteracyjnie przy użyciu tabeli.",
+          "isCorrect": false
+        },
+        {
+          "text": "Parsery zstępujące mogą obsługiwać gramatyki lewostronnie rekurencyjne, podczas gdy parsery wstępujące nie.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Nazewnictwo tych parserów odzwierciedla ich strategię. Parsery zstępujące (top-down) zaczynają od celu (symbolu startowego gramatyki) i próbują wyprowadzić (rozwinąć) z niego ciąg wejściowy. Parsery wstępujące (bottom-up) zaczynają od ciągu wejściowego (liści drzewa) i próbują go zredukować, zwijając go aż do osiągnięcia symbolu startowego (korzenia)."
+    },
+    {
+      "question": "Jaki jest główny potencjalny problem związany z konstrukcją podzbiorową, używaną do konwersji niedeterministycznego automatu skończonego (NFA) na równoważny mu deterministyczny automat skończony (DFA)?",
+      "options": [
+        {
+          "text": "Liczba stanów w wynikowym DFA może być wykładniczo większa niż liczba stanów w NFA.",
+          "isCorrect": true
+        },
+        {
+          "text": "Wynikowy DFA może rozpoznawać mniejszy zbiór języków niż oryginalny NFA.",
+          "isCorrect": false
+        },
+        {
+          "text": "Proces ten nie jest algorytmiczny i wymaga ręcznej interwencji.",
+          "isCorrect": false
+        },
+        {
+          "text": "Konstrukcja ta nie radzi sobie z ε-przejściami w NFA.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Chociaż konstrukcja podzbiorowa gwarantuje istnienie równoważnego DFA dla każdego NFA, jej praktycznym ograniczeniem jest złożoność w najgorszym przypadku. Ponieważ stany w DFA odpowiadają podzbiorom stanów z NFA, automat NFA z 'n' stanami może teoretycznie wygenerować DFA z 2^n stanami. To zjawisko nazywane jest 'wykładniczym rozrostem stanów'. Algorytm radzi sobie z ε-przejściami poprzez koncepcję ε-domknięcia."
+    },
+    {
+      "question": "W kontekście systemów czasu rzeczywistego, co sprawia, że algorytm szeregowania EDF (Earliest Deadline First) jest uważany za optymalny dla systemów jednoprocesorowych?",
+      "options": [
+        {
+          "text": "Jeśli jakikolwiek algorytm jest w stanie znaleźć harmonogram spełniający wszystkie terminy, to EDF również go znajdzie.",
+          "isCorrect": true
+        },
+        {
+          "text": "Zawsze minimalizuje czas oczekiwania dla wszystkich zadań, niezależnie od obciążenia.",
+          "isCorrect": false
+        },
+        {
+          "text": "Jest najprostszy w implementacji spośród wszystkich algorytmów czasu rzeczywistego.",
+          "isCorrect": false
+        },
+        {
+          "text": "Gwarantuje, że w przypadku przeciążenia, zadania o najniższym priorytecie nie dotrzymają terminów, chroniąc najważniejsze zadania.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Optymalność EDF w kontekście systemów jednoprocesorowych oznacza, że jest on w stanie pomyślnie uszeregować dowolny zestaw zadań, który jest w ogóle szeregowalny. Jego warunek spełnialności (U <= 1 dla zadań z D=T) pozwala na pełne wykorzystanie procesora, co jest lepszym wynikiem niż np. dla algorytmu Rate Monotonic. Jego wadą jest jednak nieprzewidywalne zachowanie przy przeciążeniu, gdzie nie wiadomo, które zadania nie dotrzymają terminów."
+    },
+    {
+      "question": "Jak protokół dziedziczenia priorytetów (Priority Inheritance Protocol - PIP) rozwiązuje problem odwrócenia priorytetów?",
+      "options": [
+        {
+          "text": "Zadanie o niskim priorytecie, które blokuje zasób, tymczasowo otrzymuje priorytet zadania o wysokim priorytecie, które na ten zasób czeka.",
+          "isCorrect": true
+        },
+        {
+          "text": "Uniemożliwia zadaniom o średnim priorytecie uruchomienie, jeśli jakiekolwiek zadanie o wysokim priorytecie jest aktywne.",
+          "isCorrect": false
+        },
+        {
+          "text": "Przydziela każdemu zasobowi stały priorytet (pułap) i pozwala na dostęp tylko zadaniom o wyższym priorytecie.",
+          "isCorrect": false
+        },
+        {
+          "text": "Automatycznie zabija zadanie o niskim priorytecie, jeśli blokuje ono zadanie o wysokim priorytecie przez zbyt długi czas.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Istotą protokołu PIP jest dynamiczne podniesienie priorytetu zadania blokującego. Gdy zadanie H (wysoki priorytet) zostaje zablokowane przez zadanie L (niski priorytet) posiadające zasób, zadanie L tymczasowo 'dziedziczy' priorytet H. Dzięki temu zadanie M (średni priorytet) nie może już wywłaszczyć L, co pozwala L szybko zakończyć sekcję krytyczną, zwolnić zasób i umożliwić kontynuację zadaniu H."
+    },
+    {
+      "question": "Analizując proces od wywołania funkcji `Wait(ms)` do wznowienia wątku, jaka rola przypada przerwaniu od zegara systemowego (timer interrupt)?",
+      "options": [
+        {
+          "text": "Procedura obsługi przerwania zegarowego sprawdza, czy czas oczekiwania dla jakichś wątków upłynął, i jeśli tak, przenosi je ze stanu zablokowanego do stanu gotowości.",
+          "isCorrect": true
+        },
+        {
+          "text": "Przerwanie zegarowe jest bezpośrednio generowane przez funkcję `Wait(ms)` po upływie zadanego czasu.",
+          "isCorrect": false
+        },
+        {
+          "text": "Przerwanie zegarowe wstrzymuje wszystkie inne wątki na czas działania funkcji `Wait(ms)`. ",
+          "isCorrect": false
+        },
+        {
+          "text": "Procedura obsługi przerwania zegarowego bezpośrednio przekazuje procesor do oczekującego wątku, omijając planistę.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Funkcja `Wait(ms)` jedynie blokuje wątek i umieszcza go w kolejce oczekujących. To regularne, niezależne przerwania od zegara systemowego napędzają mechanizm wznowienia. Procedura obsługi tego przerwania (ISR) m.in. sprawdza, czy dla któregoś z oczekujących wątków minął już czas 'uśpienia'. Jeśli tak, zmienia jego stan na gotowy, umożliwiając planiście ponowne przydzielenie mu procesora w przyszłości."
+    },
+    {
+      "question": "W regresji liniowej, współczynnik determinacji R² przyjmuje wartość 0.75. Jak należy zinterpretować ten wynik?",
+      "options": [
+        {
+          "text": "75% wariancji (zmienności) w zmiennej zależnej jest wyjaśniane przez zmienne niezależne zawarte w modelu.",
+          "isCorrect": true
+        },
+        {
+          "text": "Model poprawnie przewiduje 75% obserwacji w zbiorze testowym.",
+          "isCorrect": false
+        },
+        {
+          "text": "Istnieje 75% prawdopodobieństwo, że co najmniej jeden współczynnik modelu jest istotny statystycznie.",
+          "isCorrect": false
+        },
+        { "text": "Nachylenie linii regresji wynosi 0.75.", "isCorrect": false }
+      ],
+      "explanation": "Współczynnik determinacji R² jest kluczową miarą dopasowania modelu. Wyraża on, jaki procent całkowitej zmienności zmiennej zależnej (objaśnianej) został 'wyjaśniony' przez model regresji. Wartość 0.75 oznacza, że 75% wariancji da się wytłumaczyć liniową zależnością od predyktorów w modelu, a pozostałe 25% wynika z innych, nieuwzględnionych czynników lub losowości."
+    },
+    {
+      "question": "Jaka jest fundamentalna różnica między problemem klasyfikacji a problemem grupowania (klastrowania) w uczeniu maszynowym?",
+      "options": [
+        {
+          "text": "Klasyfikacja jest zadaniem uczenia nadzorowanego (używa danych z etykietami), a grupowanie jest zadaniem uczenia nienadzorowanego (dane nie mają etykiet).",
+          "isCorrect": true
+        },
+        {
+          "text": "Klasyfikacja dzieli dane na z góry znaną liczbę grup, a grupowanie może tworzyć dowolną liczbę grup.",
+          "isCorrect": false
+        },
+        {
+          "text": "Klasyfikacja działa tylko na danych numerycznych, a grupowanie na danych kategorycznych.",
+          "isCorrect": false
+        },
+        {
+          "text": "Klasyfikacja ma na celu znalezienie anomalii, a grupowanie ma na celu znalezienie zależności.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "To kluczowe rozróżnienie w uczeniu maszynowym. Klasyfikacja to uczenie nadzorowane: model uczy się na podstawie przykładów, które mają już przypisane poprawne etykiety (klasy), a celem jest przewidywanie etykiet dla nowych danych. Grupowanie to uczenie nienadzorowane: model nie ma żadnych etykiet i jego zadaniem jest samodzielne odkrycie naturalnej struktury grupowej w danych na podstawie podobieństwa między obiektami."
+    },
+    {
+      "question": "Co przedstawia dendrogram i który typ algorytmów grupowania go generuje?",
+      "options": [
+        {
+          "text": "Przedstawia hierarchiczną strukturę klastrów; jest generowany przez metody grupowania hierarchicznego.",
+          "isCorrect": true
+        },
+        {
+          "text": "Przedstawia granice decyzyjne między klastrami; jest generowany przez algorytm k-średnich.",
+          "isCorrect": false
+        },
+        {
+          "text": "Przedstawia optymalną liczbę klastrów 'k'; jest generowany przez metodę 'łokcia' (elbow method).",
+          "isCorrect": false
+        },
+        {
+          "text": "Przedstawia gęstość obiektów w przestrzeni cech; jest generowany przez algorytmy oparte na gęstości, jak DBSCAN.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Dendrogram to wizualizacja w postaci drzewa, która jest charakterystycznym wynikiem działania algorytmów grupowania hierarchicznego (zarówno aglomeracyjnego, jak i dzielącego). Pokazuje on, w jakiej kolejności i na jakim poziomie podobieństwa poszczególne obiekty i klastry były ze sobą łączone (lub dzielone). Pozwala to na wizualną ocenę struktury danych i wybór liczby klastrów przez 'odcięcie' drzewa na odpowiedniej wysokości."
+    },
+    {
+      "question": "Poza głównymi składnikami T_crit (T_clk2q, T_logic, T_route, T_su), które z poniższych czynników mogą również negatywnie wpłynąć na maksymalną częstotliwość działania (F_max) w układzie FPGA?",
+      "options": [
+        {
+          "text": "Jitter zegarowy oraz niekorzystne warunki pracy (np. wysoka temperatura).",
+          "isCorrect": true
+        },
+        {
+          "text": "Użycie synchronicznego resetu zamiast asynchronicznego.",
+          "isCorrect": false
+        },
+        {
+          "text": "Zastosowanie techniki floorplanningu w procesie implementacji.",
+          "isCorrect": false
+        },
+        {
+          "text": "Zbyt duża liczba instrukcji 'PROCESS' w kodzie VHDL.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Jitter zegarowy (chwilowe odchylenia od idealnego okresu zegara) oraz niekorzystne warunki pracy, takie jak wyższa temperatura lub niższe napięcie zasilania, zwiększają opóźnienia propagacji sygnałów, co bezpośrednio skraca dostępny budżet czasowy i obniża F_max. Floorplanning jest techniką optymalizacyjną, która ma na celu poprawę F_max."
+    },
+    {
+      "question": "W jaki sposób system operacyjny realizuje funkcję `Wait(ms)` lub `sleep()`, wykorzystując mechanizmy planowania przydziału CPU i przerwania sprzętowe?",
+      "options": [
+        {
+          "text": "Zmienia stan wątku na 'zablokowany', dodaje go do kolejki timerów, a procedura obsługi przerwania zegarowego okresowo sprawdza tę kolejkę, by po upływie czasu przenieść wątek do stanu 'gotowy'.",
+          "isCorrect": true
+        },
+        {
+          "text": "Wątek wchodzi w pętlę aktywną, która przez zadany czas nieustannie sprawdza zegar systemowy, blokując przy tym jeden rdzeń procesora.",
+          "isCorrect": false
+        },
+        {
+          "text": "Programuje dedykowane przerwanie sprzętowe, które wywoła się dokładnie po zadanym czasie i natychmiast wznowi pracę wątku.",
+          "isCorrect": false
+        },
+        {
+          "text": "Zatrzymuje całkowicie działanie planisty CPU na zadany okres czasu, aby zapewnić, że żaden inny wątek nie przerwie oczekiwania.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Jest to przykład syntezy wiedzy. Funkcja `Wait` to wywołanie systemowe. System operacyjny, zamiast marnować cykle CPU, blokuje wątek. Przerwanie od zegara systemowego, które i tak jest używane przez planistę (np. Round Robin), służy dodatkowo do obsługi timerów. Procedura przerwania sprawdza, czy czas 'uśpienia' dla któregoś z wątków minął. Jeśli tak, wątek trafia z powrotem do kolejki gotowych, gdzie planista CPU może go ponownie wybrać do wykonania."
+    },
+    {
+      "question": "Co oznacza zjawisko 'szamotania' (thrashing) w kontekście zarządzania pamięcią wirtualną?",
+      "options": [
+        {
+          "text": "Sytuację, w której system spędza więcej czasu na przenoszeniu stron między RAM a dyskiem niż na faktycznym wykonywaniu pracy, co drastycznie obniża wydajność.",
+          "isCorrect": true
+        },
+        {
+          "text": "Częstą fragmentację zewnętrzną prowadzącą do niemożności alokacji dużych, ciągłych bloków pamięci.",
+          "isCorrect": false
+        },
+        {
+          "text": "Błąd sprzętowy jednostki MMU, który powoduje nieprawidłowe mapowanie adresów logicznych na fizyczne.",
+          "isCorrect": false
+        },
+        {
+          "text": "Zbyt szybkie zapełnianie pamięci podręcznej (cache) procesora, co prowadzi do ciągłego usuwania i wczytywania danych.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Szamotanie (thrashing) to krytyczny stan systemu operacyjnego, który występuje, gdy stopień wieloprogramowości jest zbyt wysoki, a procesom brakuje ramek pamięci fizycznej. Prowadzi to do lawiny błędów strony (page faults) – system ciągle musi usuwać jedną stronę z RAM, aby załadować inną, która jest niemal natychmiast potrzebna, co skutkuje tym, że dysk jest stale aktywny, a procesor bezczynny."
+    },
+    {
+      "question": "W jaki sposób nowoczesne procesory, oparte generalnie na architekturze von Neumanna, łagodzą problem 'wąskiego gardła von Neumanna'?",
+      "options": [
+        {
+          "text": "Poprzez zastosowanie zmodyfikowanej architektury harwardzkiej, czyli oddzielnych pamięci podręcznych L1 dla instrukcji (I-cache) i danych (D-cache).",
+          "isCorrect": true
+        },
+        {
+          "text": "Poprzez zwiększenie szerokości magistrali adresowej do 64 bitów.",
+          "isCorrect": false
+        },
+        {
+          "text": "Poprzez implementację jednostki zarządzania pamięcią (MMU) do translacji adresów.",
+          "isCorrect": false
+        },
+        {
+          "text": "Poprzez wprowadzenie trybu chronionego i trybu jądra.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Chociaż na poziomie ogólnym (interakcja z pamięcią RAM) procesor działa wg modelu von Neumanna, to w swojej wewnętrznej, najbliższej rdzeniom strukturze stosuje on elementy architektury harwardzkiej. Posiadanie oddzielnych, niezależnych ścieżek i pamięci podręcznych dla instrukcji i danych pozwala na jednoczesne ich pobieranie, co znacząco zwiększa przepustowość i łagodzi problem konkurencji o dostęp do jednej magistrali, charakterystyczny dla czystej architektury von Neumanna."
+    },
+    {
+      "question": "W analizie układów ze wzmacniaczem operacyjnym i ujemnym sprzężeniem zwrotnym kluczowa jest zasada 'wirtualnego zwarcia'. Co ona implikuje?",
+      "options": [
+        {
+          "text": "Napięcie na wejściu odwracającym (-) jest równe napięciu na wejściu nieodwracającym (+).",
+          "isCorrect": true
+        },
+        {
+          "text": "Prąd wejściowy na wejściu odwracającym (-) jest równy prądowi na wejściu nieodwracającym (+).",
+          "isCorrect": false
+        },
+        {
+          "text": "Między wejściami (+) i (-) wzmacniacza istnieje fizyczne połączenie o niskiej rezystancji.",
+          "isCorrect": false
+        },
+        {
+          "text": "Napięcie wyjściowe jest zawsze równe zeru.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Zasada wirtualnego zwarcia (lub wirtualnej masy, jeśli wejście '+' jest uziemione) wynika z ogromnego wzmocnienia wzmacniacza w otwartej pętli. Aby napięcie wyjściowe było skończone, różnica napięć między wejściami (+) i (-) musi być bliska zeru. Wzmacniacz, poprzez pętlę sprzężenia zwrotnego, sam tak steruje swoim wyjściem, aby tę równowagę utrzymać. Nie jest to fizyczne zwarcie - impedancja wejściowa jest bardzo duża."
+    },
+    {
+      "question": "Jaka jest główna różnica w zapobieganiu zakleszczeniom (deadlock) między protokołem dziedziczenia priorytetów (PIP) a protokołem pułapu priorytetów (PCP)?",
+      "options": [
+        {
+          "text": "PCP zapobiega zakleszczeniom, podczas gdy PIP tego nie robi.",
+          "isCorrect": true
+        },
+        {
+          "text": "PIP zapobiega zakleszczeniom, podczas gdy PCP tego nie robi.",
+          "isCorrect": false
+        },
+        {
+          "text": "Oba protokoły zapobiegają zakleszczeniom, ale PCP robi to w sposób bardziej wydajny.",
+          "isCorrect": false
+        },
+        {
+          "text": "Żaden z tych protokołów nie zajmuje się problemem zakleszczeń, a jedynie odwróceniem priorytetów.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Jest to kluczowa różnica funkcjonalna. Protokół dziedziczenia priorytetów (PIP) rozwiązuje tylko problem odwrócenia priorytetów, ale nie chroni przed zakleszczeniami. Protokół pułapu priorytetów (PCP), dzięki bardziej złożonym regułom przyznawania dostępu do zasobów (opartym na pułapach priorytetów), oprócz rozwiązania problemu odwrócenia priorytetów (z lepszymi gwarancjami czasowymi), dodatkowo z natury swojej konstrukcji zapobiega powstawaniu zakleszczeń."
+    },
+    {
+      "question": "W systemach plików typu Unix, jaka jest relacja między wpisem w katalogu a i-węzłem (inode)?",
+      "options": [
+        {
+          "text": "Wpis w katalogu to para (nazwa pliku, numer i-węzła), która działa jak wskaźnik do właściwej struktury z metadanymi.",
+          "isCorrect": true
+        },
+        {
+          "text": "I-węzeł zawiera nazwę pliku, a wpis w katalogu zawiera wszystkie pozostałe metadane.",
+          "isCorrect": false
+        },
+        {
+          "text": "Wpis w katalogu i i-węzeł to dwie nazwy na tę samą strukturę danych na dysku.",
+          "isCorrect": false
+        },
+        {
+          "text": "Wpis w katalogu wskazuje na pierwszy blok danych pliku, a i-węzeł wskazuje na wpis w katalogu.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Struktura katalogu w systemach uniksowych jest stosunkowo prosta. Jest to lista powiązań między nazwami plików a numerami i-węzłów. Wszystkie bogate metadane pliku (uprawnienia, rozmiar, daty, wskaźniki do bloków danych itp.) są przechowywane w i-węźle. Ta separacja pozwala na istnienie wielu nazw (hard links) wskazujących na ten sam i-węzeł, a więc na ten sam plik."
+    },
+    {
+      "question": "Czym jest 'zasada najmniejszych uprawnień' (Principle of Least Privilege) w kontekście bezpieczeństwa systemów komputerowych?",
+      "options": [
+        {
+          "text": "Zasadą, według której każdy użytkownik lub proces powinien mieć tylko te uprawnienia, które są absolutnie niezbędne do wykonania jego zadań.",
+          "isCorrect": true
+        },
+        {
+          "text": "Zasadą, że domyślnie wszystkie operacje są dozwolone, chyba że zostaną jawnie zabronione.",
+          "isCorrect": false
+        },
+        {
+          "text": "Techniką minimalizacji kodu działającego w trybie jądra, aby zmniejszyć powierzchnię ataku.",
+          "isCorrect": false
+        },
+        {
+          "text": "Polityką, zgodnie z którą hasła użytkowników muszą mieć minimalną długość i złożoność.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Zasada najmniejszych uprawnień to fundamentalna koncepcja projektowania bezpiecznych systemów. Jej celem jest minimalizacja szkód, jakie mogą powstać w wyniku błędu, ataku lub kompromitacji. Jeśli proces ma tylko minimalne, niezbędne uprawnienia, to nawet jeśli atakujący przejmie nad nim kontrolę, jego możliwości działania będą znacznie ograniczone."
+    },
+    {
+      "question": "W jaki sposób sprzętowa Jednostka Zarządzania Pamięcią (MMU) współpracuje z systemem operacyjnym w celu realizacji zarówno pamięci wirtualnej, jak i ochrony pamięci między procesami?",
+      "options": [
+        {
+          "text": "MMU, na polecenie OS, tłumaczy adresy logiczne na fizyczne używając tablic stron; błąd strony (page fault) generuje przerwanie, które obsługuje OS, a bity ochrony w tablicy stron uniemożliwiają procesowi dostęp do pamięci innego procesu.",
+          "isCorrect": true
+        },
+        {
+          "text": "MMU przechowuje całe procesy w swojej pamięci podręcznej, a system operacyjny decyduje, który proces załadować do MMU, zapewniając w ten sposób ochronę.",
+          "isCorrect": false
+        },
+        {
+          "text": "System operacyjny programuje MMU, aby szyfrowało pamięć każdego procesu innym kluczem, a błąd strony występuje, gdy klucz jest nieprawidłowy.",
+          "isCorrect": false
+        },
+        {
+          "text": "MMU zarządza wyłącznie ochroną pamięci, podczas gdy pamięć wirtualna jest realizowana programowo przez system operacyjny poprzez kopiowanie danych z dysku.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "To jest kluczowa synergia między sprzętem a oprogramowaniem. System operacyjny zarządza tablicami stron (strukturami danych w pamięci RAM), ale to sprzętowa jednostka MMU w czasie rzeczywistym używa tych tablic do translacji każdego adresu. Gdy MMU napotka wpis w tablicy stron oznaczający, że strona jest nieobecna w RAM, generuje przerwanie (page fault), przekazując kontrolę do OS, który sprowadza stronę z dysku. Dodatkowo, bity w tablicy stron (np. read/write/execute) są sprawdzane przez MMU przy każdym dostępie, co sprzętowo egzekwuje politykę ochrony pamięci ustaloną przez OS."
+    },
+    {
+      "question": "Protokół routingu OSPF wykorzystuje algorytm Dijkstry do znalezienia najkrótszych ścieżek w sieci. Jaka struktura danych jest najbardziej odpowiednia do reprezentowania topologii sieci dla tego algorytmu i dlaczego?",
+      "options": [
+        {
+          "text": "Lista sąsiedztwa, ponieważ jest wydajna pamięciowo dla grafów rzadkich (jakimi są typowe topologie sieciowe) i pozwala na efektywne iterowanie po sąsiadach wierzchołka.",
+          "isCorrect": true
+        },
+        {
+          "text": "Macierz sąsiedztwa, ponieważ pozwala na sprawdzenie istnienia połączenia w czasie O(1), co jest kluczowe dla szybkiego działania Dijkstry.",
+          "isCorrect": false
+        },
+        {
+          "text": "Lista krawędzi, ponieważ routery w OSPF wymieniają się informacjami o poszczególnych łączach (krawędziach), więc jest to naturalna reprezentacja.",
+          "isCorrect": false
+        },
+        {
+          "text": "Drzewo binarne poszukiwań (BST), ponieważ pozwala na szybkie wyszukiwanie routerów na najkrótszej ścieżce.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Algorytm Dijkstry (w wydajnej implementacji z kolejką priorytetową) ma złożoność O(E log V) lub O(E + V log V). Kluczową operacją jest iterowanie po wszystkich sąsiadach danego wierzchołka (routera). W liście sąsiedztwa ta operacja jest proporcjonalna do stopnia wierzchołka. W macierzy sąsiedztwa wymagałaby przejrzenia całego wiersza (O(V)), co dla grafów rzadkich (gdzie E << V²) jest nieefektywne. Dlatego lista sąsiedztwa jest standardowym wyborem do implementacji algorytmów grafowych takich jak Dijkstra w kontekście routingu."
+    },
+    {
+      "question": "W jaki sposób opis maszyny stanów (FSM) w VHDL jest fizycznie realizowany w strukturze układu FPGA?",
+      "options": [
+        {
+          "text": "Rejestr (zbudowany z przerzutników D) przechowuje aktualny stan, a logika kombinacyjna (zbudowana z tablic LUT) oblicza następny stan i sygnały wyjściowe.",
+          "isCorrect": true
+        },
+        {
+          "text": "Specjalizowane bloki pamięci RAM w FPGA są konfigurowane jako tablica przejść stanów.",
+          "isCorrect": false
+        },
+        {
+          "text": "Bloki DSP są używane do implementacji logiki przejść, a przerzutniki do generowania sygnałów wyjściowych.",
+          "isCorrect": false
+        },
+        {
+          "text": "Cała maszyna stanów jest implementowana jako jeden, złożony blok logiki kombinacyjnej bez użycia elementów pamięciowych.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "To doskonały przykład przełożenia koncepcji teoretycznej na sprzęt. Maszyna stanów z definicji posiada pamięć (swój stan). Ta pamięć jest realizowana przez rejestr, czyli grupę przerzutników typu D. Logika, która decyduje o tym, jaki będzie następny stan (na podstawie stanu bieżącego i wejść) oraz jakie będą sygnały wyjściowe, jest z natury kombinacyjna i narzędzia syntezy implementują ją przy użyciu podstawowych zasobów logicznych FPGA, czyli tablic przeglądowych (LUT)."
+    },
+    {
+      "question": "Porównaj metody alokacji bloków danych dla plików w systemach FAT i systemach Unix (z i-węzłami). Która z nich jest bardziej wydajna dla losowego dostępu do dużych plików?",
+      "options": [
+        {
+          "text": "System z i-węzłami jest bardziej wydajny, ponieważ wskaźniki do bloków (w tym wskaźniki pośrednie) są zgrupowane w jednym miejscu (i-węźle), co pozwala szybko zlokalizować dowolny blok.",
+          "isCorrect": true
+        },
+        {
+          "text": "System FAT jest bardziej wydajny, ponieważ wymaga jedynie prostego przejścia po połączonej liście w tablicy FAT, co minimalizuje ruchy głowicy dysku.",
+          "isCorrect": false
+        },
+        {
+          "text": "Obie metody są równie wydajne dla dostępu losowego, a różnią się jedynie wydajnością dla dostępu sekwencyjnego.",
+          "isCorrect": false
+        },
+        {
+          "text": "Żadna z nich nie jest wydajna; do dostępu losowego używa się wyłącznie plików z alokacją ciągłą.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "W systemie FAT, aby znaleźć N-ty blok danych, trzeba przejść przez N-1 wpisów w tablicy FAT, co jest operacją o złożoności O(N) i może wymagać wielu odczytów z dysku. W systemie z i-węzłami, aby znaleźć dowolny blok (nawet bardzo odległy), wystarczy odczytać i-węzeł, a następnie ewentualnie jeden lub dwa bloki wskaźników pośrednich. Jest to znacznie szybsze i bardziej skalowalne dla dużych plików i dostępu losowego (np. w bazach danych)."
+    },
+    {
+      "question": "Dlaczego standardowy, ogólnego przeznaczenia system operacyjny (np. Windows, Linux z domyślnym schedulerem) jest nieodpowiedni dla systemów twardego czasu rzeczywistego (hard real-time)?",
+      "options": [
+        {
+          "text": "Ponieważ jego planiści optymalizują pod kątem średniej przepustowości i sprawiedliwości, a nie gwarantowanego i przewidywalnego czasu odpowiedzi, oraz nie rozwiązują systemowo problemu odwrócenia priorytetów.",
+          "isCorrect": true
+        },
+        {
+          "text": "Ponieważ używają pamięci wirtualnej, która jest zbyt wolna dla zastosowań czasu rzeczywistego.",
+          "isCorrect": false
+        },
+        {
+          "text": "Ponieważ ich jądra są monolityczne, co uniemożliwia przewidywalne działanie.",
+          "isCorrect": false
+        },
+        {
+          "text": "Ponieważ nie obsługują przerwań sprzętowych, które są kluczowe dla systemów czasu rzeczywistego.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Systemy ogólnego przeznaczenia są zaprojektowane, by dobrze działać 'średnio' dla szerokiej gamy zadań. Ich planiści (np. CFS w Linuksie) dążą do sprawiedliwego podziału czasu CPU. W systemach twardego czasu rzeczywistego priorytetem jest determinizm i dotrzymywanie terminów. Wymaga to planistów (np. opartych na priorytetach statycznych lub EDF) i mechanizmów (jak protokoły pułapu priorytetów), które zapobiegają nieograniczonemu blokowaniu zadań o wysokim priorytecie (odwróceniu priorytetów), co jest zjawiskiem, które może wystąpić w standardowym OS."
+    },
+    {
+      "question": "W jaki sposób atakujący może wykorzystać działanie protokołu ARP do przeprowadzenia ataku Man-in-the-Middle (MitM) w sieci lokalnej?",
+      "options": [
+        {
+          "text": "Poprzez wysłanie fałszywych odpowiedzi ARP (Gratuitous ARP lub ARP Reply) do ofiary i bramy domyślnej, aby przekierować ich ruch przez swój komputer.",
+          "isCorrect": true
+        },
+        {
+          "text": "Poprzez zalanie sieci żądaniami ARP (ARP Flood), aby wyczerpać zasoby przełącznika sieciowego.",
+          "isCorrect": false
+        },
+        {
+          "text": "Poprzez podsłuchiwanie żądań ARP i odpowiadanie na nie szybciej niż prawowity host.",
+          "isCorrect": false
+        },
+        {
+          "text": "Poprzez zablokowanie wszystkich odpowiedzi ARP w sieci, co prowadzi do ataku typu Denial of Service.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Atak znany jako ARP spoofing lub ARP poisoning polega na wykorzystaniu faktu, że protokół ARP jest bezstanowy i ufa otrzymanym odpowiedziom. Atakujący wysyła fałszywe pakiety ARP do komputera ofiary (np. 'adres IP bramy domyślnej ma MÓJ adres MAC') oraz do bramy domyślnej ('adres IP ofiary ma MÓJ adres MAC'). W rezultacie cały ruch między ofiarą a światem zewnętrznym przechodzi przez komputer atakującego, który może go podsłuchiwać i modyfikować."
+    },
+    {
+      "question": "Rozważasz użycie algorytmu k-NN oraz regresji logistycznej do problemu klasyfikacji. Które ze stwierdzeń najlepiej opisuje różnice w ich działaniu i charakterze modelu?",
+      "options": [
+        {
+          "text": "k-NN jest algorytmem 'leniwym' (nieparametrycznym), który nie buduje jawnego modelu, a regresja logistyczna jest algorytmem 'chętnym' (parametrycznym), który uczy się wektora wag (parametrów).",
+          "isCorrect": true
+        },
+        {
+          "text": "k-NN tworzy liniową granicę decyzyjną, podczas gdy regresja logistyczna może tworzyć bardzo złożone, nieliniowe granice.",
+          "isCorrect": false
+        },
+        {
+          "text": "Faza treningu w k-NN jest bardzo kosztowna obliczeniowo, a w regresji logistycznej natychmiastowa.",
+          "isCorrect": false
+        },
+        {
+          "text": "k-NN jest odporny na nieistotne cechy i różnice w skali danych, w przeciwieństwie do regresji logistycznej.",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "To fundamentalna różnica w podejściu. Regresja logistyczna w fazie treningu uczy się parametrów (wag) opisujących granicę decyzyjną. Jest to model parametryczny. k-NN nie wykonuje żadnych obliczeń w fazie treningu poza zapamiętaniem danych - cała praca (znalezienie sąsiadów) odbywa się w fazie predykcji. Jest to algorytm nieparametryczny i 'leniwy'. W konsekwencji jest odwrotnie: faza treningu w k-NN jest natychmiastowa, a w regresji logistycznej wymaga iteracyjnej optymalizacji. k-NN, bazując na odległości, jest bardzo wrażliwy na skalę danych i nieistotne cechy."
+    }
+  ]
+}
