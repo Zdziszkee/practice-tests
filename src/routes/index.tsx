@@ -15,6 +15,7 @@ const DEFAULT_QUIZ_FILES = [
   "/practice-tests/test1.json",
   "/practice-tests/test2.json",
   "/practice-tests/test3.json",
+  "/practice-tests/test4.json",
 ];
 
 export default function Home() {
